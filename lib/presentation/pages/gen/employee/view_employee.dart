@@ -25,8 +25,7 @@ class ViewEmployeePage extends StatelessWidget {
             if (state is ViewEmployeeLoading) {
               return const Center(child: CircularProgressIndicator());
             } else if (state is ViewEmployeeLoaded) {
-              final employee =
-                  state.employee; // This is now your EmployeeEntity object
+              final employee = state.employee;
 
               return Center(
                 child: SingleChildScrollView(
@@ -79,11 +78,11 @@ class ViewEmployeePage extends StatelessWidget {
                       ),
                       _buildDateTimeText(
                         "Start Date",
-                        employee.startdate, // Pass the DateTime? object
+                        employee.startdate,
                       ),
                       _buildDateTimeText(
                         "End Date",
-                        employee.enddate, // Pass the DateTime? object
+                        employee.enddate,
                       ),
                       _buildStyledText(
                         "Allowed Gates",
@@ -93,49 +92,37 @@ class ViewEmployeePage extends StatelessWidget {
                         "vehiclenumberplates",
                         employee.vehiclenumberplates,
                       ),
-                      const SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () => Navigator.pushReplacementNamed(
-                                context, RouteName.qrscan),
-                            child: const Text("Back"),
-                          ),
-                          // ElevatedButton(
-                          //   onPressed: () async {
-                          //     if (employee.requestemployeeid > 0) {
-                          //       await viewModel.employeeInOut(
-                          //         // Calling the public method
-                          //         employee.requestemployeeid,
-                          //       );
-
-                          //       ScaffoldMessenger.of(context).showSnackBar(
-                          //         const SnackBar(
-                          //           content: Text('Employee In/Out updated'),
-                          //         ),
-                          //       );
-                          //     } else {
-                          //       ScaffoldMessenger.of(context).showSnackBar(
-                          //         const SnackBar(
-                          //           content: Text(
-                          //             'Error: Employee ID not available',
-                          //           ),
-                          //         ),
-                          //       );
-                          //     }
-                          //   },
-                          //   child: const Text("Employee In Out"),
-                          // ),
-                          ElevatedButton(
-                            onPressed: () => Navigator.pushNamed(
-                              context,
-                              '/nextPage',
-                            ), // Navigate next
-                            child: const Text("Next"),
-                          ),
-                        ],
+                      _buildStyledText(
+                        "Last Entry Status Id",
+                        employee.lastentrystatusid.toString(),
                       ),
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: () {
+                          if (employee.lastentrystatusid == 2) {
+                            // Employee is currently IN, navigate to OUT action
+                            Navigator.pushNamed(
+                              context,
+                              '/nextPageOut', // Define this route
+                            );
+                          } else {
+                            // Employee is currently OUT or has no entry, navigate to IN action
+                            Navigator.pushNamed(
+                              context,
+                              '/nextPageIn', // Define this route
+                            );
+                          }
+                        },
+                        child: Text(
+                            employee.lastentrystatusid == 2 ? "Out" : "In"),
+                      ),
+                      const SizedBox(height: 10),
+                      ElevatedButton(
+                        onPressed: () => Navigator.pushReplacementNamed(
+                            context, RouteName.qrscan),
+                        child: const Text("Back to Scan"),
+                      ),
+                      // You can remove the "Next" button if it's not needed
                     ],
                   ),
                 ),

@@ -40,6 +40,8 @@ class EmployeeEntity {
   final String vehiclenumberplates;
   final bool ispersonblocked;
   final bool isactive;
+  final int lastentrystatusid;
+  final String? lastentrydetailar;
 
   EmployeeEntity({
     required this.requestemployeeid,
@@ -83,6 +85,8 @@ class EmployeeEntity {
     required this.vehiclenumberplates,
     required this.ispersonblocked,
     required this.isactive,
+    required this.lastentrystatusid,
+    this.lastentrydetailar,
   });
 
   factory EmployeeEntity.fromJson(Map<String, dynamic> json) {
@@ -132,6 +136,8 @@ class EmployeeEntity {
       vehiclenumberplates: json['vehiclenumberplates'] as String,
       ispersonblocked: json['ispersonblocked'] as bool,
       isactive: json['isactive'] as bool,
+      lastentrystatusid: json['lastentrystatusid'] as int,
+      lastentrydetailar: json['lastentrydetailar'] as String,
     );
   }
 
@@ -178,6 +184,8 @@ class EmployeeEntity {
       'vehiclenumberplates': vehiclenumberplates,
       'ispersonblocked': ispersonblocked,
       'isactive': isactive,
+      'lastentrystatusid': lastentrystatusid,
+      'lastentrydetailar': lastentrydetailar,
     };
   }
 }
