@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ViewEmployeePage extends StatelessWidget {
-  ViewEmployeePage({super.key, required this.parameterUrl, this.referralCode});
+  const ViewEmployeePage(
+      {super.key, required this.parameterUrl, this.referralCode});
 
   final String? parameterUrl;
   final String? referralCode;
@@ -102,57 +103,6 @@ class ViewEmployeePage extends StatelessWidget {
               return const Center(child: Text('No employee data to display.'));
             }
           },
-          // builder: (context, state) {
-          //   if (state is ViewEmployeeLoading) {
-          //     return const Center(child: CircularProgressIndicator());
-          //   } else if (state is ViewEmployeeLoaded) {
-          //     final employee = state.employee;
-          //     return Center(
-          //       child: SingleChildScrollView(
-          //         padding: const EdgeInsets.all(16.0),
-          //         child: Column(
-          //           crossAxisAlignment: CrossAxisAlignment.start,
-          //           children: [
-          //             const Text(
-          //               'Employee Details',
-          //               style: TextStyle(
-          //                   fontSize: 24, fontWeight: FontWeight.bold),
-          //             ),
-          //             const SizedBox(height: 20),
-          //             Text('Full Name: ${employee.fullName}'),
-          //             if (employee.fullNameen != null)
-          //               Text('Full Name (EN): ${employee.fullNameen}'),
-          //             Text('Civil ID: ${employee.civilidnumber}'),
-          //             Text('Job Title: ${employee.jobtitle}'),
-          //             Text(
-          //                 'Nationality: ${employee.nationalityname} (${employee.nationalitynamear})'),
-          //             Text(
-          //                 'Company: ${employee.companyname} (${employee.companynamear})'),
-          //             Text(
-          //                 'License Type: ${employee.licensetypename} (${employee.licensetypenamear})'),
-          //             // Text('Request Type: ${employee.requesttypename}'),
-          //             Text(
-          //                 'Status: ${employee.statusname} (${employee.statusnamear})'),
-          //             Text('Reference Number: ${employee.referencenumber}'),
-          //             Text(
-          //                 'Emergency Contact: ${employee.emergencycontactnumber}'),
-          //             Text(
-          //                 'Start Date: ${employee.startdate?.toLocal().toString() ?? "N/A"}'),
-          //             Text(
-          //                 'End Date: ${employee.enddate?.toLocal().toString() ?? "N/A"}'),
-          //             Text('Number of Vehicles: ${employee.numberofvehicle}'),
-          //             Text('Vehicle Plate(s): ${employee.vehiclenumberplates}'),
-          //             // Display other relevant fields from the EmployeeEntity
-          //           ],
-          //         ),
-          //       ),
-          //     );
-          //   } else if (state is ViewEmployeeError) {
-          //     return Center(child: Text('Error: ${state.message}'));
-          //   } else {
-          //     return const Center(child: Text('No employee data to display.'));
-          //   }
-          // },
         ),
       ),
     );

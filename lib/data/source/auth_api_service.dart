@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:auth/core/constants/api_urls.dart';
 import 'package:auth/core/network/dio_client.dart';
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
@@ -50,14 +48,10 @@ class AuthApiServiceImpl extends AuthApiService {
           await SharedPreferences.getInstance();
       var token = sharedPreferences.getString('token');
 
-      if (token == null) {
-        print('Token Not Found');
-      }
+      if (token == null) {}
       final jwt = JWT.decode(token.toString());
       final masterUserIdFromToken = jwt.payload['masteruserid'];
-      if (masterUserIdFromToken == null) {
-        print('Master User ID not found in token.');
-      }
+      if (masterUserIdFromToken == null) {}
       final masterUserId = jwt.payload['masteruserid'];
 
       var response = await sl<DioClient>().get(ApiUrls.getuserinfo,

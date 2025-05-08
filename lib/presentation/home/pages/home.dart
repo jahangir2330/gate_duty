@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:auth/common/bloc/button/button_state_cubit.dart';
 import 'package:auth/common/widgets/button/basic_app_button.dart';
 import 'package:auth/data/viewmodels/getemployee_req_params.dart';
@@ -123,7 +125,7 @@ class HomePage extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => GetEmployeePage(),
+                      builder: (context) => const GetEmployeePage(),
                     ));
               })
       ]),
