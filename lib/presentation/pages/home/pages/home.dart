@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
         child: BlocListener<ButtonStateCubit, ButtonState>(
           listener: (context, state) {
             if (state is ButtonSuccessState) {
-              Navigator.pushReplacementNamed(context, RouteName.signup);
+              Navigator.pushReplacementNamed(context, RouteName.login);
             }
           },
           child: Center(

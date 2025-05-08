@@ -8,29 +8,38 @@ import 'package:dio/dio.dart';
 
 class InOutEmployeeRepositoryImpl extends InOutEmployeeRepository {
   @override
-  Future<Either> inEmployee(InOutEmployeeReqParams employeeReq) async {
-    Either result = await sl<InOutEmployeeApiService>().inEmployee(employeeReq);
+  Future<Either> inEmployee(EmployeeInOutEntity employeeInOut) async {
+    Either result =
+        await sl<InOutEmployeeApiService>().inEmployee(employeeInOut);
     return result.fold((error) {
       return Left(error);
     }, (data) async {
+      bool returnvalue = false;
       Response response = data;
-      var userEntity = EmployeeInOutEntity.fromJson(response.data);
-
-      return Right(userEntity);
+      if (response.statusCode == 200) {
+        returnvalue = true;
+      } else {
+        returnvalue = false;
+      }
+      return Right(returnvalue);
     });
   }
 
   @override
-  Future<Either> outEmployee(InOutEmployeeReqParams employeeReq) async {
+  Future<Either> outEmployee(EmployeeInOutEntity employeeInOut) async {
     Either result =
-        await sl<InOutEmployeeApiService>().outEmployee(employeeReq);
+        await sl<InOutEmployeeApiService>().outEmployee(employeeInOut);
     return result.fold((error) {
       return Left(error);
     }, (data) async {
+      bool returnvalue = false;
       Response response = data;
-      var userEntity = EmployeeInOutEntity.fromJson(response.data);
-
-      return Right(userEntity);
+      if (response.statusCode == 200) {
+        returnvalue = true;
+      } else {
+        returnvalue = false;
+      }
+      return Right(returnvalue);
     });
   }
 }
