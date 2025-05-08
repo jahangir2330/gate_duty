@@ -7,7 +7,7 @@ import 'package:gipms/domain/entities/user_entity.dart';
 import 'package:gipms/domain/usecases/get_employee_usecase.dart';
 import 'package:gipms/domain/usecases/logout.dart';
 import 'package:gipms/presentation/auth/pages/signup.dart';
-import 'package:gipms/presentation/gen/pages/get_employee.dart';
+import 'package:gipms/presentation/pages/gen/employee/scan_qrcode_view.dart';
 import 'package:gipms/presentation/home/bloc/user_display_cubit.dart';
 import 'package:gipms/presentation/home/bloc/user_display_state.dart';
 import 'package:gipms/service_locator.dart';
@@ -53,8 +53,11 @@ class HomePage extends StatelessWidget {
                         height: 10,
                       ),
                       _email(state.userEntity),
-                      // _logout(context),
-                      _qrscan(context)
+                      _qrscan(context),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      _logout(context)
                     ],
                   );
                 }
@@ -84,18 +87,18 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  // Widget _logout(BuildContext context) {
-  //   return Padding(
-  //     padding: const EdgeInsets.all(32),
-  //     child: BasicAppButton(
-  //         title: 'Logout',
-  //         onPressed: () {
-  //           context
-  //               .read<ButtonStateCubit>()
-  //               .excute(usecase: sl<LogoutUseCase>());
-  //         }),
-  //   );
-  // }
+  Widget _logout(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(32),
+      child: BasicAppButton(
+          title: 'Logout',
+          onPressed: () {
+            context
+                .read<ButtonStateCubit>()
+                .excute(usecase: sl<LogoutUseCase>());
+          }),
+    );
+  }
 
   // Widget _qrscan(BuildContext context) {
   //   return Builder(builder: (context) {
@@ -125,7 +128,7 @@ class HomePage extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const GetEmployeePage(),
+                      builder: (context) => const ScanQrCodePage(),
                     ));
               })
       ]),

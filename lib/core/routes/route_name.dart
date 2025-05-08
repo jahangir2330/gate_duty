@@ -9,8 +9,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:gipms/presentation/auth/pages/signin.dart';
-import 'package:gipms/presentation/gen/pages/get_employee.dart';
-import 'package:gipms/presentation/gen/pages/view_employee.dart';
+import 'package:gipms/presentation/pages/gen/employee/scan_qrcode_view.dart';
+import 'package:gipms/presentation/pages/gen/employee/view_employee.dart';
 import 'package:gipms/presentation/home/pages/home.dart';
 // Import other view files as necessary
 
@@ -29,7 +29,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case RouteName.login:
       return MaterialPageRoute(builder: (_) => SigninPage());
     case RouteName.qrscan:
-      return MaterialPageRoute(builder: (_) => const GetEmployeePage());
+      return MaterialPageRoute(builder: (_) => const ScanQrCodePage());
     case RouteName.employeedetail:
       final args = settings.arguments as Map<String, dynamic>?;
       return MaterialPageRoute(

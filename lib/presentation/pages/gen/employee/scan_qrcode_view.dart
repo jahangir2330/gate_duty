@@ -1,15 +1,15 @@
-import 'package:gipms/presentation/gen/pages/view_employee.dart';
+import 'package:gipms/presentation/pages/gen/employee/view_employee.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-class GetEmployeePage extends StatefulWidget {
-  const GetEmployeePage({super.key});
+class ScanQrCodePage extends StatefulWidget {
+  const ScanQrCodePage({super.key});
 
   @override
-  State<GetEmployeePage> createState() => _ScanQrCodeViewState();
+  State<ScanQrCodePage> createState() => _ScanQrCodeViewState();
 }
 
-class _ScanQrCodeViewState extends State<GetEmployeePage> {
+class _ScanQrCodeViewState extends State<ScanQrCodePage> {
   final MobileScannerController _scannerController = MobileScannerController(
     detectionSpeed: DetectionSpeed.noDuplicates,
     returnImage: false,
