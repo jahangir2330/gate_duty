@@ -1,6 +1,6 @@
 class ApiUrls {
   //static const baseURL = 'https://gipmsapi.kuwaitarmy.gov.kw/api/';
-  static const baseURL = 'https://tallshinycar99.conveyor.cloud/api/';
+  static const baseURL = 'https://nextsparklybag42.conveyor.cloud/api/';
   static const register = '${baseURL}auth/register';
   static const userProfile = '${baseURL}users/profile';
   static const login = '${baseURL}Auth/login';

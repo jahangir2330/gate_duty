@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:gipms/common/bloc/auth/auth_state.dart';
 import 'package:gipms/common/bloc/auth/auth_state_cubit.dart';
 import 'package:gipms/presentation/auth/pages/signin.dart';
@@ -9,6 +11,7 @@ class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key}); // Add const constructor
 
   @override
+  // ignore: library_private_types_in_public_api
   _SplashScreenState createState() => _SplashScreenState();
 }
 
