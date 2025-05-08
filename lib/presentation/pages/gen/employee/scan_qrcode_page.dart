@@ -43,16 +43,14 @@ class _ScanQrCodeViewState extends State<ScanQrCodePage> {
         onDetect: (result) {
           final scannedData =
               result.barcodes.first.rawValue ?? "No QR Code Found";
-
           _scannerController.stop(); // Stop scanner before navigating
-          Navigator.push(
+          Navigator.pushNamed(
             context,
-            MaterialPageRoute(
-              builder: (context) => ViewEmployeePage(
-                parameterUrl: scannedData,
-                referralCode: 'SOME_REFERRAL_CODE',
-              ),
-            ),
+            RouteName.employeeview,
+            arguments: {
+              'parameterUrl': scannedData,
+              'referralCode': 'SOME_REFERRAL_CODE',
+            },
           );
         },
       ),
@@ -85,15 +83,13 @@ Widget build(BuildContext context) {
       onDetect: (result) {
         final scannedData =
             result.barcodes.first.rawValue ?? "No QR Code Found";
-        // Navigate to EmployeeDetailView, passing scannedData as an argument
-        Navigator.push(
+        Navigator.pushNamed(
           context,
-          MaterialPageRoute(
-            builder: (context) => ViewEmployeePage(
-              parameterUrl: scannedData,
-              referralCode: 'SOME_REFERRAL_CODE',
-            ),
-          ),
+          RouteName.employeeview,
+          arguments: {
+            'parameterUrl': scannedData,
+            'referralCode': 'SOME_REFERRAL_CODE',
+          },
         );
       },
     ),
