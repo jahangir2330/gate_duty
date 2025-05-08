@@ -1,0 +1,12 @@
+import 'package:auth/core/usecase/usecase.dart';
+import 'package:auth/data/viewmodels/getemployee_req_params.dart';
+import 'package:auth/domain/repository/employee_repository.dart';
+import 'package:auth/service_locator.dart';
+import 'package:dartz/dartz.dart';
+
+class GetEmployeeUseCase implements UseCase<Either, GetEmployeeReqParams> {
+  @override
+  Future<Either> call({GetEmployeeReqParams? param}) async {
+    return sl<EmployeeRepository>().getEmployee(param!);
+  }
+}
