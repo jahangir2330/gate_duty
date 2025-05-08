@@ -1,5 +1,5 @@
-import 'package:auth/data/viewmodels/signin_req_params.dart';
-import 'package:auth/data/viewmodels/signup_req_params.dart';
+import 'package:gipms/data/viewmodels/signin_req_params.dart';
+import 'package:gipms/data/viewmodels/signup_req_params.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class AuthRepository {

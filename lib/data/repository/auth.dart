@@ -1,9 +1,9 @@
-import 'package:auth/data/viewmodels/signin_req_params.dart';
-import 'package:auth/data/source/auth_api_service.dart';
-import 'package:auth/data/source/auth_local_service.dart';
-import 'package:auth/domain/entities/user.dart';
-import 'package:auth/domain/repository/auth.dart';
-import 'package:auth/service_locator.dart';
+import 'package:gipms/data/viewmodels/signin_req_params.dart';
+import 'package:gipms/data/source/auth_api_service.dart';
+import 'package:gipms/data/source/auth_local_service.dart';
+import 'package:gipms/domain/entities/user_entity.dart';
+import 'package:gipms/domain/repository/auth.dart';
+import 'package:gipms/service_locator.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';

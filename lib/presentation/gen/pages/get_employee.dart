@@ -1,4 +1,4 @@
-import 'package:auth/presentation/gen/pages/view_employee.dart';
+import 'package:gipms/presentation/gen/pages/view_employee.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 

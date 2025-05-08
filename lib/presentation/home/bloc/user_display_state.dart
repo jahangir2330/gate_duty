@@ -1,4 +1,4 @@
-import 'package:auth/domain/entities/user.dart';
+import 'package:gipms/domain/entities/user_entity.dart';
 
 abstract class UserDisplayState {}
 

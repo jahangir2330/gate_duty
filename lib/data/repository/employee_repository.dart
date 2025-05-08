@@ -1,8 +1,8 @@
-import 'package:auth/data/source/employee_api_service.dart';
-import 'package:auth/data/viewmodels/getemployee_req_params.dart';
-import 'package:auth/domain/entities/employee_entity.dart';
-import 'package:auth/domain/repository/employee_repository.dart';
-import 'package:auth/service_locator.dart';
+import 'package:gipms/data/source/employee_api_service.dart';
+import 'package:gipms/data/viewmodels/getemployee_req_params.dart';
+import 'package:gipms/domain/entities/employee_entity.dart';
+import 'package:gipms/domain/repository/employee_repository.dart';
+import 'package:gipms/service_locator.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 

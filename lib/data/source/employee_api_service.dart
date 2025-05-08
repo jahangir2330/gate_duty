@@ -1,6 +1,6 @@
-import 'package:auth/core/constants/api_urls.dart';
-import 'package:auth/core/network/dio_client.dart';
-import 'package:auth/data/viewmodels/getemployee_req_params.dart';
+import 'package:gipms/core/constants/api_urls.dart';
+import 'package:gipms/core/network/dio_client.dart';
+import 'package:gipms/data/viewmodels/getemployee_req_params.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';

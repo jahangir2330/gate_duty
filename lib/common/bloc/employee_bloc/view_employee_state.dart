@@ -1,4 +1,4 @@
-import 'package:auth/domain/entities/employee_entity.dart';
+import 'package:gipms/domain/entities/employee_entity.dart';
 
 abstract class ViewEmployeeState {}
 

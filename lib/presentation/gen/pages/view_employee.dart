@@ -1,7 +1,8 @@
-import 'package:auth/common/bloc/employee_bloc/employee_state_cubit.dart';
-import 'package:auth/common/bloc/employee_bloc/view_employee_state.dart';
+import 'package:gipms/common/bloc/employee_bloc/employee_state_cubit.dart';
+import 'package:gipms/common/bloc/employee_bloc/view_employee_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gipms/core/routes/route_name.dart';
 
 class ViewEmployeePage extends StatelessWidget {
   const ViewEmployeePage(
@@ -93,6 +94,50 @@ class ViewEmployeePage extends StatelessWidget {
                         employee.vehiclenumberplates,
                       ),
                       const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () => Navigator.pushReplacementNamed(
+                              context,
+                              RouteName.qrscan,
+                            ),
+                            child: const Text("Back"),
+                          ),
+                          // ElevatedButton(
+                          //   onPressed: () async {
+                          //     if (employee.requestemployeeid > 0) {
+                          //       await viewModel.employeeInOut(
+                          //         // Calling the public method
+                          //         employee.requestemployeeid,
+                          //       );
+
+                          //       ScaffoldMessenger.of(context).showSnackBar(
+                          //         const SnackBar(
+                          //           content: Text('Employee In/Out updated'),
+                          //         ),
+                          //       );
+                          //     } else {
+                          //       ScaffoldMessenger.of(context).showSnackBar(
+                          //         const SnackBar(
+                          //           content: Text(
+                          //             'Error: Employee ID not available',
+                          //           ),
+                          //         ),
+                          //       );
+                          //     }
+                          //   },
+                          //   child: const Text("Employee In Out"),
+                          // ),
+                          ElevatedButton(
+                            onPressed: () => Navigator.pushNamed(
+                              context,
+                              '/nextPage',
+                            ), // Navigate next
+                            child: const Text("Next"),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),

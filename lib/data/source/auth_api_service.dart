@@ -1,5 +1,5 @@
-import 'package:auth/core/constants/api_urls.dart';
-import 'package:auth/core/network/dio_client.dart';
+import 'package:gipms/core/constants/api_urls.dart';
+import 'package:gipms/core/network/dio_client.dart';
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';

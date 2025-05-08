@@ -1,16 +1,16 @@
 // ignore_for_file: unused_import
 
-import 'package:auth/common/bloc/button/button_state_cubit.dart';
-import 'package:auth/common/widgets/button/basic_app_button.dart';
-import 'package:auth/data/viewmodels/getemployee_req_params.dart';
-import 'package:auth/domain/entities/user.dart';
-import 'package:auth/domain/usecases/get_employee_usecase.dart';
-import 'package:auth/domain/usecases/logout.dart';
-import 'package:auth/presentation/auth/pages/signup.dart';
-import 'package:auth/presentation/gen/pages/get_employee.dart';
-import 'package:auth/presentation/home/bloc/user_display_cubit.dart';
-import 'package:auth/presentation/home/bloc/user_display_state.dart';
-import 'package:auth/service_locator.dart';
+import 'package:gipms/common/bloc/button/button_state_cubit.dart';
+import 'package:gipms/common/widgets/button/basic_app_button.dart';
+import 'package:gipms/data/viewmodels/getemployee_req_params.dart';
+import 'package:gipms/domain/entities/user_entity.dart';
+import 'package:gipms/domain/usecases/get_employee_usecase.dart';
+import 'package:gipms/domain/usecases/logout.dart';
+import 'package:gipms/presentation/auth/pages/signup.dart';
+import 'package:gipms/presentation/gen/pages/get_employee.dart';
+import 'package:gipms/presentation/home/bloc/user_display_cubit.dart';
+import 'package:gipms/presentation/home/bloc/user_display_state.dart';
+import 'package:gipms/service_locator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
