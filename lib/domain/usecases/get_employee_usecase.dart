@@ -7,8 +7,6 @@ import 'package:dartz/dartz.dart';
 class GetEmployeeUseCase implements UseCase<Either, GetEmployeeReqParams> {
   @override
   Future<Either> call({GetEmployeeReqParams? param}) async {
-    // final currentUser = UserService().currentUser;
-    // print(currentUser?.username);
     return sl<EmployeeRepository>().getEmployee(param!);
   }
 }

@@ -1,5 +1,4 @@
 import 'package:gipms/data/source/in_out_employee_api_service.dart';
-import 'package:gipms/data/viewmodels/in_out_employee_req_params.dart';
 import 'package:gipms/domain/entities/employee_in_out_entity.dart';
 import 'package:gipms/domain/repository/in_out_employee_repository.dart';
 import 'package:gipms/service_locator.dart';
@@ -34,6 +33,10 @@ class InOutEmployeeRepositoryImpl extends InOutEmployeeRepository {
     }, (data) async {
       bool returnvalue = false;
       Response response = data;
+      print('response');
+      print(response);
+      print('response.statusCode');
+      print(response.statusCode);
       if (response.statusCode == 200) {
         returnvalue = true;
       } else {

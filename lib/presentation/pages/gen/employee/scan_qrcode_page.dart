@@ -1,5 +1,4 @@
 import 'package:gipms/core/routes/route_name.dart';
-import 'package:gipms/presentation/pages/gen/employee/view_employee.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 

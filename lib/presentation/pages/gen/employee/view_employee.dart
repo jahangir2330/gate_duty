@@ -1,8 +1,14 @@
+import 'package:gipms/common/bloc/button/button_state_cubit.dart';
 import 'package:gipms/common/bloc/employee_bloc/employee_state_cubit.dart';
 import 'package:gipms/common/bloc/employee_bloc/view_employee_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gipms/common/widgets/button/basic_app_button.dart';
 import 'package:gipms/core/routes/route_name.dart';
+import 'package:gipms/data/viewmodels/in_out_employee_req_params.dart';
+import 'package:gipms/domain/usecases/in_employee_usecase.dart';
+import 'package:gipms/domain/usecases/out_employee_usecase.dart';
+import 'package:gipms/service_locator.dart';
 
 class ViewEmployeePage extends StatelessWidget {
   const ViewEmployeePage(
@@ -13,129 +19,155 @@ class ViewEmployeePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ViewEmployeeCubit()
-        ..fetchEmployee(parameterUrl!), // Create and trigger fetch
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('View Employee'),
-        ),
-        body: BlocBuilder<ViewEmployeeCubit, ViewEmployeeState>(
-          builder: (context, state) {
-            if (state is ViewEmployeeLoading) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (state is ViewEmployeeLoaded) {
-              final employee = state.employee;
+    return BlocProvider<ButtonStateCubit>(
+      create: (context) => ButtonStateCubit(),
+      child: BlocProvider(
+        create: (context) => ViewEmployeeCubit()..fetchEmployee(parameterUrl!),
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('View Employee'),
+          ),
+          body: BlocBuilder<ViewEmployeeCubit, ViewEmployeeState>(
+            builder: (context, state) {
+              if (state is ViewEmployeeLoading) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (state is ViewEmployeeLoaded) {
+                final employee = state.employee;
 
-              return Center(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Employee Details',
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(height: 10),
-                      Center(
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Image.network(
-                            employee.thumbspersonalpicure,
-                            height: 120,
-                            width: 120,
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) =>
-                                const Icon(Icons.error, size: 120),
+                return Center(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Employee Details',
+                          style: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 10),
+                        Center(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Image.network(
+                              employee.thumbspersonalpicure,
+                              height: 120,
+                              width: 120,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  const Icon(Icons.error, size: 120),
+                            ),
                           ),
                         ),
-                      ),
-                      _buildStyledText(
-                        "Job Title",
-                        employee.referencenumber,
-                      ),
-                      _buildStyledText(
-                        "Full Name",
-                        employee.fullName,
-                      ),
-                      _buildStyledText(
-                        "Employee Id",
-                        employee.requestemployeeid.toString(),
-                      ),
-                      _buildStyledText(
-                        "Company Name",
-                        employee.companyname,
-                      ),
-                      _buildStyledText(
-                        "Nationality",
-                        employee.nationalityname,
-                      ),
-                      _buildStyledText(
-                        "Civil ID",
-                        employee.civilidnumber,
-                      ),
-                      _buildDateTimeText(
-                        "Start Date",
-                        employee.startdate,
-                      ),
-                      _buildDateTimeText(
-                        "End Date",
-                        employee.enddate,
-                      ),
-                      _buildStyledText(
-                        "Allowed Gates",
-                        employee.gatenamesstring,
-                      ),
-                      _buildStyledText(
-                        "vehiclenumberplates",
-                        employee.vehiclenumberplates,
-                      ),
-                      _buildStyledText(
-                        "Last Entry Status Id",
-                        employee.lastentrystatusid.toString(),
-                      ),
-                      const SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: () {
-                          if (employee.lastentrystatusid == 2) {
-                            // Employee is currently IN, navigate to OUT action
-                            Navigator.pushNamed(
-                              context,
-                              '/nextPageOut', // Define this route
-                            );
-                          } else {
-                            // Employee is currently OUT or has no entry, navigate to IN action
-                            Navigator.pushNamed(
-                              context,
-                              '/nextPageIn', // Define this route
-                            );
-                          }
-                        },
-                        child: Text(
-                            employee.lastentrystatusid == 2 ? "Out" : "In"),
-                      ),
-                      const SizedBox(height: 10),
-                      ElevatedButton(
-                        onPressed: () => Navigator.pushReplacementNamed(
-                            context, RouteName.qrscan),
-                        child: const Text("Back to Scan"),
-                      ),
-                      // You can remove the "Next" button if it's not needed
-                    ],
+                        _buildStyledText(
+                          "Job Title",
+                          employee.referencenumber,
+                        ),
+                        _buildStyledText(
+                          "Full Name",
+                          employee.fullName,
+                        ),
+                        _buildStyledText(
+                          "Employee Id",
+                          employee.requestemployeeid.toString(),
+                        ),
+                        _buildStyledText(
+                          "Company Name",
+                          employee.companyname,
+                        ),
+                        _buildStyledText(
+                          "Nationality",
+                          employee.nationalityname,
+                        ),
+                        _buildStyledText(
+                          "Civil ID",
+                          employee.civilidnumber,
+                        ),
+                        _buildDateTimeText(
+                          "Start Date",
+                          employee.startdate,
+                        ),
+                        _buildDateTimeText(
+                          "End Date",
+                          employee.enddate,
+                        ),
+                        _buildStyledText(
+                          "Allowed Gates",
+                          employee.gatenamesstring,
+                        ),
+                        _buildStyledText(
+                          "vehiclenumberplates",
+                          employee.vehiclenumberplates,
+                        ),
+                        _buildStyledText(
+                          "Last Entry Status Id",
+                          employee.lastentrystatusid.toString(),
+                        ),
+                        const SizedBox(height: 20),
+                        if (employee.lastentrystatusid == 2)
+                          _outEmployeeButton(context)
+                        else
+                          _inEmployeeButton(context),
+                        const SizedBox(height: 20),
+                        const SizedBox(height: 10),
+                        ElevatedButton(
+                          onPressed: () => Navigator.pushReplacementNamed(
+                              context, RouteName.qrscan),
+                          child: const Text("Back to Scan"),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              );
-            } else if (state is ViewEmployeeError) {
-              return Center(child: Text('Error: ${state.message}'));
-            } else {
-              return const Center(child: Text('No employee data to display.'));
-            }
-          },
+                );
+              } else if (state is ViewEmployeeError) {
+                return Center(child: Text('Error: ${state.message}'));
+              } else {
+                return const Center(
+                    child: Text('No employee data to display.'));
+              }
+            },
+          ),
         ),
       ),
     );
+  }
+
+  Widget _inEmployeeButton(BuildContext context) {
+    return Builder(builder: (context) {
+      final state = context.watch<ViewEmployeeCubit>().state;
+      if (state is ViewEmployeeLoaded) {
+        final employee = state.employee;
+        return BasicAppButton(
+            title: 'In',
+            onPressed: () {
+              context.read<ButtonStateCubit>().excute(
+                  usecase: sl<InEmployeeUseCase>(),
+                  params: InOutEmployeeReqParams(
+                      requestemployeeid:
+                          employee.requestemployeeid.toString()));
+            });
+      }
+      return const SizedBox.shrink(); // Or some other fallback widget
+    });
+  }
+
+  Widget _outEmployeeButton(BuildContext context) {
+    return Builder(builder: (context) {
+      final state = context.watch<ViewEmployeeCubit>().state;
+      if (state is ViewEmployeeLoaded) {
+        final employee = state.employee;
+        return BasicAppButton(
+            title: 'Out',
+            onPressed: () {
+              context.read<ButtonStateCubit>().excute(
+                  usecase: sl<OutEmployeeUseCase>(),
+                  params: InOutEmployeeReqParams(
+                      requestemployeeid:
+                          employee.requestemployeeid.toString()));
+            });
+      }
+      return const SizedBox.shrink(); // Or some other fallback widget
+    });
   }
 
   Widget _buildStyledText(String label, String? value) {

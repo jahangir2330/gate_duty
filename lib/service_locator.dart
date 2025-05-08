@@ -1,15 +1,20 @@
 import 'package:gipms/core/network/dio_client.dart';
 import 'package:gipms/data/repository/auth.dart';
 import 'package:gipms/data/repository/employee_repository.dart';
+import 'package:gipms/data/repository/in_out_employee_repository.dart';
 import 'package:gipms/data/source/auth_api_service.dart';
 import 'package:gipms/data/source/auth_local_service.dart';
 import 'package:gipms/data/source/employee_api_service.dart';
+import 'package:gipms/data/source/in_out_employee_api_service.dart';
 import 'package:gipms/domain/repository/auth.dart';
 import 'package:gipms/domain/repository/employee_repository.dart';
+import 'package:gipms/domain/repository/in_out_employee_repository.dart';
 import 'package:gipms/domain/usecases/get_employee_usecase.dart';
 import 'package:gipms/domain/usecases/get_user.dart';
+import 'package:gipms/domain/usecases/in_employee_usecase.dart';
 import 'package:gipms/domain/usecases/is_logged_in.dart';
 import 'package:gipms/domain/usecases/logout.dart';
+import 'package:gipms/domain/usecases/out_employee_usecase.dart';
 import 'package:gipms/domain/usecases/signin.dart';
 import 'package:gipms/domain/usecases/signup.dart';
 import 'package:get_it/get_it.dart';
@@ -22,12 +27,13 @@ void setupServiceLocator() {
   // Services
   sl.registerSingleton<AuthApiService>(AuthApiServiceImpl());
   sl.registerSingleton<AuthLocalService>(AuthLocalServiceImpl());
-
   sl.registerSingleton<EmployeeApiService>(EmployeeApiServiceImpl());
+  sl.registerSingleton<InOutEmployeeApiService>(InOutEmployeeApiServiceImpl());
 
   // Repositories
   sl.registerSingleton<AuthRepository>(AuthRepositoryImpl());
   sl.registerSingleton<EmployeeRepository>(EmployeeRepositoryImpl());
+  sl.registerSingleton<InOutEmployeeRepository>(InOutEmployeeRepositoryImpl());
 
   // Usecases
   sl.registerSingleton<SignupUseCase>(SignupUseCase());
@@ -36,4 +42,6 @@ void setupServiceLocator() {
   sl.registerSingleton<LogoutUseCase>(LogoutUseCase());
   sl.registerSingleton<SigninUseCase>(SigninUseCase());
   sl.registerSingleton<GetEmployeeUseCase>(GetEmployeeUseCase());
+  sl.registerSingleton<InEmployeeUseCase>(InEmployeeUseCase());
+  sl.registerSingleton<OutEmployeeUseCase>(OutEmployeeUseCase());
 }
