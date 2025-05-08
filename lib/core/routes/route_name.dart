@@ -9,7 +9,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:gipms/presentation/auth/pages/signin.dart';
-import 'package:gipms/presentation/common/scan_qrcode_view.dart';
+import 'package:gipms/presentation/gen/pages/get_employee.dart';
 import 'package:gipms/presentation/gen/pages/view_employee.dart';
 import 'package:gipms/presentation/home/pages/home.dart';
 // Import other view files as necessary
@@ -22,9 +22,26 @@ class RouteName {
   static const String employeedetail = '/employee_detail';
 }
 
-final Map<String, WidgetBuilder> appRoutes = {
-  RouteName.home: (context) => const HomePage(),
-  RouteName.login: (context) => SigninPage(),
-  RouteName.qrscan: (context) => const ScanQrCodeView(),
-  //RouteName.employeedetail: (context) => ViewEmployeePage(),
-};
+Route<dynamic> generateRoute(RouteSettings settings) {
+  switch (settings.name) {
+    case RouteName.home:
+      return MaterialPageRoute(builder: (_) => const HomePage());
+    case RouteName.login:
+      return MaterialPageRoute(builder: (_) => SigninPage());
+    case RouteName.qrscan:
+      return MaterialPageRoute(builder: (_) => const GetEmployeePage());
+    case RouteName.employeedetail:
+      final args = settings.arguments as Map<String, dynamic>?;
+      return MaterialPageRoute(
+        builder: (_) => ViewEmployeePage(
+          parameterUrl:
+              args?['parameterUrl'] ?? '', // Provide a default value if needed
+          referralCode: args?['referralCode'],
+        ),
+      );
+    default:
+      return MaterialPageRoute(
+          builder: (_) =>
+              const Scaffold(body: Center(child: Text('Unknown Route'))));
+  }
+}
