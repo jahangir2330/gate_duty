@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const Color primaryColor = const Color(0xff3461FD);
+  static const Color primaryColor = Color(0xff3461FD);
   static const Color accentColor = Color(0xFFFF6584); // Pink
 
   static final ThemeData lightTheme = ThemeData(
@@ -34,9 +34,6 @@ class AppTheme {
                 const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16)))),
-    progressIndicatorTheme: const ProgressIndicatorThemeData(
-      color: accentColor,
-    ),
   );
 
   static final ThemeData darkTheme = ThemeData(
@@ -69,8 +66,5 @@ class AppTheme {
                 const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16)))),
-    progressIndicatorTheme: const ProgressIndicatorThemeData(
-      color: accentColor,
-    ),
   );
 }
