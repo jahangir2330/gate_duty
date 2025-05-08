@@ -28,7 +28,10 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => AuthStateCubit()..appStarted(),
       child: MaterialApp(
-          theme: AppTheme.appTheme,
+          title: 'GIPMS',
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: ThemeMode.system,
           debugShowCheckedModeBanner: false,
           home: BlocBuilder<AuthStateCubit, AuthState>(
             builder: (context, state) {
