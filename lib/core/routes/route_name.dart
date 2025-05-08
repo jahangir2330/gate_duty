@@ -8,7 +8,7 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:gipms/presentation/auth/pages/signin.dart';
+import 'package:gipms/presentation/pages/auth/signin.dart';
 import 'package:gipms/presentation/pages/gen/employee/scan_qrcode_view.dart';
 import 'package:gipms/presentation/pages/gen/employee/view_employee.dart';
 import 'package:gipms/presentation/home/pages/home.dart';
