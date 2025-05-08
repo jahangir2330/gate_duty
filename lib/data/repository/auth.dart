@@ -1,3 +1,4 @@
+import 'package:gipms/data/source/user_service.dart';
 import 'package:gipms/data/viewmodels/signin_req_params.dart';
 import 'package:gipms/data/source/auth_api_service.dart';
 import 'package:gipms/data/source/auth_local_service.dart';
@@ -39,6 +40,7 @@ class AuthRepositoryImpl extends AuthRepository {
       Response response = data;
 
       var userEntity = UserEntity.fromJson(response.data['_owin_User']);
+      UserService().setUser(userEntity);
 
       return Right(userEntity);
     });
