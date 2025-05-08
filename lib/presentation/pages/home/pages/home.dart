@@ -8,13 +8,13 @@ import 'package:gipms/domain/usecases/get_employee_usecase.dart';
 import 'package:gipms/domain/usecases/logout.dart';
 import 'package:gipms/presentation/pages/auth/signup.dart';
 import 'package:gipms/presentation/pages/gen/employee/scan_qrcode_view.dart';
-import 'package:gipms/presentation/home/bloc/user_display_cubit.dart';
-import 'package:gipms/presentation/home/bloc/user_display_state.dart';
+import 'package:gipms/presentation/pages/home/bloc/user_display_cubit.dart';
+import 'package:gipms/presentation/pages/home/bloc/user_display_state.dart';
 import 'package:gipms/service_locator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../common/bloc/button/button_state.dart';
+import '../../../../common/bloc/button/button_state.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

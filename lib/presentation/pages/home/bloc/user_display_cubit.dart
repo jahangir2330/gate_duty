@@ -1,5 +1,5 @@
 import 'package:gipms/domain/usecases/get_user.dart';
-import 'package:gipms/presentation/home/bloc/user_display_state.dart';
+import 'package:gipms/presentation/pages/home/bloc/user_display_state.dart';
 import 'package:gipms/service_locator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

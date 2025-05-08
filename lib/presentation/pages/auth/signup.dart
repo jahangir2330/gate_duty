@@ -4,7 +4,7 @@ import 'package:gipms/common/widgets/button/basic_app_button.dart';
 import 'package:gipms/data/viewmodels/signup_req_params.dart';
 import 'package:gipms/domain/usecases/signup.dart';
 import 'package:gipms/presentation/pages/auth/signin.dart';
-import 'package:gipms/presentation/home/pages/home.dart';
+import 'package:gipms/presentation/pages/home/pages/home.dart';
 import 'package:gipms/service_locator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gipms/common/bloc/auth/auth_state_cubit.dart'; // Import your AuthStateCubit
 import 'package:gipms/core/configs/theme/app_theme.dart';
-import 'package:gipms/presentation/common/splash_screen.dart';
+import 'package:gipms/presentation/pages/common/splash_screen.dart';
 import 'package:flutter/services.dart';
 import 'service_locator.dart'; // Import service locator
 
