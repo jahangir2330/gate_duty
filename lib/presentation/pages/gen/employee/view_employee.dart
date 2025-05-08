@@ -99,9 +99,7 @@ class ViewEmployeePage extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             onPressed: () => Navigator.pushReplacementNamed(
-                              context,
-                              RouteName.qrscan,
-                            ),
+                                context, RouteName.qrscan),
                             child: const Text("Back"),
                           ),
                           // ElevatedButton(

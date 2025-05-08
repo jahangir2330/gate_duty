@@ -1,15 +1,13 @@
 import 'package:gipms/common/bloc/button/button_state_cubit.dart';
 import 'package:gipms/common/widgets/button/basic_app_button.dart';
+import 'package:gipms/core/routes/route_name.dart';
 import 'package:gipms/data/viewmodels/signin_req_params.dart';
 import 'package:gipms/domain/usecases/signin.dart';
 import 'package:gipms/service_locator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../common/bloc/button/button_state.dart';
-import '../home/pages/home.dart';
-import 'signup.dart';
 
 class SigninPage extends StatelessWidget {
   SigninPage({super.key});
@@ -25,11 +23,7 @@ class SigninPage extends StatelessWidget {
         child: BlocListener<ButtonStateCubit, ButtonState>(
           listener: (context, state) {
             if (state is ButtonSuccessState) {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(),
-                  ));
+              Navigator.of(context).pushReplacementNamed(RouteName.home);
             }
             if (state is ButtonFailureState) {
               var snackBar = SnackBar(content: Text(state.errorMessage));
@@ -115,11 +109,7 @@ class SigninPage extends StatelessWidget {
                 color: Color(0xff3461FD), fontWeight: FontWeight.w500),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SignupPage(),
-                    ));
+                Navigator.of(context).pushNamed(RouteName.signup);
               })
       ]),
     );

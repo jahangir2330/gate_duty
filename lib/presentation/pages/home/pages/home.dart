@@ -2,12 +2,13 @@
 
 import 'package:gipms/common/bloc/button/button_state_cubit.dart';
 import 'package:gipms/common/widgets/button/basic_app_button.dart';
+import 'package:gipms/core/routes/route_name.dart';
 import 'package:gipms/data/viewmodels/getemployee_req_params.dart';
 import 'package:gipms/domain/entities/user_entity.dart';
 import 'package:gipms/domain/usecases/get_employee_usecase.dart';
 import 'package:gipms/domain/usecases/logout.dart';
 import 'package:gipms/presentation/pages/auth/signup.dart';
-import 'package:gipms/presentation/pages/gen/employee/scan_qrcode_view.dart';
+import 'package:gipms/presentation/pages/gen/employee/scan_qrcode_page.dart';
 import 'package:gipms/presentation/pages/home/bloc/user_display_cubit.dart';
 import 'package:gipms/presentation/pages/home/bloc/user_display_state.dart';
 import 'package:gipms/service_locator.dart';
@@ -30,11 +31,7 @@ class HomePage extends StatelessWidget {
         child: BlocListener<ButtonStateCubit, ButtonState>(
           listener: (context, state) {
             if (state is ButtonSuccessState) {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SignupPage(),
-                  ));
+              Navigator.pushReplacementNamed(context, RouteName.signup);
             }
           },
           child: Center(
@@ -112,11 +109,7 @@ class HomePage extends StatelessWidget {
                 color: Color(0xff3461FD), fontWeight: FontWeight.w500),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ScanQrCodePage(),
-                    ));
+                Navigator.pushNamed(context, RouteName.qrscan);
               })
       ]),
     );

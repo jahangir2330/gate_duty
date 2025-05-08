@@ -2,8 +2,7 @@
 
 import 'package:gipms/common/bloc/auth/auth_state.dart';
 import 'package:gipms/common/bloc/auth/auth_state_cubit.dart';
-import 'package:gipms/presentation/pages/auth/signin.dart';
-import 'package:gipms/presentation/pages/home/pages/home.dart';
+import 'package:gipms/core/routes/route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,23 +18,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Add the 5-second delay here.
     Future.delayed(const Duration(seconds: 5), () {
-      //  The navigation logic is moved *inside* the delayed function.
-      //  This ensures it happens *after* the delay.
       BlocProvider.of<AuthStateCubit>(context).stream.listen((state) {
         if (state is Authenticated) {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(
-              builder: (context) => const HomePage(),
-            ),
-          );
+          Navigator.of(context).pushReplacementNamed(RouteName.home);
         } else if (state is UnAuthenticated) {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(
-              builder: (context) => SigninPage(),
-            ),
-          );
+          Navigator.of(context).pushReplacementNamed(RouteName.login);
         }
       });
     });
