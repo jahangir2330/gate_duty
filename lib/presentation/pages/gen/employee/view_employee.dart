@@ -132,7 +132,6 @@ class ViewEmployeePage extends StatelessWidget {
                               _inEmployeeButton(context,
                                   employee.requestemployeeid.toString()),
                             const SizedBox(height: 20),
-                            const SizedBox(height: 10),
                             ElevatedButton(
                               onPressed: () => Navigator.pushReplacementNamed(
                                   context, RouteName.qrscan),
