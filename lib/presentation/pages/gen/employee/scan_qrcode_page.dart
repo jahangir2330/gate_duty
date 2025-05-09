@@ -1,5 +1,5 @@
-import 'package:gipms/core/routes/route_name.dart';
 import 'package:flutter/material.dart';
+import 'package:gipms/core/routes/route_name.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
 class ScanQrCodePage extends StatefulWidget {
@@ -15,11 +15,18 @@ class _ScanQrCodeViewState extends State<ScanQrCodePage> {
     returnImage: false,
     torchEnabled: false,
   );
+  bool _isScanning = true; // Track scanning state
+
+  @override
+  void initState() {
+    super.initState();
+    // Start the scanner in initState
+    _scannerController.start();
+  }
 
   @override
   void dispose() {
-    _scannerController
-        .dispose(); // Properly dispose controller when leaving the screen
+    _scannerController.dispose();
     super.dispose();
   }
 
@@ -31,66 +38,41 @@ class _ScanQrCodeViewState extends State<ScanQrCodePage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.popAndPushNamed(context, RouteName.home);
+              // Example of manually controlling the scanner.
+              setState(() {
+                if (_isScanning) {
+                  _scannerController.stop();
+                } else {
+                  _scannerController.start();
+                }
+                _isScanning = !_isScanning;
+              });
             },
-            icon: const Icon(Icons.qr_code),
+            icon: Icon(_isScanning ? Icons.stop : Icons.play_arrow),
           ),
         ],
       ),
       body: MobileScanner(
-        controller: _scannerController, // Use class-level controller
+        controller: _scannerController,
         onDetect: (result) {
-          final scannedData =
-              result.barcodes.first.rawValue ?? "No QR Code Found";
-          _scannerController.stop(); // Stop scanner before navigating
-          Navigator.pushNamed(
-            context,
-            RouteName.employeeview,
-            arguments: {
-              'parameterUrl': scannedData,
-              'referralCode': 'SOME_REFERRAL_CODE',
-            },
-          );
+          if (result.barcodes.isNotEmpty) {
+            final scannedData =
+                result.barcodes.first.rawValue ?? "No QR Code Found";
+            if (mounted) {
+              // Check if the widget is still in the tree.
+              _scannerController.stop(); // Stop scanning
+              Navigator.popAndPushNamed(
+                context,
+                RouteName.employeeview, // Use route name directly
+                arguments: {
+                  'parameterUrl': scannedData,
+                  'referralCode': 'SOME_REFERRAL_CODE',
+                },
+              );
+            }
+          }
         },
       ),
     );
   }
-}
-
-@override
-Widget build(BuildContext context) {
-  // final viewModel = Provider.of<ScanQrCodeViewModel>(context, listen: false);
-
-  return Scaffold(
-    appBar: AppBar(
-      title: const Text('Scan QR Code'),
-      actions: [
-        IconButton(
-          onPressed: () {
-            Navigator.popAndPushNamed(context, "/home");
-          },
-          icon: const Icon(Icons.qr_code),
-        ),
-      ],
-    ),
-    body: MobileScanner(
-      controller: MobileScannerController(
-        detectionSpeed: DetectionSpeed.noDuplicates,
-        returnImage: false,
-        torchEnabled: false,
-      ),
-      onDetect: (result) {
-        final scannedData =
-            result.barcodes.first.rawValue ?? "No QR Code Found";
-        Navigator.pushNamed(
-          context,
-          RouteName.employeeview,
-          arguments: {
-            'parameterUrl': scannedData,
-            'referralCode': 'SOME_REFERRAL_CODE',
-          },
-        );
-      },
-    ),
-  );
 }
