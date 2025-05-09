@@ -9,6 +9,8 @@ import 'package:gipms/core/routes/route_name.dart';
 import 'package:gipms/data/viewmodels/in_out_employee_req_params.dart';
 import 'package:gipms/domain/usecases/in_employee_usecase.dart';
 import 'package:gipms/domain/usecases/out_employee_usecase.dart';
+import 'package:gipms/common/widgets/button/success_app_button.dart';
+import 'package:gipms/common/widgets/button/danger_app_button.dart';
 import 'package:gipms/service_locator.dart';
 
 // Assuming you have a Hom
@@ -159,7 +161,7 @@ class ViewEmployeePage extends StatelessWidget {
 
   Widget _inEmployeeButton(BuildContext context, String employeeId) {
     return Builder(builder: (context) {
-      return BasicAppButton(
+      return SuccessAppButton(
           title: 'In',
           onPressed: () {
             context.read<ButtonStateCubit>().excute(
@@ -171,7 +173,7 @@ class ViewEmployeePage extends StatelessWidget {
 
   Widget _outEmployeeButton(BuildContext context, String employeeId) {
     return Builder(builder: (context) {
-      return BasicAppButton(
+      return DangerAppButton(
           title: 'Out',
           onPressed: () {
             context.read<ButtonStateCubit>().excute(
