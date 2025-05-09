@@ -6,6 +6,7 @@ import 'package:gipms/data/viewmodels/getemployee_req_params.dart';
 import 'package:gipms/domain/entities/user_entity.dart';
 import 'package:gipms/domain/usecases/get_employee_usecase.dart';
 import 'package:gipms/domain/usecases/logout.dart';
+//import 'package:gipms/l10n/app_localizations.dart';
 import 'package:gipms/presentation/pages/auth/signup.dart';
 import 'package:gipms/presentation/pages/common/app_drawer.dart';
 import 'package:gipms/presentation/pages/gen/employee/scan_qrcode_page.dart';
@@ -16,15 +17,18 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../common/bloc/button/button_state.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+  @override
+  //State<MyHomePage> createState() => _MyHomePageState();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: Text(AppLocalizations.of(context)!.helloWorld),
         automaticallyImplyLeading: false,
         leading: Builder(
           builder: (context) => IconButton(
