@@ -36,6 +36,17 @@ class SigninPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                const SizedBox(
+                  height: 100,
+                ),
+                Image.asset(
+                  'assets/images/logo-gif-Animate.gif',
+                  height: 120,
+                  width: 120,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) =>
+                      const Icon(Icons.error, size: 120),
+                ),
                 _signin(),
                 const SizedBox(
                   height: 50,
@@ -49,10 +60,10 @@ class SigninPage extends StatelessWidget {
                   height: 60,
                 ),
                 _createAccountButton(context),
-                const SizedBox(
-                  height: 20,
-                ),
-                _signupText(context)
+                // const SizedBox(
+                //   height: 20,
+                // ),
+                // _signupText(context)
               ],
             ),
           ),
