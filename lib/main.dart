@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gipms/presentation/pages/common/splash_screen.dart';
 import 'package:flutter/services.dart';
+import 'package:gipms/presentation/pages/home/bloc/user_display_cubit.dart';
 import 'package:gipms/service_locator.dart';
 import 'package:gipms/common/bloc/auth/auth_state_cubit.dart';
 import 'package:gipms/common/bloc/button/button_state_cubit.dart';
@@ -36,6 +37,10 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<ButtonStateCubit>(
           create: (context) => ButtonStateCubit(),
+        ),
+        BlocProvider<UserDisplayCubit>(
+          create: (context) => UserDisplayCubit()
+            ..displayUser(), //  Fetch user data here or in initState() of a parent widget
         ),
       ],
       child: MaterialApp(

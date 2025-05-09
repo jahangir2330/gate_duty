@@ -1,87 +1,87 @@
 class UserEntity {
   final String username;
   final String email;
-  final String? userId;
-  final String? applicationId;
-  final int? masterUserId;
-  final String? emailAddress;
-  final String? loweredUsername;
-  final String? mobileNumber;
-  final String? userProfilePhoto;
-  final int? rolePriority;
-  final String? roleName;
-  int? gateid;
-  final String? gateName;
-  final String? gateNameAr;
-  final int? companyId;
-  final String? companyName;
-  final String? companyNameAr;
-  final String? currentUserRoleName;
+  final String userid;
+  final String applicationid;
+  final int masteruserid;
+  final String emailaddress;
+  final String loweredusername;
+  final String mobilenumber;
+  final String userprofilephoto;
+  final int rolepriority;
+  final String rolename;
+  int gateid;
+  final String gatename;
+  final String gatenamear;
+  final int companyid;
+  final String companyname;
+  final String companynamear;
+  final String currentuserrolename;
 
   UserEntity({
-    this.userId,
-    this.applicationId,
-    this.masterUserId,
     required this.username,
-    this.emailAddress,
     required this.email,
-    this.loweredUsername,
-    this.mobileNumber,
-    this.userProfilePhoto,
-    this.rolePriority,
-    this.roleName,
-    this.gateid,
-    this.gateName,
-    this.gateNameAr,
-    this.companyId,
-    this.companyName,
-    this.companyNameAr,
-    this.currentUserRoleName,
+    required this.userid,
+    required this.applicationid,
+    required this.masteruserid,
+    required this.emailaddress,
+    required this.loweredusername,
+    required this.mobilenumber,
+    required this.userprofilephoto,
+    required this.rolepriority,
+    required this.rolename,
+    required this.gateid,
+    required this.gatename,
+    required this.gatenamear,
+    required this.companyid,
+    required this.companyname,
+    required this.companynamear,
+    required this.currentuserrolename,
   });
 
   factory UserEntity.fromJson(Map<String, dynamic> json) {
     return UserEntity(
-      userId: json['userId'] ?? '',
-      applicationId: json['applicationId'] ?? '',
-      masterUserId: json['masterUserId'] ?? 0,
+      userid: json['userid'] ?? '',
+      applicationid: json['applicationid'] ?? '',
+      masteruserid: json['masteruserid'] ?? 0,
       username: json['username'] ?? '',
-      email: json['emailAddress'] ?? '',
-      emailAddress: json['emailAddress'] ?? '',
-      loweredUsername: json['loweredUsername'] ?? '',
-      mobileNumber: json['mobileNumber'] ?? '',
-      userProfilePhoto: json['userProfilePhoto'] ?? '',
-      rolePriority: json['rolePriority'] ?? -99,
-      roleName: json['roleName'] ?? '',
-      gateid: json['gateid'],
-      gateName: json['gateName'],
-      gateNameAr: json['gateNameAr'],
-      companyId: json['companyId'],
-      companyName: json['companyName'],
-      companyNameAr: json['companyNameAr'],
-      currentUserRoleName: json['currentUserRoleName'],
+      email: json['emailaddress'] ?? '',
+      emailaddress: json['emailaddress'] ?? '',
+      loweredusername: json['loweredusername'] ?? '',
+      mobilenumber: json['mobilenumber'] ?? '',
+      userprofilephoto: json['userprofilephoto'] ?? '',
+      rolepriority: json['rolepriority'] ?? -99,
+      rolename: json['rolename'] ?? '',
+      gateid: json['gateid'] ?? -99,
+      gatename: json['gatename'] ?? '',
+      gatenamear: json['gatenamear'],
+      companyid: json['companyid'] ?? -99,
+      companyname: json['companyname'] ?? '',
+      companynamear: json['companynamear'] ?? '',
+      currentuserrolename: json['currentuserrolename'] ?? '',
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'userId': userId,
-      'applicationId': applicationId,
-      'masterUserId': masterUserId,
+      'userid': userid,
+      'applicationid': applicationid,
+      'masteruserid': masteruserid,
       'username': username,
-      'emailAddress': emailAddress,
+      'emailaddress': emailaddress,
       'email': email,
-      'loweredUsername': loweredUsername,
-      'mobileNumber': mobileNumber,
-      'userProfilePhoto': userProfilePhoto,
-      'rolePriority': rolePriority,
-      'roleName': roleName,
+      'loweredusername': loweredusername,
+      'mobilenumber': mobilenumber,
+      'userprofilephoto': userprofilephoto,
+      'rolepriority': rolepriority,
+      'rolename': rolename,
       'gateid': gateid,
-      'gateName': gateName,
-      'gateNameAr': gateNameAr,
-      'companyId': companyId,
-      'companyName': companyName,
-      'companyNameAr': companyNameAr,
-      'currentUserRoleName': currentUserRoleName,
+      'gatename': gatename,
+      'gatenamear': gatenamear,
+      'companyid': companyid,
+      'companyname': companyname,
+      'companynamear': companynamear,
+      'currentuserrolename': currentuserrolename,
     };
   }
 }
