@@ -1,5 +1,11 @@
 {
-  "helloWorld": "Hello World lib en",
+  "helloWorld": "Hello World",
   "greeting": "Welcome!",
-  "language": "Language"
+  "home": "Home",
+  "language": "Language",
+  "qrscan": "Qr Scan",
+  "profile": "Profile",
+  "english": "English",
+  "arabic": "Arabic",
+  "logout": "Logout"
 }

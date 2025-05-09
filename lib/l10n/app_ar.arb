@@ -1,5 +1,11 @@
 {
-  "helloWorld": "Hello World lib ar",
-  "greeting": "Welcome!",
-  "language": "Language"
+  "helloWorld": "مرحباً بالعالم",
+  "greeting": "أهلاً بك!",
+  "home": "الرئيسية",
+  "language": "اللغة",
+  "qrscan": "مسح QR",
+  "profile": "الملف الشخصي",
+  "english": "الإنجليزية",
+  "arabic": "العربية",
+  "logout": "تسجيل الخروج"
 }

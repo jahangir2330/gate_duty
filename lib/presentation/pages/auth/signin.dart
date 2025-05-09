@@ -8,12 +8,54 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../common/bloc/button/button_state.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../../main.dart'; // Import your main.dart
 
-class SigninPage extends StatelessWidget {
+class SigninPage extends StatefulWidget {
   SigninPage({super.key});
 
+  @override
+  State<SigninPage> createState() => _SigninPageState();
+}
+
+class _SigninPageState extends State<SigninPage> {
   final TextEditingController _usernameCon = TextEditingController();
   final TextEditingController _passwordCon = TextEditingController();
+  Locale? _currentLocale;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadLocale();
+  }
+
+  Future<void> _loadLocale() async {
+    final prefs = await SharedPreferences.getInstance();
+    final String? savedLocale = prefs.getString('locale');
+    if (savedLocale != null) {
+      setState(() {
+        _currentLocale = Locale(
+            savedLocale.split('_')[0],
+            savedLocale.split('_').length > 1
+                ? savedLocale.split('_')[1]
+                : null);
+      });
+    } else {
+      _currentLocale = const Locale('ar'); // Default locale
+    }
+  }
+
+  Future<void> _changeLocale(bool isEnglish) async {
+    final newLocale = isEnglish ? const Locale('en') : const Locale('ar');
+    setState(() {
+      _currentLocale = newLocale;
+    });
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('locale', newLocale.toString());
+    final app = context.findAncestorStateOfType<MyAppWrapperState>();
+    app?.setLocale(newLocale);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,39 +74,56 @@ class SigninPage extends StatelessWidget {
           },
           child: SafeArea(
             minimum: const EdgeInsets.only(top: 100, right: 16, left: 16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  height: 100,
-                ),
-                Image.asset(
-                  'assets/images/logo-gif-Animate.gif',
-                  height: 120,
-                  width: 120,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) =>
-                      const Icon(Icons.error, size: 120),
-                ),
-                _signin(),
-                const SizedBox(
-                  height: 50,
-                ),
-                _usernameField(),
-                const SizedBox(
-                  height: 20,
-                ),
-                _password(),
-                const SizedBox(
-                  height: 60,
-                ),
-                _createAccountButton(context),
-                // const SizedBox(
-                //   height: 20,
-                // ),
-                // _signupText(context)
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    height: 100,
+                  ),
+                  Image.asset(
+                    'assets/images/logo-gif-Animate.gif',
+                    height: 120,
+                    width: 120,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) =>
+                        const Icon(Icons.error, size: 120),
+                  ),
+                  _signin(),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  _usernameField(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  _password(),
+                  const SizedBox(
+                    height: 60,
+                  ),
+                  _createAccountButton(context),
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(AppLocalizations.of(context)!.english),
+                      Switch(
+                        value: _currentLocale == const Locale('en'),
+                        onChanged: (bool value) {
+                          _changeLocale(
+                              value); // Directly pass the boolean value
+                        },
+                      ),
+                      Text(AppLocalizations.of(context)!.arabic),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  //_signupText(context)
+                ],
+              ),
             ),
           ),
         ),
