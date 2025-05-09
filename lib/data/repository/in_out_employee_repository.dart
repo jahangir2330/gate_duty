@@ -33,10 +33,6 @@ class InOutEmployeeRepositoryImpl extends InOutEmployeeRepository {
     }, (data) async {
       bool returnvalue = false;
       Response response = data;
-      print('response');
-      print(response);
-      print('response.statusCode');
-      print(response.statusCode);
       if (response.statusCode == 200) {
         returnvalue = true;
       } else {
