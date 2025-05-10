@@ -4,7 +4,7 @@ import 'package:gipms/service_locator.dart'; // Import service locator
 import 'package:gipms/common/bloc/button/button_state_cubit.dart'; // Import ButtonStateCubit
 import 'package:gipms/domain/usecases/logout.dart'; // Import LogoutUseCase
 import 'package:gipms/core/routes/route_name.dart'; // Import route names
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:gipms/gen/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart'; // Import shared_preferences
 import '../../../main.dart'; // Import your main.dart where MyAppWrapper is
 
