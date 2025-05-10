@@ -3,15 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gipms/presentation/pages/common/app_drawer.dart';
 import 'package:gipms/presentation/pages/home/bloc/user_display_cubit.dart'; // Import UserDisplayCubit
 import 'package:gipms/presentation/pages/home/bloc/user_display_state.dart'; // Import UserDisplayState
-import 'package:provider/provider.dart';
-
-class Example {
-  String name = "John Doe";
-  @override
-  String toString() {
-    return name;
-  }
-}
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -36,74 +27,68 @@ class ProfilePage extends StatelessWidget {
           if (state is UserLoaded) {
             // Check if the user data is loaded
             final user = state.userEntity; // Get the user data
-            return Provider<Example>(
-              create: (_) => Example(),
-              // we use `builder` to obtain a new `BuildContext` that has access to the provider
-              builder: (context, child) {
-                return Column(
-                  children: [
-                    const Expanded(flex: 2, child: _TopPortion()),
-                    Expanded(
-                      flex: 3,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            Text(
-                              user.username, // Display the username
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelLarge
-                                  ?.copyWith(fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(height: 16),
-                            Text(
-                              user.rolename,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelLarge
-                                  ?.copyWith(fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(height: 16),
-                            Text(
-                              user.gatenamear,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelLarge
-                                  ?.copyWith(fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(height: 16),
-                            // Row(
-                            //   mainAxisAlignment: MainAxisAlignment.center,
-                            //   children: [
-                            //     FloatingActionButton.extended(
-                            //       onPressed: () {},
-                            //       heroTag: 'follow',
-                            //       elevation: 0,
-                            //       label: const Text("Follow"),
-                            //       icon: const Icon(Icons.person_add_alt_1),
-                            //     ),
-                            //     const SizedBox(width: 16.0),
-                            //     FloatingActionButton.extended(
-                            //       onPressed: () {},
-                            //       heroTag: 'mesage',
-                            //       elevation: 0,
-                            //       backgroundColor: Colors.red,
-                            //       label: const Text("Message"),
-                            //       icon: const Icon(Icons.message_rounded),
-                            //     ),
-                            //   ],
-                            // ),
-                            // const SizedBox(height: 16),
-                            // const _ProfileInfoRow(),
-                            //Text(context.watch<Example>().toString()),
-                          ],
+            return Column(
+              children: [
+                const Expanded(flex: 2, child: _TopPortion()),
+                Expanded(
+                  flex: 3,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Text(
+                          user.username, // Display the username
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge
+                              ?.copyWith(fontWeight: FontWeight.bold),
                         ),
-                      ),
+                        const SizedBox(height: 16),
+                        Text(
+                          user.rolename,
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge
+                              ?.copyWith(fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          user.gatenamear,
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge
+                              ?.copyWith(fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 16),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.center,
+                        //   children: [
+                        //     FloatingActionButton.extended(
+                        //       onPressed: () {},
+                        //       heroTag: 'follow',
+                        //       elevation: 0,
+                        //       label: const Text("Follow"),
+                        //       icon: const Icon(Icons.person_add_alt_1),
+                        //     ),
+                        //     const SizedBox(width: 16.0),
+                        //     FloatingActionButton.extended(
+                        //       onPressed: () {},
+                        //       heroTag: 'mesage',
+                        //       elevation: 0,
+                        //       backgroundColor: Colors.red,
+                        //       label: const Text("Message"),
+                        //       icon: const Icon(Icons.message_rounded),
+                        //     ),
+                        //   ],
+                        // ),
+                        // const SizedBox(height: 16),
+                        // const _ProfileInfoRow(),
+                        //Text(context.watch<Example>().toString()),
+                      ],
                     ),
-                  ],
-                );
-              },
+                  ),
+                ),
+              ],
             );
           } else if (state is UserLoading) {
             return const Center(
@@ -121,56 +106,6 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
-class _ProfileInfoRow extends StatelessWidget {
-  const _ProfileInfoRow({Key? key}) : super(key: key);
-
-  final List<ProfileInfoItem> _items = const [
-    ProfileInfoItem("Posts", 900),
-    ProfileInfoItem("Followers", 120),
-    ProfileInfoItem("Following", 200),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 80,
-      constraints: const BoxConstraints(maxWidth: 400),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: _items
-            .map((item) => Expanded(
-                    child: Row(
-                  children: [
-                    if (_items.indexOf(item) != 0) const VerticalDivider(),
-                    Expanded(child: _singleItem(context, item)),
-                  ],
-                )))
-            .toList(),
-      ),
-    );
-  }
-
-  Widget _singleItem(BuildContext context, ProfileInfoItem item) => Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              item.value.toString(),
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
-            ),
-          ),
-          Text(
-            item.title,
-            style: Theme.of(context).textTheme.labelLarge,
-          )
-        ],
-      );
-}
-
 class ProfileInfoItem {
   final String title;
   final int value;
@@ -178,7 +113,7 @@ class ProfileInfoItem {
 }
 
 class _TopPortion extends StatelessWidget {
-  const _TopPortion({Key? key}) : super(key: key);
+  const _TopPortion();
 
   @override
   Widget build(BuildContext context) {
@@ -236,3 +171,53 @@ class _TopPortion extends StatelessWidget {
     );
   }
 }
+
+// class _ProfileInfoRow extends StatelessWidget {
+//   const _ProfileInfoRow({super.key});
+
+//   final List<ProfileInfoItem> _items = const [
+//     ProfileInfoItem("Posts", 900),
+//     ProfileInfoItem("Followers", 120),
+//     ProfileInfoItem("Following", 200),
+//   ];
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       height: 80,
+//       constraints: const BoxConstraints(maxWidth: 400),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//         children: _items
+//             .map((item) => Expanded(
+//                     child: Row(
+//                   children: [
+//                     if (_items.indexOf(item) != 0) const VerticalDivider(),
+//                     Expanded(child: _singleItem(context, item)),
+//                   ],
+//                 )))
+//             .toList(),
+//       ),
+//     );
+//   }
+
+//   Widget _singleItem(BuildContext context, ProfileInfoItem item) => Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           Padding(
+//             padding: const EdgeInsets.all(8.0),
+//             child: Text(
+//               item.value.toString(),
+//               style: const TextStyle(
+//                 fontWeight: FontWeight.bold,
+//                 fontSize: 20,
+//               ),
+//             ),
+//           ),
+//           Text(
+//             item.title,
+//             style: Theme.of(context).textTheme.labelLarge,
+//           )
+//         ],
+//       );
+// }

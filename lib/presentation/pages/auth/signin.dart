@@ -4,7 +4,6 @@ import 'package:gipms/core/routes/route_name.dart';
 import 'package:gipms/data/viewmodels/signin_req_params.dart';
 import 'package:gipms/domain/usecases/signin.dart';
 import 'package:gipms/service_locator.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../common/bloc/button/button_state.dart';
@@ -13,7 +12,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../main.dart'; // Import your main.dart
 
 class SigninPage extends StatefulWidget {
-  SigninPage({super.key});
+  const SigninPage({super.key});
 
   @override
   State<SigninPage> createState() => _SigninPageState();
@@ -53,6 +52,7 @@ class _SigninPageState extends State<SigninPage> {
     });
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('locale', newLocale.toString());
+    // ignore: use_build_context_synchronously
     final app = context.findAncestorStateOfType<MyAppWrapperState>();
     app?.setLocale(newLocale);
   }
@@ -164,24 +164,5 @@ class _SigninPageState extends State<SigninPage> {
                     username: _usernameCon.text, password: _passwordCon.text));
           });
     });
-  }
-
-  Widget _signupText(BuildContext context) {
-    return Text.rich(
-      TextSpan(children: [
-        const TextSpan(
-            text: "Don't you have account?",
-            style: TextStyle(
-                color: Color(0xff3B4054), fontWeight: FontWeight.w500)),
-        TextSpan(
-            text: ' Sign Up',
-            style: const TextStyle(
-                color: Color(0xff3461FD), fontWeight: FontWeight.w500),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                Navigator.of(context).pushNamed(RouteName.signup);
-              })
-      ]),
-    );
   }
 }

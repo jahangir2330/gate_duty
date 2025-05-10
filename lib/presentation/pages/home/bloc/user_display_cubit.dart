@@ -11,8 +11,6 @@ class UserDisplayCubit extends Cubit<UserDisplayState> {
     result.fold((error) {
       emit(LoadUserFailure(errorMessage: error));
     }, (data) {
-      print('data');
-      print(data.email);
       emit(UserLoaded(userEntity: data));
     });
   }

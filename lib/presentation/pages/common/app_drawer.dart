@@ -48,6 +48,7 @@ class _AppDrawerState extends State<AppDrawer> {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('locale', newLocale.toString());
     // Force a rebuild of the MaterialApp
+    // ignore: use_build_context_synchronously
     final app = context.findAncestorStateOfType<MyAppWrapperState>();
     app?.setLocale(newLocale);
   }

@@ -37,7 +37,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case RouteName.splash:
       return MaterialPageRoute(builder: (_) => const SplashScreen());
     case RouteName.login:
-      return MaterialPageRoute(builder: (_) => SigninPage());
+      return MaterialPageRoute(builder: (_) => const SigninPage());
     case RouteName.profile:
       return MaterialPageRoute(builder: (_) => const ProfilePage());
     case RouteName.qrscan:
