@@ -1,14 +1,17 @@
 {
-  "helloWorld": "مرحباً بالعالم",
-  "greeting": "أهلاً بك!",
-  "home": "الرئيسية",
-  "language": "اللغة",
-  "qrscan": "مسح QR",
-  "profile": "الملف الشخصي",
-  "english": "الإنجليزية",
-  "arabic": "العربية",
-  "logout": "تسجيل الخروج",
-  "signin": "تسجيل الدخول",
-  "username": "اسم المستخدم",
-  "password": "كلمة المرور"
+    "@@locale": "ar",
+    "helloWorld": "مرحباً بالعالم",
+    "greeting": "أهلاً بك!",
+    "home": "الرئيسية",
+    "language": "اللغة",
+    "qrscan": "مسح QR",
+    "profile": "الملف الشخصي",
+    "english": "الإنجليزية",
+    "arabic": "العربية",
+    "logout": "تسجيل الخروج",
+    "signin": "تسجيل الدخول",
+    "username": "اسم المستخدم",
+    "password": "كلمة المرور"
+    
 }
+

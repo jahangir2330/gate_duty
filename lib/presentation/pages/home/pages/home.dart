@@ -15,16 +15,29 @@ import 'package:gipms/service_locator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../common/bloc/button/button_state.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+  Future<void> _logout(BuildContext context) async {
+    context.read<ButtonStateCubit>().excute(usecase: sl<LogoutUseCase>());
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('authToken');
+    Navigator.of(context).pushReplacementNamed(RouteName.login);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () => _logout(context),
+          ),
+        ],
         automaticallyImplyLeading: false,
         leading: Builder(
           builder: (context) => IconButton(

@@ -53,6 +53,12 @@ class _AppDrawerState extends State<AppDrawer> {
     app?.setLocale(newLocale);
   }
 
+  Future<void> _logout(BuildContext context) async {
+    context.read<ButtonStateCubit>().excute(usecase: sl<LogoutUseCase>());
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('authToken');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -125,10 +131,8 @@ class _AppDrawerState extends State<AppDrawer> {
             onTap: () {
               Navigator.of(context).pop();
               try {
-                context
-                    .read<ButtonStateCubit>()
-                    .excute(usecase: sl<LogoutUseCase>());
-                Navigator.pushNamed(context, RouteName.login);
+                () => _logout(context);
+                Navigator.of(context).pushReplacementNamed(RouteName.login);
               } catch (e) {
                 ScaffoldMessenger.of(context)
                     .showSnackBar(SnackBar(content: Text("Logout Failed: $e")));
