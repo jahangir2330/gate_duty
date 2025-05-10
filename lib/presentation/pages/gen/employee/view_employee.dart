@@ -10,6 +10,7 @@ import 'package:gipms/domain/usecases/in_employee_usecase.dart';
 import 'package:gipms/domain/usecases/out_employee_usecase.dart';
 import 'package:gipms/common/widgets/button/success_app_button.dart';
 import 'package:gipms/common/widgets/button/danger_app_button.dart';
+import 'package:gipms/l10n/app_localizations.dart';
 import 'package:gipms/service_locator.dart';
 
 // Assuming you have a Hom
@@ -28,7 +29,7 @@ class ViewEmployeePage extends StatelessWidget {
         create: (context) => ViewEmployeeCubit()..fetchEmployee(parameterUrl!),
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('View Employee'),
+            title: Text(AppLocalizations.of(context)!.employeeview),
           ),
           body: BlocConsumer<ButtonStateCubit, ButtonState>(
             // Use BlocConsumer to listen for state changes

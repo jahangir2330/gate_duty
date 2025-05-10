@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gipms/l10n/app_localizations.dart';
 import 'package:gipms/presentation/pages/common/app_drawer.dart';
 import 'package:gipms/presentation/pages/home/bloc/user_display_cubit.dart'; // Import UserDisplayCubit
 import 'package:gipms/presentation/pages/home/bloc/user_display_state.dart'; // Import UserDisplayState
@@ -11,7 +12,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: Text(AppLocalizations.of(context)!.profile),
         automaticallyImplyLeading: false,
         leading: Builder(
           builder: (context) => IconButton(

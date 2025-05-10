@@ -11,7 +11,9 @@
     "logout": "تسجيل الخروج",
     "signin": "تسجيل الدخول",
     "username": "اسم المستخدم",
-    "password": "كلمة المرور"
+    "password": "كلمة المرور",
+    "employeelist": "قائمة الموظفين",
+    "employeeview": "تفاصيل الموظف"
     
 }
 

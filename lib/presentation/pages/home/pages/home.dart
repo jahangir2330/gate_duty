@@ -7,6 +7,7 @@ import 'package:gipms/data/viewmodels/getemployee_req_params.dart';
 import 'package:gipms/domain/entities/user_entity.dart';
 import 'package:gipms/domain/usecases/get_employee_usecase.dart';
 import 'package:gipms/domain/usecases/logout.dart';
+import 'package:gipms/l10n/app_localizations.dart';
 import 'package:gipms/presentation/pages/auth/signup.dart';
 import 'package:gipms/presentation/pages/common/app_drawer.dart';
 import 'package:gipms/presentation/pages/gen/employee/scan_qrcode_page.dart';
@@ -26,7 +27,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: Text(AppLocalizations.of(context)!.home),
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),

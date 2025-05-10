@@ -43,4 +43,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get password => 'Password';
+
+  @override
+  String get employeeview => 'Employee List';
+
+  @override
+  String get employeelist => 'Employee Detail';
 }

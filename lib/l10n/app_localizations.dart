@@ -166,6 +166,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Password'**
   String get password;
+
+  /// No description provided for @employeeview.
+  ///
+  /// In en, this message translates to:
+  /// **'Employee List'**
+  String get employeeview;
+
+  /// No description provided for @employeelist.
+  ///
+  /// In en, this message translates to:
+  /// **'Employee Detail'**
+  String get employeelist;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

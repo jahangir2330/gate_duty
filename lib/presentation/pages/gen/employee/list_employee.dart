@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gipms/core/routes/route_name.dart';
+import 'package:gipms/l10n/app_localizations.dart';
 
 class ListEmployeePage extends StatelessWidget {
   const ListEmployeePage({Key? key}) : super(key: key);
@@ -7,7 +8,9 @@ class ListEmployeePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Hero ListView")),
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.employeelist),
+      ),
       body: Center(
         child: Container(
           constraints: const BoxConstraints(maxWidth: 500),

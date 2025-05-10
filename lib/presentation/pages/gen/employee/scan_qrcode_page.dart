@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gipms/core/routes/route_name.dart';
+import 'package:gipms/l10n/app_localizations.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
 class ScanQrCodePage extends StatefulWidget {
@@ -34,7 +35,7 @@ class _ScanQrCodeViewState extends State<ScanQrCodePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Scan QR Code'),
+        title: Text(AppLocalizations.of(context)!.qrscan),
         actions: [
           IconButton(
             onPressed: () {

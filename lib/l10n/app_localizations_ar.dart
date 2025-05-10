@@ -43,4 +43,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get password => 'كلمة المرور';
+
+  @override
+  String get employeeview => 'تفاصيل الموظف';
+
+  @override
+  String get employeelist => 'قائمة الموظفين';
 }

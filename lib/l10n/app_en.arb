@@ -11,5 +11,7 @@
   "logout": "Logout",
   "signin": "Sign-In",
   "username": "Username",
-  "password": "Password"
+  "password": "Password",
+  "employeeview": "Employee List",
+  "employeelist": "Employee Detail"
 }
