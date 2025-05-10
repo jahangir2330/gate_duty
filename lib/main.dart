@@ -10,7 +10,7 @@ import 'package:gipms/core/configs/theme/app_theme.dart';
 import 'package:gipms/core/routes/route_name.dart';
 import 'package:gipms/core/routes/route_name.dart' as route_generator;
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:gipms/gen/app_localizations.dart';
+import 'package:gipms/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

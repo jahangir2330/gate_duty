@@ -34,4 +34,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get logout => 'Logout';
+
+  @override
+  String get signin => 'Sign-In';
+
+  @override
+  String get username => 'Username';
+
+  @override
+  String get password => 'Password';
 }

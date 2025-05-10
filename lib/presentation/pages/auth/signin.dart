@@ -1,14 +1,15 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:gipms/common/bloc/button/button_state_cubit.dart';
 import 'package:gipms/common/widgets/button/basic_app_button.dart';
 import 'package:gipms/core/routes/route_name.dart';
 import 'package:gipms/data/viewmodels/signin_req_params.dart';
 import 'package:gipms/domain/usecases/signin.dart';
+import 'package:gipms/l10n/app_localizations.dart';
 import 'package:gipms/service_locator.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../common/bloc/button/button_state.dart';
-import 'package:gipms/gen/app_localizations.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../../../main.dart'; // Import your main.dart
 
 class SigninPage extends StatefulWidget {
@@ -132,9 +133,9 @@ class _SigninPageState extends State<SigninPage> {
   }
 
   Widget _signin() {
-    return const Text(
-      'Sign In',
-      style: TextStyle(
+    return Text(
+      AppLocalizations.of(context)!.signin,
+      style: const TextStyle(
           color: Color(0xff2A4ECA), fontWeight: FontWeight.bold, fontSize: 32),
     );
   }
@@ -142,21 +143,23 @@ class _SigninPageState extends State<SigninPage> {
   Widget _usernameField() {
     return TextField(
       controller: _usernameCon,
-      decoration: const InputDecoration(hintText: 'Username'),
+      decoration:
+          InputDecoration(hintText: AppLocalizations.of(context)!.username),
     );
   }
 
   Widget _password() {
     return TextField(
       controller: _passwordCon,
-      decoration: const InputDecoration(hintText: 'Password'),
+      decoration:
+          InputDecoration(hintText: AppLocalizations.of(context)!.password),
     );
   }
 
   Widget _createAccountButton(BuildContext context) {
     return Builder(builder: (context) {
       return BasicAppButton(
-          title: 'Login',
+          title: AppLocalizations.of(context)!.signin,
           onPressed: () {
             context.read<ButtonStateCubit>().excute(
                 usecase: sl<SigninUseCase>(),
