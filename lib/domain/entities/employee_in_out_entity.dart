@@ -28,6 +28,9 @@ class EmployeeInOutEntity {
   DateTime? startdate;
   DateTime? enddate;
 
+  int? pageSize;
+  int? currentPage;
+
   EmployeeInOutEntity({
     this.employeeinoutinfoid,
     this.requestemployeeid,
@@ -57,51 +60,55 @@ class EmployeeInOutEntity {
     this.civilidnumber,
     this.startdate,
     this.enddate,
+    this.pageSize,
+    this.currentPage,
   });
 
-  // Optional: Add a factory constructor to create an instance from a Map (e.g., JSON)
   factory EmployeeInOutEntity.fromJson(Map<String, dynamic> json) {
-    return EmployeeInOutEntity(
-      employeeinoutinfoid: json['employeeinoutinfoid'] as int?,
-      requestemployeeid: json['requestemployeeid'] as int?,
-      employeevehicleid: json['employeevehicleid'] as int?,
-      intime: json['intime'] == null
-          ? null
-          : DateTime.parse(json['intime'] as String),
-      inbyusername: json['inbyusername'] as String?,
-      inbymacaddress: json['inbymacaddress'] as String?,
-      gateid: json['gateid'] as int?,
-      outtime: json['outtime'] == null
-          ? null
-          : DateTime.parse(json['outtime'] as String),
-      outbyusername: json['outbyusername'] as String?,
-      outbymacaddress: json['outbymacaddress'] as String?,
-      duration: json['duration'] as int?,
-      notetext: json['notetext'] as String?,
-      fullname: json['fullname'] as String?,
-      fullnameen: json['fullnameen'] as String?,
-      emergencycontactnumber: json['emergencycontactnumber'] as String?,
-      carnumberplate: json['carnumberplate'] as String?,
-      gatename: json['gatename'] as String?,
-      gatenamear: json['gatenamear'] as String?,
-      companyid: json['companyid'] as int?,
-      companyname: json['companyname'] as String?,
-      companynamear: json['companynamear'] as String?,
-      entrystatusid: json['entrystatusid'] as int?,
-      entrystatusname: json['entrystatusname'] as String?,
-      entrystatusnamear: json['entrystatusnamear'] as String?,
-      referencenumber: json['referencenumber'] as String?,
-      civilidnumber: json['civilidnumber'] as String?,
-      startdate: json['startdate'] == null
-          ? null
-          : DateTime.parse(json['startdate'] as String),
-      enddate: json['enddate'] == null
-          ? null
-          : DateTime.parse(json['enddate'] as String),
-    );
+    try {
+      return EmployeeInOutEntity(
+        employeeinoutinfoid: parseInt(json['employeeinoutinfoid']),
+        requestemployeeid: parseInt(json['requestemployeeid']),
+        employeevehicleid: parseInt(json['employeevehicleid']),
+        gateid: parseInt(json['gateid']),
+        duration: parseInt(json['duration']),
+        companyid: parseInt(json['companyid']),
+        entrystatusid: parseInt(json['entrystatusid']),
+        pageSize: parseInt(json['pageSize']),
+        currentPage: parseInt(json['currentPage']),
+        intime: json['intime'] == null ? null : DateTime.parse(json['intime']),
+        outtime:
+            json['outtime'] == null ? null : DateTime.parse(json['outtime']),
+        inbyusername: json['inbyusername'],
+        inbymacaddress: json['inbymacaddress'],
+        outbyusername: json['outbyusername'],
+        outbymacaddress: json['outbymacaddress'],
+        notetext: json['notetext'],
+        fullname: json['fullname'],
+        fullnameen: json['fullnameen'],
+        emergencycontactnumber: json['emergencycontactnumber'],
+        carnumberplate: json['carnumberplate'],
+        gatename: json['gatename'],
+        gatenamear: json['gatenamear'],
+        companyname: json['companyname'],
+        companynamear: json['companynamear'],
+        entrystatusname: json['entrystatusname'],
+        entrystatusnamear: json['entrystatusnamear'],
+        referencenumber: json['referencenumber'],
+        civilidnumber: json['civilidnumber'],
+        startdate: json['startdate'] == null
+            ? null
+            : DateTime.parse(json['startdate']),
+        enddate:
+            json['enddate'] == null ? null : DateTime.parse(json['enddate']),
+      );
+    } catch (e) {
+      print('Error during EmployeeInOutEntity.fromJson: $e');
+      print('Problematic JSON: $json');
+      return EmployeeInOutEntity(); // fallback
+    }
   }
 
-  // Optional: Add a method to convert the object to a Map (e.g., for JSON serialization)
   Map<String, dynamic> toJson() {
     return {
       'employeeinoutinfoid': employeeinoutinfoid,
@@ -132,6 +139,15 @@ class EmployeeInOutEntity {
       'civilidnumber': civilidnumber,
       'startdate': startdate?.toIso8601String(),
       'enddate': enddate?.toIso8601String(),
+      'pageSize': pageSize,
+      'currentPage': currentPage,
     };
+  }
+
+  static int? parseInt(dynamic value) {
+    if (value == null) return null;
+    if (value is int) return value;
+    if (value is String) return int.tryParse(value);
+    return null;
   }
 }

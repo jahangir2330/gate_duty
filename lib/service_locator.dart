@@ -13,17 +13,21 @@ import 'package:gipms/domain/usecases/get_employee_usecase.dart';
 import 'package:gipms/domain/usecases/get_user.dart';
 import 'package:gipms/domain/usecases/in_employee_usecase.dart';
 import 'package:gipms/domain/usecases/is_logged_in.dart';
+import 'package:gipms/domain/usecases/list_in_out_employee_usecase.dart';
 import 'package:gipms/domain/usecases/logout.dart';
 import 'package:gipms/domain/usecases/out_employee_usecase.dart';
 import 'package:gipms/domain/usecases/signin.dart';
 import 'package:gipms/domain/usecases/signup.dart';
 import 'package:get_it/get_it.dart';
+import 'package:gipms/presentation/pages/gen/employee/bloc/employee_list_cubit.dart';
 
 final sl = GetIt.instance;
 
 void setupServiceLocator() {
   sl.registerSingleton<DioClient>(DioClient());
 
+  //Cubit
+  sl.registerFactory(() => EmployeeListCubit(sl()));
   // Services
   sl.registerSingleton<AuthApiService>(AuthApiServiceImpl());
   sl.registerSingleton<AuthLocalService>(AuthLocalServiceImpl());
@@ -44,4 +48,5 @@ void setupServiceLocator() {
   sl.registerSingleton<GetEmployeeUseCase>(GetEmployeeUseCase());
   sl.registerSingleton<InEmployeeUseCase>(InEmployeeUseCase());
   sl.registerSingleton<OutEmployeeUseCase>(OutEmployeeUseCase());
+  sl.registerSingleton<ListInOutEmployeeUseCase>(ListInOutEmployeeUseCase());
 }

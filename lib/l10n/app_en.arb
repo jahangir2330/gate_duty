@@ -12,6 +12,6 @@
   "signin": "Sign-In",
   "username": "Username",
   "password": "Password",
-  "employeeview": "Employee List",
-  "employeelist": "Employee Detail"
+  "employeeview": "Employee Detail",
+  "employeelist": "Employee List"
 }

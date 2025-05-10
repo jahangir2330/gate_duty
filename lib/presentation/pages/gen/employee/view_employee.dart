@@ -32,18 +32,10 @@ class ViewEmployeePage extends StatelessWidget {
             title: Text(AppLocalizations.of(context)!.employeeview),
           ),
           body: BlocConsumer<ButtonStateCubit, ButtonState>(
-            // Use BlocConsumer to listen for state changes
             listener: (context, state) {
               if (state is ButtonSuccessState) {
-                // Navigate to the home screen after a successful button action
-                Navigator.pushReplacementNamed(context, RouteName.home);
-                // Alternatively, you could use:
-                // Navigator.pushReplacement(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const HomeScreen()),
-                // );
+                Navigator.pushReplacementNamed(context, RouteName.employeelist);
               } else if (state is ButtonFailureState) {
-                // Optionally handle the error (e.g., show a snackbar)
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('Error: ${state.errorMessage}')),
                 );

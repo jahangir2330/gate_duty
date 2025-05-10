@@ -6,16 +6,16 @@ import 'package:gipms/domain/repository/in_out_employee_repository.dart';
 import 'package:gipms/service_locator.dart';
 import 'package:dartz/dartz.dart';
 
-class OutEmployeeUseCase implements UseCase<Either, InOutEmployeeReqParams> {
+class ListInOutEmployeeUseCase
+    implements UseCase<Either, InOutEmployeeReqParams> {
   @override
   Future<Either> call({InOutEmployeeReqParams? param}) async {
     final currentUser = UserService().currentUser;
     EmployeeInOutEntity employeeInOut = EmployeeInOutEntity();
-    employeeInOut.requestemployeeid = int.parse(param!.requestemployeeid);
-    employeeInOut.inbyusername = currentUser?.username;
+    //employeeInOut.inbyusername = currentUser?.username;
     employeeInOut.gateid = currentUser?.gateid;
-    employeeInOut.outtime = DateTime.now();
-    employeeInOut.inbymacaddress = "Mobile App";
+    employeeInOut.pageSize = 100;
+    employeeInOut.currentPage = 1;
     return sl<InOutEmployeeRepository>().listInOutEmployee(employeeInOut);
   }
 }

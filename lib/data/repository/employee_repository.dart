@@ -14,7 +14,6 @@ class EmployeeRepositoryImpl extends EmployeeRepository {
       return Left(error);
     }, (data) async {
       Response response = data;
-      // return Right(response);
       var userEntity = EmployeeEntity.fromJson(response.data);
 
       return Right(userEntity);

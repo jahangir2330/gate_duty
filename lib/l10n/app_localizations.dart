@@ -170,13 +170,13 @@ abstract class AppLocalizations {
   /// No description provided for @employeeview.
   ///
   /// In en, this message translates to:
-  /// **'Employee List'**
+  /// **'Employee Detail'**
   String get employeeview;
 
   /// No description provided for @employeelist.
   ///
   /// In en, this message translates to:
-  /// **'Employee Detail'**
+  /// **'Employee List'**
   String get employeelist;
 }
 
