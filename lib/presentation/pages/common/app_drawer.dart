@@ -111,6 +111,16 @@ class _AppDrawerState extends State<AppDrawer> {
             },
           ),
           ListTile(
+            leading: const Icon(Icons.list),
+            title: Text(AppLocalizations.of(context)!
+                .helloWorld), // Assuming you have 'qrScan'
+            onTap: () {
+              Navigator.of(context).pop(); // Close the drawer
+              Navigator.of(context)
+                  .pushReplacementNamed(RouteName.employeelist);
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.person),
             title: Text(AppLocalizations.of(context)!
                 .profile), // Assuming you have 'profile'

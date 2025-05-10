@@ -1,17 +1,9 @@
-// class Routename {
-//   static const String home = '/home';
-//   static const String login = '/login';
-//   static const String signup = '/signup';
-//   static const String qrscan = '/qrscan';
-//   static const String employeedetail = '/employeedetail';
-//   // Add more as needed
-// }
-
 import 'package:flutter/material.dart';
 import 'package:gipms/presentation/pages/auth/signin.dart';
 import 'package:gipms/presentation/pages/auth/signup.dart';
 import 'package:gipms/presentation/pages/common/profile_page.dart';
 import 'package:gipms/presentation/pages/common/splash_screen.dart';
+import 'package:gipms/presentation/pages/gen/employee/list_employee.dart';
 import 'package:gipms/presentation/pages/gen/employee/scan_qrcode_page.dart';
 import 'package:gipms/presentation/pages/gen/employee/view_employee.dart';
 import 'package:gipms/presentation/pages/home/pages/home.dart';
@@ -26,6 +18,7 @@ class RouteName {
   static const String qrscan = '/qrscan';
   static const String profile = '/profile';
   static const String employeeview = '/employee_detail';
+  static const String employeelist = '/employee_list';
 }
 
 Route<dynamic> generateRoute(RouteSettings settings) {
@@ -42,6 +35,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const ProfilePage());
     case RouteName.qrscan:
       return MaterialPageRoute(builder: (_) => const ScanQrCodePage());
+    case RouteName.employeelist:
+      return MaterialPageRoute(builder: (_) => const ListEmployeePage());
     case RouteName.employeeview:
       final args = settings.arguments as Map<String, dynamic>?;
       return MaterialPageRoute(
