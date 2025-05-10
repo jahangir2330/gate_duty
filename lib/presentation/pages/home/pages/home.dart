@@ -1,4 +1,5 @@
 // ignore_for_file: unused_import
+import 'package:gipms/common/bloc/auth/auth_state_cubit.dart';
 import 'package:gipms/common/bloc/button/button_state_cubit.dart';
 import 'package:gipms/common/widgets/button/basic_app_button.dart';
 import 'package:gipms/core/routes/route_name.dart';
@@ -20,12 +21,6 @@ import '../../../../common/bloc/button/button_state.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-  Future<void> _logout(BuildContext context) async {
-    context.read<ButtonStateCubit>().excute(usecase: sl<LogoutUseCase>());
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.remove('authToken');
-    Navigator.of(context).pushReplacementNamed(RouteName.login);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +30,9 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
-            onPressed: () => _logout(context),
+            onPressed: () {
+              context.read<AuthStateCubit>().logout();
+            },
           ),
         ],
         automaticallyImplyLeading: false,

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gipms/service_locator.dart'; // Import service locator
-import 'package:gipms/common/bloc/button/button_state_cubit.dart'; // Import ButtonStateCubit
-import 'package:gipms/domain/usecases/logout.dart'; // Import LogoutUseCase
+import 'package:gipms/common/bloc/auth/auth_state_cubit.dart';
+// Import service locator
+// Import ButtonStateCubit
+// Import LogoutUseCase
 import 'package:gipms/core/routes/route_name.dart'; // Import route names
 import 'package:gipms/l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart'; // Import shared_preferences
@@ -51,12 +52,6 @@ class _AppDrawerState extends State<AppDrawer> {
     // ignore: use_build_context_synchronously
     final app = context.findAncestorStateOfType<MyAppWrapperState>();
     app?.setLocale(newLocale);
-  }
-
-  Future<void> _logout(BuildContext context) async {
-    context.read<ButtonStateCubit>().excute(usecase: sl<LogoutUseCase>());
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.remove('authToken');
   }
 
   @override
@@ -131,7 +126,7 @@ class _AppDrawerState extends State<AppDrawer> {
             onTap: () {
               Navigator.of(context).pop();
               try {
-                () => _logout(context);
+                context.read<AuthStateCubit>().logout();
                 Navigator.of(context).pushReplacementNamed(RouteName.login);
               } catch (e) {
                 ScaffoldMessenger.of(context)

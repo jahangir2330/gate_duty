@@ -72,6 +72,15 @@ class MyAppWrapperState extends State<MyAppWrapper> {
       providers: [
         BlocProvider<AuthStateCubit>(
           create: (context) => AuthStateCubit()..appStarted(),
+
+          //Where Place It, There????????????
+          //   child: MaterialApp.router(
+          //     routerConfig: AppRouter.router, // Or your MaterialApp configuration
+          //     debugShowCheckedModeBanner: false,
+          //     // ... other properties ...
+          //   ),
+          // )
+          // ,
         ),
         BlocProvider<ButtonStateCubit>(
           create: (context) => ButtonStateCubit(),
