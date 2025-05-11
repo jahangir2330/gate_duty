@@ -135,26 +135,6 @@ class ListEmployeePage extends StatelessWidget {
     );
   }
 
-  String _buildDateTimeTextxx(String label, dynamic value) {
-    String displayText;
-    if (value is DateTime?) {
-      if (value != null) {
-        final day = value.day.toString().padLeft(2, '0');
-        final month = value.month.toString().padLeft(2, '0');
-        final year = value.year.toString();
-        final hour = value.hour % 12 == 0 ? 12 : value.hour % 12;
-        final minute = value.minute.toString().padLeft(2, '0');
-        final period = value.hour < 12 ? 'AM' : 'PM';
-        displayText = "$day-$month-$year $hour:$minute $period";
-      } else {
-        displayText = "N/A";
-      }
-    } else {
-      displayText = value?.toString() ?? "N/A";
-    }
-    return "$label: $displayText";
-  }
-
   Widget _buildDateTimeText(String label, dynamic value) {
     String displayText;
     if (value is DateTime?) {
@@ -173,7 +153,7 @@ class ListEmployeePage extends StatelessWidget {
       displayText = value?.toString() ?? "N/A";
     }
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
+      padding: const EdgeInsets.only(top: 0, bottom: 0),
       child: RichText(
         text: TextSpan(
           style: const TextStyle(fontSize: 16, color: Colors.black),
@@ -205,7 +185,7 @@ Widget _scanAgainButton(BuildContext context) {
 
 Widget _buildStyledText(String label, String? value) {
   return Padding(
-    padding: const EdgeInsets.only(bottom: 8.0),
+    padding: const EdgeInsets.only(top: 0, bottom: 0),
     child: RichText(
       text: TextSpan(
         style: const TextStyle(fontSize: 16, color: Colors.black),
