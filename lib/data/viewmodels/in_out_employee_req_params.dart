@@ -32,14 +32,14 @@ class InOutEmployeeReqParams {
   }
 }
 
-class StringIdReqParams {
-  final String idAsString;
+class IdAsReqParams {
+  final int idParam;
 
-  StringIdReqParams({required this.idAsString});
+  IdAsReqParams({required this.idParam});
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'requestemployeeid': idAsString,
+      'requestemployeeid': idParam,
     };
   }
 }

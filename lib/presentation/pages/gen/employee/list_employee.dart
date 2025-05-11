@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gipms/core/routes/route_name.dart';
 import 'package:gipms/l10n/app_localizations.dart';
+import 'package:gipms/presentation/pages/common/app_drawer.dart';
 import 'package:gipms/presentation/pages/gen/employee/bloc/employee_list_cubit.dart';
 import 'package:gipms/service_locator.dart'; // Adjust import
 
@@ -17,6 +18,7 @@ class ListEmployeePage extends StatelessWidget {
         appBar: AppBar(
           title: Text(AppLocalizations.of(context)!.employeelist),
         ),
+        drawer: const AppDrawer(),
         body: Center(
           child: Container(
             constraints: const BoxConstraints(maxWidth: 500),

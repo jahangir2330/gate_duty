@@ -5,26 +5,12 @@ import 'package:gipms/domain/repository/in_out_employee_repository.dart';
 import 'package:gipms/service_locator.dart';
 import 'package:dartz/dartz.dart';
 
-// class OutEmployeeUseCase implements UseCase<Either, InOutEmployeeReqParams> {
-//   @override
-//   Future<Either> call({InOutEmployeeReqParams? param}) async {
-//     final currentUser = UserService().currentUser;
-//     EmployeeInOutEntity employeeInOut = EmployeeInOutEntity();
-//     employeeInOut.requestemployeeid = -99999;
-//     //int.parse(param!.requestemployeeid);
-//     employeeInOut.inbyusername = currentUser?.username;
-//     employeeInOut.gateid = currentUser?.gateid;
-//     employeeInOut.outtime = DateTime.now();
-//     employeeInOut.inbymacaddress = "Mobile App";
-//     return sl<InOutEmployeeRepository>().listInOutEmployee(employeeInOut);
-//   }
-// }
-class OutEmployeeUseCase implements UseCase<Either, StringIdReqParams> {
+class OutEmployeeUseCase implements UseCase<Either, IdAsReqParams> {
   @override
-  Future<Either> call({StringIdReqParams? param}) async {
+  Future<Either> call({IdAsReqParams? param}) async {
     final currentUser = UserService().currentUser;
     InOutEmployeeReqParams employeeInOut = InOutEmployeeReqParams(
-        requestemployeeid: int.parse(param!.idAsString),
+        requestemployeeid: param!.idParam,
         inbyusername: currentUser?.username,
         gateid: currentUser?.gateid,
         outtime: DateTime.now(),

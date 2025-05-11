@@ -126,11 +126,11 @@ class ViewEmployeePage extends StatelessWidget {
                             ),
                             const SizedBox(height: 20),
                             if (employee.lastentrystatusid == 2)
-                              _outEmployeeButton(context,
-                                  employee.requestemployeeid.toString())
+                              _outEmployeeButton(
+                                  context, employee.requestemployeeid)
                             else
-                              _inEmployeeButton(context,
-                                  employee.requestemployeeid.toString()),
+                              _inEmployeeButton(
+                                  context, employee.requestemployeeid),
                             const SizedBox(height: 20),
                             ElevatedButton(
                               onPressed: () => Navigator.pushReplacementNamed(
@@ -157,26 +157,26 @@ class ViewEmployeePage extends StatelessWidget {
     );
   }
 
-  Widget _inEmployeeButton(BuildContext context, String employeeId) {
+  Widget _inEmployeeButton(BuildContext context, int employeeId) {
     return Builder(builder: (context) {
       return SuccessAppButton(
           title: 'In',
           onPressed: () {
             context.read<ButtonStateCubit>().excute(
                 usecase: sl<InEmployeeUseCase>(),
-                params: StringIdReqParams(idAsString: employeeId));
+                params: IdAsReqParams(idParam: employeeId));
           });
     });
   }
 
-  Widget _outEmployeeButton(BuildContext context, String employeeId) {
+  Widget _outEmployeeButton(BuildContext context, int employeeId) {
     return Builder(builder: (context) {
       return DangerAppButton(
           title: 'Out',
           onPressed: () {
             context.read<ButtonStateCubit>().excute(
                 usecase: sl<OutEmployeeUseCase>(),
-                params: StringIdReqParams(idAsString: employeeId));
+                params: IdAsReqParams(idParam: employeeId));
           });
     });
   }

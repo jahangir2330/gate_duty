@@ -5,12 +5,12 @@ import 'package:gipms/domain/repository/in_out_employee_repository.dart';
 import 'package:gipms/service_locator.dart';
 import 'package:dartz/dartz.dart';
 
-class InEmployeeUseCase implements UseCase<Either, StringIdReqParams> {
+class InEmployeeUseCase implements UseCase<Either, IdAsReqParams> {
   @override
-  Future<Either> call({StringIdReqParams? param}) async {
+  Future<Either> call({IdAsReqParams? param}) async {
     final currentUser = UserService().currentUser;
     InOutEmployeeReqParams employeeInOut = InOutEmployeeReqParams(
-        requestemployeeid: int.parse(param!.idAsString),
+        requestemployeeid: param!.idParam,
         inbyusername: currentUser?.username,
         gateid: currentUser?.gateid,
         intime: DateTime.now(),
