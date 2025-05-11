@@ -44,7 +44,10 @@ class ListEmployeePage extends StatelessWidget {
                         onTap: () {
                           Navigator.of(context).pushReplacementNamed(
                             RouteName.employeeview,
-                            arguments: employee,
+                            arguments: {
+                              // Pass arguments as a map
+                              'referralCode': employee.requestemployeeid,
+                            },
                           );
                         },
                         child: Container(

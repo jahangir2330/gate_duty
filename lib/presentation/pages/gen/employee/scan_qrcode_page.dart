@@ -67,7 +67,7 @@ class _ScanQrCodeViewState extends State<ScanQrCodePage> {
                 RouteName.employeeview, // Use route name directly
                 arguments: {
                   'parameterUrl': scannedData,
-                  'referralCode': 'SOME_REFERRAL_CODE',
+                  'referralCode': null,
                 },
               );
             }

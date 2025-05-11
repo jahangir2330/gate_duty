@@ -4,7 +4,7 @@ import 'package:gipms/domain/repository/employee_repository.dart';
 import 'package:gipms/service_locator.dart';
 import 'package:dartz/dartz.dart';
 
-class GetEmployeeByQrCodeUseCase
+class GetEmployeeByRequestEmployeeIdUseCase
     implements UseCase<Either, GetEmployeeReqParams> {
   @override
   Future<Either> call({GetEmployeeReqParams? param}) async {

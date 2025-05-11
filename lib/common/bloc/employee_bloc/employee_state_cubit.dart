@@ -8,9 +8,9 @@ import 'view_employee_state.dart';
 class ViewEmployeeCubit extends Cubit<ViewEmployeeState> {
   ViewEmployeeCubit() : super(ViewEmployeeInitial());
 
-  Future<void> fetchEmployee(String qrcode) async {
+  Future<void> fetchEmployeeByQrCode(String qrcode) async {
     emit(ViewEmployeeLoading());
-    final useCase = sl<GetEmployeeUseCase>();
+    final useCase = sl<GetEmployeeByQrCodeUseCase>();
     final params = GetEmployeeReqParams(qrcode: qrcode);
     final result = await useCase(param: params);
 
@@ -20,5 +20,29 @@ class ViewEmployeeCubit extends Cubit<ViewEmployeeState> {
       (employee) => emit(ViewEmployeeLoaded(
           employee: employee as EmployeeEntity)), // Cast the result
     );
+  }
+
+  Future<void> fetchEmployeeByRequestEmployeeId(int requestemployeeid) async {
+    print(requestemployeeid);
+    emit(ViewEmployeeLoading());
+    final useCase = sl<GetEmployeeByQrCodeUseCase>();
+    final params = GetEmployeeReqParams(requestemployeeid: requestemployeeid);
+    final result = await useCase(param: params);
+
+    result.fold(
+      (failure) => emit(ViewEmployeeError(
+          message: failure.toString())), // Handle failure properly
+      (employee) => emit(ViewEmployeeLoaded(
+          employee: employee as EmployeeEntity)), // Cast the result
+    );
+  }
+
+  // Combined fetchEmployee method that checks the parameter type
+  Future<void> fetchEmployee(String parameter) async {
+    if (int.tryParse(parameter) != null) {
+      await fetchEmployeeByRequestEmployeeId(int.parse(parameter));
+    } else {
+      await fetchEmployeeByQrCode(parameter);
+    }
   }
 }

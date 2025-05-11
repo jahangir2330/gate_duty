@@ -1,6 +1,6 @@
 class ApiUrls {
   //static const baseURL = 'https://gipmsapi.kuwaitarmy.gov.kw/api/';
-  static const baseURL = 'https://fastaquashop0.conveyor.cloud/api/';
+  static const baseURL = 'https://smallbrassglass92.conveyor.cloud/api/';
   static const register = '${baseURL}auth/register';
   static const userProfile = '${baseURL}users/profile';
   static const login = '${baseURL}Auth/login';
@@ -9,8 +9,10 @@ class ApiUrls {
   static const getuserinfo = '${baseURL}Gen_UserDetail/GetSingleGen_UserDetail';
 
   //Employee
-  static const employeedetail =
+  static const getEmployeeDetailByUrl =
       '${baseURL}Tran_ApplicationReqForEmpDetl/Verify';
+  static const getEmployeeDetailByRequestEmployeeId =
+      '${baseURL}Tran_ApplicationReqForEmpDetl/GetEmployeeDetailByRequestEmployeeId';
 
   //In Out
   static const employeein =

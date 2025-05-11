@@ -9,6 +9,7 @@ import 'package:gipms/data/source/in_out_employee_api_service.dart';
 import 'package:gipms/domain/repository/auth.dart';
 import 'package:gipms/domain/repository/employee_repository.dart';
 import 'package:gipms/domain/repository/in_out_employee_repository.dart';
+import 'package:gipms/domain/usecases/get_employee_by_id_usecase.dart';
 import 'package:gipms/domain/usecases/get_employee_usecase.dart';
 import 'package:gipms/domain/usecases/get_user.dart';
 import 'package:gipms/domain/usecases/in_employee_usecase.dart';
@@ -45,7 +46,11 @@ void setupServiceLocator() {
   sl.registerSingleton<GetUserUseCase>(GetUserUseCase());
   sl.registerSingleton<LogoutUseCase>(LogoutUseCase());
   sl.registerSingleton<SigninUseCase>(SigninUseCase());
-  sl.registerSingleton<GetEmployeeUseCase>(GetEmployeeUseCase());
+  sl.registerSingleton<GetEmployeeByQrCodeUseCase>(
+      GetEmployeeByQrCodeUseCase());
+  sl.registerSingleton<GetEmployeeByRequestEmployeeIdUseCase>(
+      GetEmployeeByRequestEmployeeIdUseCase());
+
   sl.registerSingleton<InEmployeeUseCase>(InEmployeeUseCase());
   sl.registerSingleton<OutEmployeeUseCase>(OutEmployeeUseCase());
   sl.registerSingleton<ListInOutEmployeeUseCase>(ListInOutEmployeeUseCase());
