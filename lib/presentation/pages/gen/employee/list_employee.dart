@@ -70,7 +70,12 @@ class ListEmployeePage extends StatelessWidget {
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 children: [
-                                  const Icon(Icons.person, size: 50),
+                                  if (employee.entrystatusid == 2)
+                                    const Icon(Icons.arrow_circle_down,
+                                        size: 50, color: Colors.green)
+                                  else
+                                    const Icon(Icons.arrow_circle_up,
+                                        size: 50, color: Colors.red),
                                   const SizedBox(width: 10),
                                   Expanded(
                                     child: Column(
@@ -110,7 +115,12 @@ class ListEmployeePage extends StatelessWidget {
                                               .textTheme
                                               .bodySmall,
                                         ),
-                                        // Add more Text widgets for other employee details
+                                        Text(
+                                          employee.entrystatusname ?? 'N/A',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleMedium,
+                                        ),
                                       ],
                                     ),
                                   ),

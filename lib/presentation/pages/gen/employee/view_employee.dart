@@ -69,12 +69,12 @@ class ViewEmployeePage extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              'Employee Details',
-                              style: TextStyle(
-                                  fontSize: 24, fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(height: 10),
+                            // const Text(
+                            //   'Employee Details',
+                            //   style: TextStyle(
+                            //       fontSize: 24, fontWeight: FontWeight.bold),
+                            // ),
+                            // const SizedBox(height: 10),
                             Center(
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8),
