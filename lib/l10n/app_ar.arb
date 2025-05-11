@@ -2,10 +2,14 @@
   "@@locale": "ar",
   "helloWorld": "مرحباً بالعالم",
   "@helloWorld": {},
-   "greeting": "أهلاً بك يا {username}!",
+  "greeting": "أهلاً بك يا {username}!",
   "@greeting": {
+    "description": "رسالة تحتوي على مُدخل واحد",
     "placeholders": {
-      "username": {}
+      "username": {
+        "type": "String",
+        "example": "اسم المستخدم"
+      }
     }
   },
   "home": "الرئيسية",
@@ -36,8 +40,12 @@
   "@rolename": {},
   "rolenameWithPlaceholder": "الدور: {rolename}!",
   "@rolenameWithPlaceholder": {
+    "description": "رسالة تحتوي على مُدخل واحد",
     "placeholders": {
-      "rolename": {}
+      "rolename": {
+        "type": "String",
+        "example": "مدير"
+      }
     }
   },
   "gateName": "البوابة",
@@ -51,6 +59,163 @@
         "example": "لم يتم العثور على بوابة"
       }
     }
-  }
+  },
+  "jobTitle": "المسمى الوظيفي",
+  "@jobTitle": {},
+  "jobTitleWithPlaceholder": "المسمى الوظيفي: {jobTitle}",
+  "@jobTitleWithPlaceholder": {
+    "description": "رسالة تحتوي على مُدخل واحد",
+    "placeholders": {
+      "jobTitle": {
+        "type": "String",
+        "example": "مهندس برمجيات"
+      }
+    }
+  },
+  "referenceNumber": "الرقم المرجعي",
+  "@referenceNumber": {},
+  "referenceNumberWithPlaceholder": "الرقم المرجعي: {referenceNumber}",
+  "@referenceNumberWithPlaceholder": {
+    "description": "رسالة تحتوي على مُدخل واحد",
+    "placeholders": {
+      "referenceNumber": {
+        "type": "String",
+        "example": "123456"
+      }
+    }
+  },
+  "fullName": "الاسم الكامل",
+  "@fullName": {},
+  "fullNameWithPlaceholder": "الاسم الكامل: {fullName}",
+  "@fullNameWithPlaceholder": {
+    "description": "رسالة تحتوي على مُدخل واحد",
+    "placeholders": {
+      "fullName": {
+        "type": "String",
+        "example": "اسم المستخدم"
+      }
+    }
+  },
+  "employeeId": "الموظف",
+  "@employeeId": {},
+  "employeeIdWithPlaceholder": "الموظف: {employeeId}",
+  "@employeeIdWithPlaceholder": {
+    "description": "رسالة تحتوي على مُدخل واحد",
+    "placeholders": {
+      "employeeId": {
+        "type": "String",
+        "example": "E123456"
+      }
+    }
+  },
+  "companyName": "اسم الشركة",
+  "@companyName": {},
+  "companyNameWithPlaceholder": "اسم الشركة: {companyName}",
+  "@companyNameWithPlaceholder": {
+    "description": "رسالة تحتوي على مُدخل واحد",
+    "placeholders": {
+      "companyName": {
+        "type": "String",
+        "example": "اسم الشركة"
+      }
+    }
+  },
+  "nationality": "الجنسية",
+  "@nationality": {},
+  "nationalityWithPlaceholder": "الجنسية: {nationality}",
+  "@nationalityWithPlaceholder": {
+    "description": "رسالة تحتوي على مُدخل واحد",
+    "placeholders": {
+      "nationality": {
+        "type": "String",
+        "example": "كويتي"
+      }
+    }
+  },
+  "civilId": "الرقم المدني",
+  "@civilId": {},
+  "civilIdWithPlaceholder": "الرقم المدني: {civilId}",
+  "@civilIdWithPlaceholder": {
+    "description": "رسالة تحتوي على مُدخل واحد",
+    "placeholders": {
+      "civilId": {
+        "type": "String",
+        "example": "123456789"
+      }
+    }
+  },
+  "startDate": "تاريخ البدء",
+  "@startDate": {},
+  "startDateWithPlaceholder": "تاريخ البدء: {startDate}",
+  "@startDateWithPlaceholder": {
+    "description": "رسالة تحتوي على مُدخل واحد",
+    "placeholders": {
+      "startDate": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "dd-MM-yyyy",
+        "example": "11-05-2025"
+      }
+    }
+  },
+  "endDate": "تاريخ الانتهاء",
+  "@endDate": {},
+  "endDateWithPlaceholder": "تاريخ الانتهاء: {endDate}",
+  "@endDateWithPlaceholder": {
+    "description": "رسالة تحتوي على مُدخل واحد",
+    "placeholders": {
+      "endDate": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "dd-MM-yyyy",
+        "example": "11-12-2025"
+      }
+    }
+  },
+  "allowedGates": "البوابات المسموح بها",
+  "@allowedGates": {},
+  "allowedGatesWithPlaceholder": "البوابات المسموح بها: {allowedGates}",
+  "@allowedGatesWithPlaceholder": {
+    "description": "رسالة تحتوي على مُدخل واحد",
+    "placeholders": {
+      "allowedGates": {
+        "type": "String",
+        "example": "بوابة أ, بوابة ب"
+      }
+    }
+  },
+  "vehicleNumberPlates": "أرقام لوحات المركبات",
+  "@vehicleNumberPlates": {},
+  "vehicleNumberPlatesWithPlaceholder": "أرقام لوحات المركبات: {vehicleNumberPlates}",
+  "@vehicleNumberPlatesWithPlaceholder": {
+    "description": "رسالة تحتوي على مُدخل واحد",
+    "placeholders": {
+      "vehicleNumberPlates": {
+        "type": "String",
+        "example": "ك و ي - ٥٦٧٨"
+      }
+    }
+  },
+  "lastEntryStatus": "أرقام لوحات المركبات",
+  "@lastEntryStatus": {},
+  "lastEntryStatusWithPlaceholder": "أرقام لوحات المركبات: {vehicleNumberPlates}",
+  "@lastEntryStatusWithPlaceholder": {
+    "description": "رسالة تحتوي على مُدخل واحد",
+    "placeholders": {
+      "vehicleNumberPlates": {
+        "type": "String",
+        "example": "ك و ي - ٥٦٧٨"
+      }
+    }
+  },
 
+
+  "enter": "يدخل",
+  "@enter": {},
+  "out": "الخروج",
+  "@out": {},
+  "rescan": "إعادة المسح",
+  "@rescan": {},
+  "lastentrydetail": "الإدخال الأخير",
+  "@lastentrydetail": {}
 }

@@ -79,6 +79,7 @@ class _SigninPageState extends State<SigninPage> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    const SizedBox(height: 150),
                     _Logo(),
                     const SizedBox(height: 30),
                     _FormContent(

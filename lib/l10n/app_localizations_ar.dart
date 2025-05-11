@@ -12,7 +12,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get helloWorld => 'مرحباً بالعالم';
 
   @override
-  String greeting(Object username) {
+  String greeting(String username) {
     return 'أهلاً بك يا $username!';
   }
 
@@ -56,7 +56,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get rolename => 'الدور';
 
   @override
-  String rolenameWithPlaceholder(Object rolename) {
+  String rolenameWithPlaceholder(String rolename) {
     return 'الدور: $rolename!';
   }
 
@@ -67,4 +67,118 @@ class AppLocalizationsAr extends AppLocalizations {
   String gateNameWithPlaceholder(String gateName) {
     return 'بوابة $gateName';
   }
+
+  @override
+  String get jobTitle => 'المسمى الوظيفي';
+
+  @override
+  String jobTitleWithPlaceholder(String jobTitle) {
+    return 'المسمى الوظيفي: $jobTitle';
+  }
+
+  @override
+  String get referenceNumber => 'الرقم المرجعي';
+
+  @override
+  String referenceNumberWithPlaceholder(String referenceNumber) {
+    return 'الرقم المرجعي: $referenceNumber';
+  }
+
+  @override
+  String get fullName => 'الاسم الكامل';
+
+  @override
+  String fullNameWithPlaceholder(String fullName) {
+    return 'الاسم الكامل: $fullName';
+  }
+
+  @override
+  String get employeeId => 'الموظف';
+
+  @override
+  String employeeIdWithPlaceholder(String employeeId) {
+    return 'الموظف: $employeeId';
+  }
+
+  @override
+  String get companyName => 'اسم الشركة';
+
+  @override
+  String companyNameWithPlaceholder(String companyName) {
+    return 'اسم الشركة: $companyName';
+  }
+
+  @override
+  String get nationality => 'الجنسية';
+
+  @override
+  String nationalityWithPlaceholder(String nationality) {
+    return 'الجنسية: $nationality';
+  }
+
+  @override
+  String get civilId => 'الرقم المدني';
+
+  @override
+  String civilIdWithPlaceholder(String civilId) {
+    return 'الرقم المدني: $civilId';
+  }
+
+  @override
+  String get startDate => 'تاريخ البدء';
+
+  @override
+  String startDateWithPlaceholder(DateTime startDate) {
+    final intl.DateFormat startDateDateFormat = intl.DateFormat('dd-MM-yyyy', localeName);
+    final String startDateString = startDateDateFormat.format(startDate);
+
+    return 'تاريخ البدء: $startDateString';
+  }
+
+  @override
+  String get endDate => 'تاريخ الانتهاء';
+
+  @override
+  String endDateWithPlaceholder(DateTime endDate) {
+    final intl.DateFormat endDateDateFormat = intl.DateFormat('dd-MM-yyyy', localeName);
+    final String endDateString = endDateDateFormat.format(endDate);
+
+    return 'تاريخ الانتهاء: $endDateString';
+  }
+
+  @override
+  String get allowedGates => 'البوابات المسموح بها';
+
+  @override
+  String allowedGatesWithPlaceholder(String allowedGates) {
+    return 'البوابات المسموح بها: $allowedGates';
+  }
+
+  @override
+  String get vehicleNumberPlates => 'أرقام لوحات المركبات';
+
+  @override
+  String vehicleNumberPlatesWithPlaceholder(String vehicleNumberPlates) {
+    return 'أرقام لوحات المركبات: $vehicleNumberPlates';
+  }
+
+  @override
+  String get lastEntryStatus => 'أرقام لوحات المركبات';
+
+  @override
+  String lastEntryStatusWithPlaceholder(String vehicleNumberPlates) {
+    return 'أرقام لوحات المركبات: $vehicleNumberPlates';
+  }
+
+  @override
+  String get enter => 'يدخل';
+
+  @override
+  String get out => 'الخروج';
+
+  @override
+  String get rescan => 'إعادة المسح';
+
+  @override
+  String get lastentrydetail => 'الإدخال الأخير';
 }

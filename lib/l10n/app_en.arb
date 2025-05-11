@@ -1,48 +1,71 @@
 {
   "@@locale": "en",
+
   "helloWorld": "Hello World",
   "@helloWorld": {},
+
   "greeting": "Welcome, {username}!",
   "@greeting": {
+    "description": "A message with a single parameter",
     "placeholders": {
-      "username": {}
+      "username": {
+        "type": "String",
+        "example": "John Doe"
+      }
     }
   },
   "home": "Home",
   "@home": {},
+
   "language": "Language",
   "@language": {},
+
   "qrscan": "Qr Scan",
   "@qrscan": {},
+
   "profile": "Profile",
   "@profile": {},
+
   "english": "English",
   "@english": {},
+
   "arabic": "Arabic",
   "@arabic": {},
+
   "logout": "Logout",
   "@logout": {},
+
   "signin": "Sign-In",
   "@signin": {},
+
   "username": "Username",
   "@username": {},
+
   "password": "Password",
   "@password": {},
+
   "employeeview": "Employee Detail",
   "@employeeview": {},
+
   "employeelist": "Employee List",
   "@employeelist": {},
+
   "rolename": "Role",
   "@rolename": {},
   "rolenameWithPlaceholder": "Role: , {rolename}!",
   "@rolenameWithPlaceholder": {
-    "placeholders": {
-      "rolename": {}
+  "description": "A message with a single parameter",
+  "placeholders": {
+    "rolename": {
+    "type": "String",
+    "example": "Admin"    
     }
+  }
   },
+
   "gateName": "Gate",
   "@gateName": {},
-  "gateNameWithPlaceholder": "Gate {gateName}",
+  "gateNameWithPlaceholder": "Gate: {gateName}",
   "@gateNameWithPlaceholder": {
   "description": "A message with a single parameter",
   "placeholders": {
@@ -51,5 +74,173 @@
       "example": "No Gate Found"
     }
     }
-  }
+  },
+
+  "jobTitle": "Job Title",
+  "@jobTitle": {},
+  "jobTitleWithPlaceholder": "Job Title: {jobTitle}",
+  "@jobTitleWithPlaceholder": {
+    "description": "A message with a single parameter",
+    "placeholders": {
+      "jobTitle": {
+        "type": "String",
+        "example": "Software Engineer"
+      }
+    }
+  },
+
+  "referenceNumber": "Reference Number",
+  "@referenceNumber": {},
+  "referenceNumberWithPlaceholder": "Reference Number: {referenceNumber}",
+  "@referenceNumberWithPlaceholder": {
+    "description": "A message with a single parameter",
+    "placeholders": {
+      "referenceNumber": {
+        "type": "String",
+        "example": "123456"
+      }
+    }
+  },
+
+  "fullName": "Full Name",
+  "@fullName": {},
+  "fullNameWithPlaceholder": "Full Name: {fullName}",
+  "@fullNameWithPlaceholder": {
+    "description": "A message with a single parameter",
+    "placeholders": {
+      "fullName": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+
+  "employeeId": "Employee",
+  "@employeeId": {},
+  "employeeIdWithPlaceholder": "Employee: {employeeId}",
+  "@employeeIdWithPlaceholder": {
+    "description": "A message with a single parameter",
+    "placeholders": {
+      "employeeId": {
+        "type": "String",
+        "example": "E123456"
+      }
+    }
+  },
+
+  "companyName": "Company Name",
+  "@companyName": {},
+  "companyNameWithPlaceholder": "Company Name: {companyName}",
+  "@companyNameWithPlaceholder": {
+    "description": "A message with a single parameter",
+    "placeholders": {
+      "companyName": {
+        "type": "String",
+        "example": "Tech Corp"
+      }
+    }
+  },
+
+  "nationality": "Nationality",
+  "@nationality": {},
+  "nationalityWithPlaceholder": "Nationality: {nationality}",
+  "@nationalityWithPlaceholder": {
+    "description": "A message with a single parameter",
+    "placeholders": {
+      "nationality": {
+        "type": "String",
+        "example": "Kuwaiti"
+      }
+    }
+  },
+
+  "civilId": "Civil ID",
+  "@civilId": {},
+  "civilIdWithPlaceholder": "Civil ID: {civilId}",
+  "@civilIdWithPlaceholder": {
+    "description": "A message with a single parameter",
+    "placeholders": {
+      "civilId": {
+        "type": "String",
+        "example": "123456789"
+      }
+    }
+  },
+
+  "startDate": "Start Date",
+  "@startDate": {},
+  "startDateWithPlaceholder": "Start Date: {startDate}",
+  "@startDateWithPlaceholder": {
+    "description": "A message with a single parameter",
+    "placeholders": {
+      "startDate": {
+        "type": "DateTime",
+        "isCustomDateFormat":"true",
+        "format": "dd-MM-yyyy",
+        "example": "2025-05-11"
+      }
+    }
+  },
+  "endDate": "End Date",
+  "@endDate": {},
+  "endDateWithPlaceholder": "End Date: {endDate}",
+  "@endDateWithPlaceholder": {
+    "description": "A message with a single parameter",
+    "placeholders": {
+      "endDate": {
+        "type": "DateTime",
+        "isCustomDateFormat":"true",
+        "format": "dd-MM-yyyy",
+        "example": "2025-12-11"
+      }
+    }
+  },
+
+  "allowedGates": "Allowed Gates",
+  "@allowedGates": {},
+  "allowedGatesWithPlaceholder": "Allowed Gates: {allowedGates}",
+  "@allowedGatesWithPlaceholder": {
+    "description": "A message with a single parameter",
+    "placeholders": {
+      "allowedGates": {
+        "type": "String",
+        "example": "Gate A, Gate B"
+      }
+    }
+  },
+
+  "vehicleNumberPlates": "Vehicle Number Plates",
+  "@vehicleNumberPlates": {},
+  "vehicleNumberPlatesWithPlaceholder": "Vehicle Number Plates: {vehicleNumberPlates}",
+  "@vehicleNumberPlatesWithPlaceholder": {
+    "description": "A message with a single parameter",
+    "placeholders": {
+      "vehicleNumberPlates": {
+        "type": "String",
+        "example": "KUW - 5678"
+      }
+    }
+  },
+
+  "lastEntryStatus": "Vehicle Number Plates",
+  "@lastEntryStatus": {},
+  "lastEntryStatusWithPlaceholder": "Vehicle Number Plates: {vehicleNumberPlates}",
+  "@lastEntryStatusWithPlaceholder": {
+    "description": "A message with a single parameter",
+    "placeholders": {
+      "vehicleNumberPlates": {
+        "type": "String",
+        "example": "KUW - 5678"
+      }
+    }
+  },
+
+  "enter": "Enter",
+  "@enter": {},
+  "out": "Out",
+  "@out": {},
+  "rescan": "Re Scan",
+  "@rescan": {},
+  "lastentrydetail": "Last Entry",
+  "@lastentrydetail": {}
 }

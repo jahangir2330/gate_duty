@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gipms/common/widgets/button/basic_app_button.dart';
 import 'package:gipms/core/routes/route_name.dart';
 import 'package:gipms/l10n/app_localizations.dart';
 import 'package:gipms/presentation/pages/common/app_drawer.dart';
@@ -18,6 +19,10 @@ class ListEmployeePage extends StatelessWidget {
         appBar: AppBar(
           title: Text(AppLocalizations.of(context)!.employeelist),
         ),
+
+        // const SizedBox(height: 20),
+        // _scanAgainButton(context),
+        // const SizedBox(height: 20),
         drawer: const AppDrawer(),
         body: Center(
           child: Container(
@@ -28,77 +33,94 @@ class ListEmployeePage extends StatelessWidget {
                   return const Center(child: CircularProgressIndicator());
                 } else if (state is EmployeeListLoaded) {
                   final employees = state.employees;
-                  return ListView.separated(
-                    itemCount: employees.length,
-                    separatorBuilder: (BuildContext context, int index) =>
-                        const Divider(height: 1), // Add a divider between rows
-                    itemBuilder: (BuildContext context, int index) {
-                      final employee = employees[index];
-                      final isEven =
-                          index % 2 == 0; // Check if the index is even
-                      final rowColor = isEven
-                          ? Colors.grey[100] // Light background for even rows
-                          : Colors.white; // White background for odd rows
+                  //hree
+                  return Column(
+                    children: [
+                      const SizedBox(height: 20),
+                      _scanAgainButton(context),
+                      const SizedBox(height: 20),
+                      Expanded(
+                          child: ListView.separated(
+                        itemCount: employees.length,
+                        separatorBuilder: (BuildContext context, int index) =>
+                            const Divider(
+                                height: 1), // Add a divider between rows
+                        itemBuilder: (BuildContext context, int index) {
+                          final employee = employees[index];
+                          final isEven =
+                              index % 2 == 0; // Check if the index is even
+                          final rowColor = isEven
+                              ? Colors
+                                  .grey[100] // Light background for even rows
+                              : Colors.white; // White background for odd rows
 
-                      return InkWell(
-                        onTap: () {
-                          Navigator.of(context).pushReplacementNamed(
-                            RouteName.employeeview,
-                            arguments: {
-                              // Pass arguments as a map
-                              'referralCode': employee.requestemployeeid,
+                          return InkWell(
+                            onTap: () {
+                              Navigator.of(context).pushReplacementNamed(
+                                RouteName.employeeview,
+                                arguments: {
+                                  // Pass arguments as a map
+                                  'referralCode': employee.requestemployeeid,
+                                },
+                              );
                             },
+                            child: Container(
+                              color:
+                                  rowColor, // Apply the striped background color
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: [
+                                  const Icon(Icons.person, size: 50),
+                                  const SizedBox(width: 10),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          employee.fullname ?? 'N/A',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleMedium,
+                                        ),
+                                        Text(
+                                          employee.civilidnumber ??
+                                              'N/A', // Display employee name
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall,
+                                        ),
+                                        Text(
+                                          employee.companyname ??
+                                              'N/A', // Display other relevant info
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall,
+                                        ),
+                                        Text(
+                                          employee.gatename ?? 'N/A',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall,
+                                        ),
+                                        Text(
+                                          _buildDateTimeText(
+                                              "Intime", employee.intime),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall,
+                                        ),
+                                        // Add more Text widgets for other employee details
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           );
                         },
-                        child: Container(
-                          color: rowColor, // Apply the striped background color
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              const Icon(Icons.person, size: 50),
-                              const SizedBox(width: 10),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      employee.fullname ?? 'N/A',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleMedium,
-                                    ),
-                                    Text(
-                                      employee.civilidnumber ??
-                                          'N/A', // Display employee name
-                                      style:
-                                          Theme.of(context).textTheme.bodySmall,
-                                    ),
-                                    Text(
-                                      employee.companyname ??
-                                          'N/A', // Display other relevant info
-                                      style:
-                                          Theme.of(context).textTheme.bodySmall,
-                                    ),
-                                    Text(
-                                      employee.gatename ?? 'N/A',
-                                      style:
-                                          Theme.of(context).textTheme.bodySmall,
-                                    ),
-                                    Text(
-                                      _buildDateTimeText(
-                                          "Intime", employee.intime),
-                                      style:
-                                          Theme.of(context).textTheme.bodySmall,
-                                    ),
-                                    // Add more Text widgets for other employee details
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
+                      ))
+                    ],
                   );
                 } else if (state is EmployeeListError) {
                   return Center(child: Text('Error: ${state.message}'));
@@ -131,5 +153,15 @@ class ListEmployeePage extends StatelessWidget {
       displayText = value?.toString() ?? "N/A";
     }
     return "$label: $displayText";
+  }
+
+  Widget _scanAgainButton(BuildContext context) {
+    return Builder(builder: (context) {
+      return BasicAppButton(
+          title: AppLocalizations.of(context)!.rescan,
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, RouteName.qrscan);
+          });
+    });
   }
 }

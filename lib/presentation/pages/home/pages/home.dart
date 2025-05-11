@@ -60,6 +60,7 @@ class HomePage extends StatelessWidget {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    const SizedBox(height: 100),
                     Image.asset(
                       'assets/images/logo-gif-Animate.gif',
                       height: 120,

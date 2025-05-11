@@ -4,6 +4,7 @@ import 'package:gipms/common/bloc/employee_bloc/employee_state_cubit.dart';
 import 'package:gipms/common/bloc/employee_bloc/view_employee_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gipms/common/widgets/button/basic_app_button.dart';
 import 'package:gipms/core/routes/route_name.dart';
 import 'package:gipms/data/viewmodels/in_out_employee_req_params.dart';
 import 'package:gipms/domain/usecases/in_employee_usecase.dart';
@@ -88,47 +89,43 @@ class ViewEmployeePage extends StatelessWidget {
                               ),
                             ),
                             _buildStyledText(
-                              "JobTitle",
-                              employee.referencenumber,
-                            ),
-                            _buildStyledText(
-                              "Full Name",
+                              AppLocalizations.of(context)!.fullName,
                               employee.fullName,
                             ),
                             _buildStyledText(
-                              "Employee Id",
-                              employee.requestemployeeid.toString(),
+                              AppLocalizations.of(context)!.referenceNumber,
+                              employee.referencenumber,
                             ),
                             _buildStyledText(
-                              "Company Name",
+                              AppLocalizations.of(context)!.companyName,
                               employee.companyname,
                             ),
                             _buildStyledText(
-                              "Nationality",
+                              AppLocalizations.of(context)!.nationality,
                               employee.nationalityname,
                             ),
                             _buildStyledText(
-                              "Civil ID",
+                              AppLocalizations.of(context)!.civilId,
                               employee.civilidnumber,
                             ),
                             _buildDateTimeText(
-                              "Start Date",
+                              AppLocalizations.of(context)!.startDate,
                               employee.startdate,
                             ),
                             _buildDateTimeText(
-                              "End Date",
+                              AppLocalizations.of(context)!.endDate,
                               employee.enddate,
                             ),
                             _buildStyledText(
-                              "Allowed Gates",
+                              AppLocalizations.of(context)!.gateName,
                               employee.gatenamesstring,
                             ),
                             _buildStyledText(
-                              "vehiclenumberplates",
+                              AppLocalizations.of(context)!.vehicleNumberPlates,
                               employee.vehiclenumberplates,
                             ),
                             _buildStyledText(
-                              "Last Entry Status Id",
+                              AppLocalizations.of(context)!.lastEntryStatus,
                               employee.lastentrystatusid.toString(),
                             ),
                             const SizedBox(height: 20),
@@ -138,12 +135,6 @@ class ViewEmployeePage extends StatelessWidget {
                             else
                               _inEmployeeButton(
                                   context, employee.requestemployeeid),
-                            const SizedBox(height: 20),
-                            ElevatedButton(
-                              onPressed: () => Navigator.pushReplacementNamed(
-                                  context, RouteName.qrscan),
-                              child: const Text("Back to Scan"),
-                            ),
                           ],
                         ),
                       ),
@@ -167,7 +158,7 @@ class ViewEmployeePage extends StatelessWidget {
   Widget _inEmployeeButton(BuildContext context, int employeeId) {
     return Builder(builder: (context) {
       return SuccessAppButton(
-          title: 'In',
+          title: AppLocalizations.of(context)!.enter,
           onPressed: () {
             context.read<ButtonStateCubit>().excute(
                 usecase: sl<InEmployeeUseCase>(),
@@ -179,7 +170,7 @@ class ViewEmployeePage extends StatelessWidget {
   Widget _outEmployeeButton(BuildContext context, int employeeId) {
     return Builder(builder: (context) {
       return DangerAppButton(
-          title: 'Out',
+          title: AppLocalizations.of(context)!.out,
           onPressed: () {
             context.read<ButtonStateCubit>().excute(
                 usecase: sl<OutEmployeeUseCase>(),
@@ -212,8 +203,9 @@ class ViewEmployeePage extends StatelessWidget {
   Widget _buildDateTimeText(String label, dynamic value) {
     String displayText;
     if (value is DateTime?) {
-      displayText =
-          value != null ? "${value.day}-${value.month}-${value.year}" : "N/A";
+      displayText = value != null
+          ? "${value.day.toString().padLeft(2, '0')}-${value.month.toString().padLeft(2, '0')}-${value.year}"
+          : "N/A";
     } else {
       displayText = value?.toString() ?? "N/A";
     }

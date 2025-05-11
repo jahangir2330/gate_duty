@@ -101,11 +101,11 @@ abstract class AppLocalizations {
   /// **'Hello World'**
   String get helloWorld;
 
-  /// No description provided for @greeting.
+  /// A message with a single parameter
   ///
   /// In en, this message translates to:
   /// **'Welcome, {username}!'**
-  String greeting(Object username);
+  String greeting(String username);
 
   /// No description provided for @home.
   ///
@@ -185,11 +185,11 @@ abstract class AppLocalizations {
   /// **'Role'**
   String get rolename;
 
-  /// No description provided for @rolenameWithPlaceholder.
+  /// A message with a single parameter
   ///
   /// In en, this message translates to:
   /// **'Role: , {rolename}!'**
-  String rolenameWithPlaceholder(Object rolename);
+  String rolenameWithPlaceholder(String rolename);
 
   /// No description provided for @gateName.
   ///
@@ -200,8 +200,176 @@ abstract class AppLocalizations {
   /// A message with a single parameter
   ///
   /// In en, this message translates to:
-  /// **'Gate {gateName}'**
+  /// **'Gate: {gateName}'**
   String gateNameWithPlaceholder(String gateName);
+
+  /// No description provided for @jobTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Job Title'**
+  String get jobTitle;
+
+  /// A message with a single parameter
+  ///
+  /// In en, this message translates to:
+  /// **'Job Title: {jobTitle}'**
+  String jobTitleWithPlaceholder(String jobTitle);
+
+  /// No description provided for @referenceNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Reference Number'**
+  String get referenceNumber;
+
+  /// A message with a single parameter
+  ///
+  /// In en, this message translates to:
+  /// **'Reference Number: {referenceNumber}'**
+  String referenceNumberWithPlaceholder(String referenceNumber);
+
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
+
+  /// A message with a single parameter
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name: {fullName}'**
+  String fullNameWithPlaceholder(String fullName);
+
+  /// No description provided for @employeeId.
+  ///
+  /// In en, this message translates to:
+  /// **'Employee'**
+  String get employeeId;
+
+  /// A message with a single parameter
+  ///
+  /// In en, this message translates to:
+  /// **'Employee: {employeeId}'**
+  String employeeIdWithPlaceholder(String employeeId);
+
+  /// No description provided for @companyName.
+  ///
+  /// In en, this message translates to:
+  /// **'Company Name'**
+  String get companyName;
+
+  /// A message with a single parameter
+  ///
+  /// In en, this message translates to:
+  /// **'Company Name: {companyName}'**
+  String companyNameWithPlaceholder(String companyName);
+
+  /// No description provided for @nationality.
+  ///
+  /// In en, this message translates to:
+  /// **'Nationality'**
+  String get nationality;
+
+  /// A message with a single parameter
+  ///
+  /// In en, this message translates to:
+  /// **'Nationality: {nationality}'**
+  String nationalityWithPlaceholder(String nationality);
+
+  /// No description provided for @civilId.
+  ///
+  /// In en, this message translates to:
+  /// **'Civil ID'**
+  String get civilId;
+
+  /// A message with a single parameter
+  ///
+  /// In en, this message translates to:
+  /// **'Civil ID: {civilId}'**
+  String civilIdWithPlaceholder(String civilId);
+
+  /// No description provided for @startDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Date'**
+  String get startDate;
+
+  /// A message with a single parameter
+  ///
+  /// In en, this message translates to:
+  /// **'Start Date: {startDate}'**
+  String startDateWithPlaceholder(DateTime startDate);
+
+  /// No description provided for @endDate.
+  ///
+  /// In en, this message translates to:
+  /// **'End Date'**
+  String get endDate;
+
+  /// A message with a single parameter
+  ///
+  /// In en, this message translates to:
+  /// **'End Date: {endDate}'**
+  String endDateWithPlaceholder(DateTime endDate);
+
+  /// No description provided for @allowedGates.
+  ///
+  /// In en, this message translates to:
+  /// **'Allowed Gates'**
+  String get allowedGates;
+
+  /// A message with a single parameter
+  ///
+  /// In en, this message translates to:
+  /// **'Allowed Gates: {allowedGates}'**
+  String allowedGatesWithPlaceholder(String allowedGates);
+
+  /// No description provided for @vehicleNumberPlates.
+  ///
+  /// In en, this message translates to:
+  /// **'Vehicle Number Plates'**
+  String get vehicleNumberPlates;
+
+  /// A message with a single parameter
+  ///
+  /// In en, this message translates to:
+  /// **'Vehicle Number Plates: {vehicleNumberPlates}'**
+  String vehicleNumberPlatesWithPlaceholder(String vehicleNumberPlates);
+
+  /// No description provided for @lastEntryStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Vehicle Number Plates'**
+  String get lastEntryStatus;
+
+  /// A message with a single parameter
+  ///
+  /// In en, this message translates to:
+  /// **'Vehicle Number Plates: {vehicleNumberPlates}'**
+  String lastEntryStatusWithPlaceholder(String vehicleNumberPlates);
+
+  /// No description provided for @enter.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter'**
+  String get enter;
+
+  /// No description provided for @out.
+  ///
+  /// In en, this message translates to:
+  /// **'Out'**
+  String get out;
+
+  /// No description provided for @rescan.
+  ///
+  /// In en, this message translates to:
+  /// **'Re Scan'**
+  String get rescan;
+
+  /// No description provided for @lastentrydetail.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Entry'**
+  String get lastentrydetail;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

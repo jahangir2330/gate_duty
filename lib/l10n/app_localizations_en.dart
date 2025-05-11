@@ -12,7 +12,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get helloWorld => 'Hello World';
 
   @override
-  String greeting(Object username) {
+  String greeting(String username) {
     return 'Welcome, $username!';
   }
 
@@ -56,7 +56,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get rolename => 'Role';
 
   @override
-  String rolenameWithPlaceholder(Object rolename) {
+  String rolenameWithPlaceholder(String rolename) {
     return 'Role: , $rolename!';
   }
 
@@ -65,6 +65,120 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String gateNameWithPlaceholder(String gateName) {
-    return 'Gate $gateName';
+    return 'Gate: $gateName';
   }
+
+  @override
+  String get jobTitle => 'Job Title';
+
+  @override
+  String jobTitleWithPlaceholder(String jobTitle) {
+    return 'Job Title: $jobTitle';
+  }
+
+  @override
+  String get referenceNumber => 'Reference Number';
+
+  @override
+  String referenceNumberWithPlaceholder(String referenceNumber) {
+    return 'Reference Number: $referenceNumber';
+  }
+
+  @override
+  String get fullName => 'Full Name';
+
+  @override
+  String fullNameWithPlaceholder(String fullName) {
+    return 'Full Name: $fullName';
+  }
+
+  @override
+  String get employeeId => 'Employee';
+
+  @override
+  String employeeIdWithPlaceholder(String employeeId) {
+    return 'Employee: $employeeId';
+  }
+
+  @override
+  String get companyName => 'Company Name';
+
+  @override
+  String companyNameWithPlaceholder(String companyName) {
+    return 'Company Name: $companyName';
+  }
+
+  @override
+  String get nationality => 'Nationality';
+
+  @override
+  String nationalityWithPlaceholder(String nationality) {
+    return 'Nationality: $nationality';
+  }
+
+  @override
+  String get civilId => 'Civil ID';
+
+  @override
+  String civilIdWithPlaceholder(String civilId) {
+    return 'Civil ID: $civilId';
+  }
+
+  @override
+  String get startDate => 'Start Date';
+
+  @override
+  String startDateWithPlaceholder(DateTime startDate) {
+    final intl.DateFormat startDateDateFormat = intl.DateFormat('dd-MM-yyyy', localeName);
+    final String startDateString = startDateDateFormat.format(startDate);
+
+    return 'Start Date: $startDateString';
+  }
+
+  @override
+  String get endDate => 'End Date';
+
+  @override
+  String endDateWithPlaceholder(DateTime endDate) {
+    final intl.DateFormat endDateDateFormat = intl.DateFormat('dd-MM-yyyy', localeName);
+    final String endDateString = endDateDateFormat.format(endDate);
+
+    return 'End Date: $endDateString';
+  }
+
+  @override
+  String get allowedGates => 'Allowed Gates';
+
+  @override
+  String allowedGatesWithPlaceholder(String allowedGates) {
+    return 'Allowed Gates: $allowedGates';
+  }
+
+  @override
+  String get vehicleNumberPlates => 'Vehicle Number Plates';
+
+  @override
+  String vehicleNumberPlatesWithPlaceholder(String vehicleNumberPlates) {
+    return 'Vehicle Number Plates: $vehicleNumberPlates';
+  }
+
+  @override
+  String get lastEntryStatus => 'Vehicle Number Plates';
+
+  @override
+  String lastEntryStatusWithPlaceholder(String vehicleNumberPlates) {
+    return 'Vehicle Number Plates: $vehicleNumberPlates';
+  }
+
+  @override
+  String get enter => 'Enter';
+
+  @override
+  String get out => 'Out';
+
+  @override
+  String get rescan => 'Re Scan';
+
+  @override
+  String get lastentrydetail => 'Last Entry';
 }
