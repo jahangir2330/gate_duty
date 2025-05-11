@@ -13,7 +13,6 @@ import 'package:gipms/common/widgets/button/danger_app_button.dart';
 import 'package:gipms/l10n/app_localizations.dart';
 import 'package:gipms/service_locator.dart';
 
-// Assuming you have a Hom
 class ViewEmployeePage extends StatelessWidget {
   const ViewEmployeePage(
       {super.key, required this.parameterUrl, this.referralCode});
@@ -30,6 +29,13 @@ class ViewEmployeePage extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             title: Text(AppLocalizations.of(context)!.employeeview),
+            leading: IconButton(
+              // Add a leading icon button for back navigation
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, RouteName.employeelist);
+              },
+            ),
           ),
           body: BlocConsumer<ButtonStateCubit, ButtonState>(
             listener: (context, state) {
