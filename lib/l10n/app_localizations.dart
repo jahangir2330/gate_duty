@@ -104,8 +104,8 @@ abstract class AppLocalizations {
   /// No description provided for @greeting.
   ///
   /// In en, this message translates to:
-  /// **'Welcome!'**
-  String get greeting;
+  /// **'Welcome, {username}!'**
+  String greeting(Object username);
 
   /// No description provided for @home.
   ///

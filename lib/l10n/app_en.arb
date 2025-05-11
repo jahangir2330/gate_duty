@@ -1,17 +1,35 @@
 {
   "@@locale": "en",
   "helloWorld": "Hello World",
-  "greeting": "Welcome!",
+  "@helloWorld": {},
+  "greeting": "Welcome, {username}!",
+  "@greeting": {
+    "placeholders": {
+      "username": {}
+    }
+  },
   "home": "Home",
+  "@home": {},
   "language": "Language",
+  "@language": {},
   "qrscan": "Qr Scan",
+  "@qrscan": {},
   "profile": "Profile",
+  "@profile": {},
   "english": "English",
+  "@english": {},
   "arabic": "Arabic",
+  "@arabic": {},
   "logout": "Logout",
+  "@logout": {},
   "signin": "Sign-In",
+  "@signin": {},
   "username": "Username",
+  "@username": {},
   "password": "Password",
+  "@password": {},
   "employeeview": "Employee Detail",
-  "employeelist": "Employee List"
+  "@employeeview": {},
+  "employeelist": "Employee List",
+  "@employeelist": {}
 }

@@ -1,19 +1,35 @@
 {
-    "@@locale": "ar",
-    "helloWorld": "مرحباً بالعالم",
-    "greeting": "أهلاً بك!",
-    "home": "الرئيسية",
-    "language": "اللغة",
-    "qrscan": "مسح QR",
-    "profile": "الملف الشخصي",
-    "english": "الإنجليزية",
-    "arabic": "العربية",
-    "logout": "تسجيل الخروج",
-    "signin": "تسجيل الدخول",
-    "username": "اسم المستخدم",
-    "password": "كلمة المرور",
-    "employeelist": "قائمة الموظفين",
-    "employeeview": "تفاصيل الموظف"
-    
+  "@@locale": "ar",
+  "helloWorld": "مرحباً بالعالم",
+  "@helloWorld": {},
+   "greeting": "أهلاً بك يا {username}!",
+  "@greeting": {
+    "placeholders": {
+      "username": {}
+    }
+  },
+  "home": "الرئيسية",
+  "@home": {},
+  "language": "اللغة",
+  "@language": {},
+  "qrscan": "مسح QR",
+  "@qrscan": {},
+  "profile": "الملف الشخصي",
+  "@profile": {},
+  "english": "الإنجليزية",
+  "@english": {},
+  "arabic": "العربية",
+  "@arabic": {},
+  "logout": "تسجيل الخروج",
+  "@logout": {},
+  "signin": "تسجيل الدخول",
+  "@signin": {},
+  "username": "اسم المستخدم",
+  "@username": {},
+  "password": "كلمة المرور",
+  "@password": {},
+  "employeeview": "تفاصيل الموظف",
+  "@employeeview": {},
+  "employeelist": "قائمة الموظفين",
+  "@employeelist": {}
 }
-

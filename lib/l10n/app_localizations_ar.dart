@@ -12,7 +12,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get helloWorld => 'مرحباً بالعالم';
 
   @override
-  String get greeting => 'أهلاً بك!';
+  String greeting(Object username) {
+    return 'أهلاً بك يا $username!';
+  }
 
   @override
   String get home => 'الرئيسية';

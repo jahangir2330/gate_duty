@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
                       errorBuilder: (context, error, stackTrace) =>
                           const Icon(Icons.error, size: 120),
                     ),
-                    _username(state.userEntity),
+                    _username(context, state.userEntity),
                     const SizedBox(height: 10),
                     _rolename(state.userEntity),
                     const SizedBox(height: 10),
@@ -90,22 +90,36 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _username(UserEntity user) {
-    return Text.rich(
-      TextSpan(children: [
-        const TextSpan(
-          text: "Welcome ",
-          style:
-              TextStyle(color: Color(0xff3B4054), fontWeight: FontWeight.w500),
-        ),
-        TextSpan(
-          text: user.username,
-          style: const TextStyle(
-              color: Color(0xff3461FD), fontWeight: FontWeight.w500),
-        )
-      ]),
+  Widget _username(BuildContext context, UserEntity user) {
+    return Text(
+      AppLocalizations.of(context)!
+          .greeting(user.username), // Call greeting as a function
+      style: const TextStyle(
+          color: Color(0xff3B4054), fontWeight: FontWeight.w500),
     );
   }
+  // Widget _username(BuildContext context, UserEntity user) {
+  //   // Add BuildContext parameter
+  //   return Text.rich(
+  //     TextSpan(children: [
+  //       TextSpan(
+  //         text: AppLocalizations.of(context)!.greeting,
+  //         style: const TextStyle(
+  //             color: Color(0xff3B4054), fontWeight: FontWeight.w500),
+  //       ),
+  //       TextSpan(
+  //         text: AppLocalizations.of(context)!.greeting,
+  //         style: const TextStyle(
+  //             color: Color(0xff3B4054), fontWeight: FontWeight.w500),
+  //       ),
+  //       TextSpan(
+  //         text: user.username,
+  //         style: const TextStyle(
+  //             color: Color(0xff3461FD), fontWeight: FontWeight.w500),
+  //       )
+  //     ]),
+  //   );
+  // }
 
   Widget _gatename(UserEntity user) {
     return Text(

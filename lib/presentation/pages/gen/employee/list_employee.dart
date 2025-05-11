@@ -26,44 +26,66 @@ class ListEmployeePage extends StatelessWidget {
                   return const Center(child: CircularProgressIndicator());
                 } else if (state is EmployeeListLoaded) {
                   final employees = state.employees;
-                  return ListView.builder(
+                  return ListView.separated(
                     itemCount: employees.length,
+                    separatorBuilder: (BuildContext context, int index) =>
+                        const Divider(height: 1), // Add a divider between rows
                     itemBuilder: (BuildContext context, int index) {
                       final employee = employees[index];
+                      final isEven =
+                          index % 2 == 0; // Check if the index is even
+                      final rowColor = isEven
+                          ? Colors.grey[100] // Light background for even rows
+                          : Colors.white; // White background for odd rows
+
                       return InkWell(
                         onTap: () {
                           Navigator.of(context).pushReplacementNamed(
                             RouteName.employeeview,
-                            arguments:
-                                employee, // Pass employee data if needed for the view page
+                            arguments: employee,
                           );
                         },
-                        child: Padding(
+                        child: Container(
+                          color: rowColor, // Apply the striped background color
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
                             children: [
-                              const Icon(Icons.person,
-                                  size:
-                                      50), // Replace with an actual image if available
+                              const Icon(Icons.person, size: 50),
                               const SizedBox(width: 10),
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      employee.fullname ??
-                                          'N/A', // Display employee name
+                                      employee.fullname ?? 'N/A',
                                       style: Theme.of(context)
                                           .textTheme
                                           .titleMedium,
                                     ),
                                     Text(
                                       employee.civilidnumber ??
+                                          'N/A', // Display employee name
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                    Text(
+                                      employee.companyname ??
                                           'N/A', // Display other relevant info
                                       style:
                                           Theme.of(context).textTheme.bodySmall,
                                     ),
-                                    // Add more Text widgets to display other employee details
+                                    Text(
+                                      employee.gatename ?? 'N/A',
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                    Text(
+                                      _buildDateTimeText(
+                                          "Intime", employee.intime),
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                    // Add more Text widgets for other employee details
                                   ],
                                 ),
                               ),
@@ -76,7 +98,7 @@ class ListEmployeePage extends StatelessWidget {
                 } else if (state is EmployeeListError) {
                   return Center(child: Text('Error: ${state.message}'));
                 } else {
-                  return const Center(child: Text('No data')); // Initial state
+                  return const Center(child: Text('No data'));
                 }
               },
             ),
@@ -85,68 +107,24 @@ class ListEmployeePage extends StatelessWidget {
       ),
     );
   }
+
+  String _buildDateTimeText(String label, dynamic value) {
+    String displayText;
+    if (value is DateTime?) {
+      if (value != null) {
+        final day = value.day.toString().padLeft(2, '0');
+        final month = value.month.toString().padLeft(2, '0');
+        final year = value.year.toString();
+        final hour = value.hour % 12 == 0 ? 12 : value.hour % 12;
+        final minute = value.minute.toString().padLeft(2, '0');
+        final period = value.hour < 12 ? 'AM' : 'PM';
+        displayText = "$day-$month-$year $hour:$minute $period";
+      } else {
+        displayText = "N/A";
+      }
+    } else {
+      displayText = value?.toString() ?? "N/A";
+    }
+    return "$label: $displayText";
+  }
 }
-// import 'package:flutter/material.dart';
-// import 'package:gipms/core/routes/route_name.dart';
-// import 'package:gipms/l10n/app_localizations.dart';
-
-// class ListEmployeePage extends StatelessWidget {
-//   const ListEmployeePage({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(AppLocalizations.of(context)!.employeelist),
-//       ),
-//       body: Center(
-//         child: Container(
-//           constraints: const BoxConstraints(maxWidth: 500),
-//           child: ListView.builder(
-//             itemCount: _images.length,
-//             itemBuilder: (BuildContext context, int index) {
-//               return InkWell(
-//                 onTap: () {
-//                   Navigator.of(context)
-//                       .pushReplacementNamed(RouteName.employeeview);
-//                 },
-//                 child: Padding(
-//                   padding: const EdgeInsets.all(8.0),
-//                   child: Row(
-//                     children: [
-//                       Hero(
-//                         tag: index,
-//                         child: ClipRRect(
-//                           borderRadius: BorderRadius.circular(8),
-//                           child: Image.network(
-//                             _images[index],
-//                             width: 200,
-//                           ),
-//                         ),
-//                       ),
-//                       const SizedBox(width: 10),
-//                       Expanded(
-//                           child: Text(
-//                         'Title: $index',
-//                         style: Theme.of(context).textTheme.titleMedium,
-//                       )),
-//                     ],
-//                   ),
-//                 ),
-//               );
-//             },
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// final List<String> _images = [
-//   'https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-//   'https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-//   'https://images.pexels.com/photos/273935/pexels-photo-273935.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-//   'https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-//   'https://images.pexels.com/photos/462024/pexels-photo-462024.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-//   'https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-// ];

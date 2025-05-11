@@ -16,6 +16,7 @@ class ListInOutEmployeeUseCase
     employeeInOut.gateid = currentUser?.gateid;
     employeeInOut.pageSize = 100;
     employeeInOut.currentPage = 1;
+    employeeInOut.SortExpression = 'InTime DESC';
     return sl<InOutEmployeeRepository>().listInOutEmployee(employeeInOut);
   }
 }
