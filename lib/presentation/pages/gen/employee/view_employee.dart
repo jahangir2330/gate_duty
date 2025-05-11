@@ -80,8 +80,8 @@ class ViewEmployeePage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(8),
                                 child: Image.network(
                                   employee.thumbspersonalpicure,
-                                  height: 120,
-                                  width: 120,
+                                  height: 150,
+                                  width: 119,
                                   fit: BoxFit.cover,
                                   errorBuilder: (context, error, stackTrace) =>
                                       const Icon(Icons.error, size: 120),
@@ -103,6 +103,10 @@ class ViewEmployeePage extends StatelessWidget {
                             _buildStyledText(
                               AppLocalizations.of(context)!.nationality,
                               employee.nationalityname,
+                            ),
+                            _buildStyledText(
+                              AppLocalizations.of(context)!.jobTitle,
+                              employee.jobtitle,
                             ),
                             _buildStyledText(
                               AppLocalizations.of(context)!.civilId,
