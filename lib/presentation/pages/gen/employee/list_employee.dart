@@ -82,44 +82,34 @@ class ListEmployeePage extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          employee.fullname ?? 'N/A',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleMedium,
+                                        _buildStyledText(
+                                          AppLocalizations.of(context)!
+                                              .fullName,
+                                          employee.fullname,
                                         ),
-                                        Text(
-                                          employee.civilidnumber ??
-                                              'N/A', // Display employee name
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall,
+                                        _buildStyledText(
+                                          AppLocalizations.of(context)!.civilId,
+                                          employee.civilidnumber,
                                         ),
-                                        Text(
-                                          employee.companyname ??
-                                              'N/A', // Display other relevant info
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall,
+                                        _buildStyledText(
+                                          AppLocalizations.of(context)!
+                                              .companyName,
+                                          employee.companyname,
                                         ),
-                                        Text(
-                                          employee.gatename ?? 'N/A',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall,
+                                        _buildStyledText(
+                                          AppLocalizations.of(context)!
+                                              .gateName,
+                                          employee.gatename,
                                         ),
-                                        Text(
-                                          _buildDateTimeText(
-                                              "Intime", employee.intime),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall,
+                                        _buildDateTimeText(
+                                          AppLocalizations.of(context)!
+                                              .startDate,
+                                          employee.intime,
                                         ),
-                                        Text(
-                                          employee.entrystatusname ?? 'N/A',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleMedium,
+                                        _buildStyledText(
+                                          AppLocalizations.of(context)!
+                                              .lastEntryStatus,
+                                          employee.entrystatusname,
                                         ),
                                       ],
                                     ),
@@ -145,7 +135,7 @@ class ListEmployeePage extends StatelessWidget {
     );
   }
 
-  String _buildDateTimeText(String label, dynamic value) {
+  String _buildDateTimeTextxx(String label, dynamic value) {
     String displayText;
     if (value is DateTime?) {
       if (value != null) {
@@ -165,13 +155,71 @@ class ListEmployeePage extends StatelessWidget {
     return "$label: $displayText";
   }
 
-  Widget _scanAgainButton(BuildContext context) {
-    return Builder(builder: (context) {
-      return BasicAppButton(
-          title: AppLocalizations.of(context)!.rescan,
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, RouteName.qrscan);
-          });
-    });
+  Widget _buildDateTimeText(String label, dynamic value) {
+    String displayText;
+    if (value is DateTime?) {
+      if (value != null) {
+        final day = value.day.toString().padLeft(2, '0');
+        final month = value.month.toString().padLeft(2, '0');
+        final year = value.year.toString();
+        final hour = value.hour % 12 == 0 ? 12 : value.hour % 12;
+        final minute = value.minute.toString().padLeft(2, '0');
+        final period = value.hour < 12 ? 'AM' : 'PM';
+        displayText = "$day-$month-$year $hour:$minute $period";
+      } else {
+        displayText = "N/A";
+      }
+    } else {
+      displayText = value?.toString() ?? "N/A";
+    }
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: RichText(
+        text: TextSpan(
+          style: const TextStyle(fontSize: 16, color: Colors.black),
+          children: [
+            TextSpan(
+              text: "$label: ",
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.blue,
+              ),
+            ),
+            TextSpan(text: displayText),
+          ],
+        ),
+      ),
+    );
   }
+}
+
+Widget _scanAgainButton(BuildContext context) {
+  return Builder(builder: (context) {
+    return BasicAppButton(
+        title: AppLocalizations.of(context)!.rescan,
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, RouteName.qrscan);
+        });
+  });
+}
+
+Widget _buildStyledText(String label, String? value) {
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 8.0),
+    child: RichText(
+      text: TextSpan(
+        style: const TextStyle(fontSize: 16, color: Colors.black),
+        children: [
+          TextSpan(
+            text: "$label: ",
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.blue,
+            ),
+          ),
+          TextSpan(text: value ?? "N/A"),
+        ],
+      ),
+    ),
+  );
 }
