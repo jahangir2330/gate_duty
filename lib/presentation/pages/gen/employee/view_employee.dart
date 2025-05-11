@@ -164,7 +164,7 @@ class ViewEmployeePage extends StatelessWidget {
           onPressed: () {
             context.read<ButtonStateCubit>().excute(
                 usecase: sl<InEmployeeUseCase>(),
-                params: InOutEmployeeReqParams(requestemployeeid: employeeId));
+                params: StringIdReqParams(idAsString: employeeId));
           });
     });
   }
@@ -176,7 +176,7 @@ class ViewEmployeePage extends StatelessWidget {
           onPressed: () {
             context.read<ButtonStateCubit>().excute(
                 usecase: sl<OutEmployeeUseCase>(),
-                params: InOutEmployeeReqParams(requestemployeeid: employeeId));
+                params: StringIdReqParams(idAsString: employeeId));
           });
     });
   }

@@ -1,4 +1,5 @@
 import 'package:gipms/data/source/in_out_employee_api_service.dart';
+import 'package:gipms/data/viewmodels/in_out_employee_req_params.dart';
 import 'package:gipms/domain/entities/employee_in_out_entity.dart';
 import 'package:gipms/domain/repository/in_out_employee_repository.dart';
 import 'package:gipms/service_locator.dart';
@@ -30,7 +31,7 @@ class InOutEmployeeRepositoryImpl extends InOutEmployeeRepository {
   }
 
   @override
-  Future<Either> inEmployee(EmployeeInOutEntity employeeInOut) async {
+  Future<Either> inEmployee(InOutEmployeeReqParams employeeInOut) async {
     Either result =
         await sl<InOutEmployeeApiService>().inEmployee(employeeInOut);
     return result.fold((error) {
@@ -48,7 +49,7 @@ class InOutEmployeeRepositoryImpl extends InOutEmployeeRepository {
   }
 
   @override
-  Future<Either> outEmployee(EmployeeInOutEntity employeeInOut) async {
+  Future<Either> outEmployee(InOutEmployeeReqParams employeeInOut) async {
     Either result =
         await sl<InOutEmployeeApiService>().outEmployee(employeeInOut);
     return result.fold((error) {
