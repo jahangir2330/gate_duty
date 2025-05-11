@@ -51,4 +51,20 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get employeelist => 'قائمة الموظفين';
+
+  @override
+  String get rolename => 'الدور';
+
+  @override
+  String rolenameWithPlaceholder(Object rolename) {
+    return 'الدور: $rolename!';
+  }
+
+  @override
+  String get gateName => 'البوابة';
+
+  @override
+  String gateNameWithPlaceholder(String gateName) {
+    return 'بوابة $gateName';
+  }
 }

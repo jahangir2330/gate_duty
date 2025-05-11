@@ -178,6 +178,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Employee List'**
   String get employeelist;
+
+  /// No description provided for @rolename.
+  ///
+  /// In en, this message translates to:
+  /// **'Role'**
+  String get rolename;
+
+  /// No description provided for @rolenameWithPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Role: , {rolename}!'**
+  String rolenameWithPlaceholder(Object rolename);
+
+  /// No description provided for @gateName.
+  ///
+  /// In en, this message translates to:
+  /// **'Gate'**
+  String get gateName;
+
+  /// A message with a single parameter
+  ///
+  /// In en, this message translates to:
+  /// **'Gate {gateName}'**
+  String gateNameWithPlaceholder(String gateName);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

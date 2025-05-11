@@ -51,4 +51,20 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get employeelist => 'Employee List';
+
+  @override
+  String get rolename => 'Role';
+
+  @override
+  String rolenameWithPlaceholder(Object rolename) {
+    return 'Role: , $rolename!';
+  }
+
+  @override
+  String get gateName => 'Gate';
+
+  @override
+  String gateNameWithPlaceholder(String gateName) {
+    return 'Gate $gateName';
+  }
 }

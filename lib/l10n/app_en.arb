@@ -31,5 +31,25 @@
   "employeeview": "Employee Detail",
   "@employeeview": {},
   "employeelist": "Employee List",
-  "@employeelist": {}
+  "@employeelist": {},
+  "rolename": "Role",
+  "@rolename": {},
+  "rolenameWithPlaceholder": "Role: , {rolename}!",
+  "@rolenameWithPlaceholder": {
+    "placeholders": {
+      "rolename": {}
+    }
+  },
+  "gateName": "Gate",
+  "@gateName": {},
+  "gateNameWithPlaceholder": "Gate {gateName}",
+  "@gateNameWithPlaceholder": {
+  "description": "A message with a single parameter",
+  "placeholders": {
+    "gateName": {
+      "type": "String",
+      "example": "No Gate Found"
+    }
+    }
+  }
 }

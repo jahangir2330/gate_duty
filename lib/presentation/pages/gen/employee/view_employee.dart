@@ -75,7 +75,7 @@ class ViewEmployeePage extends StatelessWidget {
                               ),
                             ),
                             _buildStyledText(
-                              "Job Title",
+                              "JobTitle",
                               employee.referencenumber,
                             ),
                             _buildStyledText(

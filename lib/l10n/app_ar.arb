@@ -31,5 +31,26 @@
   "employeeview": "تفاصيل الموظف",
   "@employeeview": {},
   "employeelist": "قائمة الموظفين",
-  "@employeelist": {}
+  "@employeelist": {},
+  "rolename": "الدور",
+  "@rolename": {},
+  "rolenameWithPlaceholder": "الدور: {rolename}!",
+  "@rolenameWithPlaceholder": {
+    "placeholders": {
+      "rolename": {}
+    }
+  },
+  "gateName": "البوابة",
+  "@gateName": {},
+  "gateNameWithPlaceholder": "بوابة {gateName}",
+  "@gateNameWithPlaceholder": {
+    "description": "رسالة تحتوي على مُدخل واحد",
+    "placeholders": {
+      "gateName": {
+        "type": "String",
+        "example": "لم يتم العثور على بوابة"
+      }
+    }
+  }
+
 }

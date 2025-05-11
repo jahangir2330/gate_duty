@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
                     const SizedBox(height: 10),
                     _rolename(state.userEntity),
                     const SizedBox(height: 10),
-                    _gatename(state.userEntity),
+                    _gatename(context, state.userEntity),
                     _qrscan(context),
                     const SizedBox(height: 10),
                     // _logout(context),
@@ -98,35 +98,21 @@ class HomePage extends StatelessWidget {
           color: Color(0xff3B4054), fontWeight: FontWeight.w500),
     );
   }
-  // Widget _username(BuildContext context, UserEntity user) {
-  //   // Add BuildContext parameter
-  //   return Text.rich(
-  //     TextSpan(children: [
-  //       TextSpan(
-  //         text: AppLocalizations.of(context)!.greeting,
-  //         style: const TextStyle(
-  //             color: Color(0xff3B4054), fontWeight: FontWeight.w500),
-  //       ),
-  //       TextSpan(
-  //         text: AppLocalizations.of(context)!.greeting,
-  //         style: const TextStyle(
-  //             color: Color(0xff3B4054), fontWeight: FontWeight.w500),
-  //       ),
-  //       TextSpan(
-  //         text: user.username,
-  //         style: const TextStyle(
-  //             color: Color(0xff3461FD), fontWeight: FontWeight.w500),
-  //       )
-  //     ]),
-  //   );
-  // }
 
-  Widget _gatename(UserEntity user) {
+  Widget _gatename(BuildContext context, UserEntity user) {
     return Text(
-      user.gatenamear,
-      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+      AppLocalizations.of(context)!.rolenameWithPlaceholder(
+          user.gatenamear), // Call greeting as a function
+      style: const TextStyle(
+          color: Color(0xff3B4054), fontWeight: FontWeight.w500),
     );
   }
+  // Widget _gatename(UserEntity user) {
+  //   return Text(
+  //     user.gatenamear,
+  //     style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+  //   );
+  // }
 
   Widget _rolename(UserEntity user) {
     return Text(
