@@ -10,7 +10,7 @@ import 'package:gipms/domain/repository/auth.dart';
 import 'package:gipms/domain/repository/employee_repository.dart';
 import 'package:gipms/domain/repository/in_out_employee_repository.dart';
 import 'package:gipms/domain/usecases/get_employee_by_id_usecase.dart';
-import 'package:gipms/domain/usecases/get_employee_usecase.dart';
+import 'package:gipms/domain/usecases/get_employee_by_qrcode_usecase.dart';
 import 'package:gipms/domain/usecases/get_user.dart';
 import 'package:gipms/domain/usecases/in_employee_usecase.dart';
 import 'package:gipms/domain/usecases/is_logged_in.dart';

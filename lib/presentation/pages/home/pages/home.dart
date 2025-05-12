@@ -5,7 +5,7 @@ import 'package:gipms/common/widgets/button/basic_app_button.dart';
 import 'package:gipms/core/routes/route_name.dart';
 import 'package:gipms/data/viewmodels/getemployee_req_params.dart';
 import 'package:gipms/domain/entities/user_entity.dart';
-import 'package:gipms/domain/usecases/get_employee_usecase.dart';
+import 'package:gipms/domain/usecases/get_employee_by_qrcode_usecase.dart';
 import 'package:gipms/domain/usecases/logout.dart';
 import 'package:gipms/l10n/app_localizations.dart';
 import 'package:gipms/presentation/pages/auth/signup.dart';

@@ -1,6 +1,6 @@
 import 'package:gipms/domain/entities/employee_entity.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gipms/domain/usecases/get_employee_usecase.dart';
+import 'package:gipms/domain/usecases/get_employee_by_qrcode_usecase.dart';
 import 'package:gipms/data/viewmodels/getemployee_req_params.dart';
 import 'package:gipms/service_locator.dart';
 import 'view_employee_state.dart';
