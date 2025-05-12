@@ -52,7 +52,7 @@
 
   "rolename": "Role",
   "@rolename": {},
-  "rolenameWithPlaceholder": "Role: , {rolename}!",
+  "rolenameWithPlaceholder": "Role: {rolename}!",
   "@rolenameWithPlaceholder": {
   "description": "A message with a single parameter",
   "placeholders": {
@@ -244,5 +244,15 @@
   "lastentrydetail": "Last Entry",
   "@lastentrydetail": {},
   "entrystatusname": "Entry Status",
-  "@entrystatusname": {}
+  "@entrystatusname": {},
+  "notAvailable": "N/A",
+  "@notAvailable": {},
+  "personalDetails": "Personal Details",
+  "@personalDetails": {},
+  "jobDetails": "Job Details",
+  "@jobDetails": {},
+  "premissionDetails": "Premission Details",
+  "@premissionDetails": {},
+  "entryDetails": "Entry Details",
+  "@entryDetails": {}
 }

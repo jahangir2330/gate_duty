@@ -184,4 +184,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get entrystatusname => 'حالة الإدخال';
+
+  @override
+  String get notAvailable => 'غير متوفر';
+
+  @override
+  String get personalDetails => 'البيانات الشخصية';
+
+  @override
+  String get jobDetails => 'تفاصيل الوظيفة';
+
+  @override
+  String get premissionDetails => 'تفاصيل الإذن';
+
+  @override
+  String get entryDetails => 'تفاصيل الدخول';
 }

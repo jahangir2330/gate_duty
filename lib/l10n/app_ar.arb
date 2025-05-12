@@ -219,5 +219,16 @@
   "lastentrydetail": "الإدخال الأخير",
   "@lastentrydetail": {},
   "entrystatusname": "حالة الإدخال",
-  "@entrystatusname": {}
+  "@entrystatusname": {},
+  "notAvailable": "غير متوفر",
+  "@notAvailable": {},
+  "personalDetails": "البيانات الشخصية",
+  "@personalDetails": {},
+  "jobDetails": "تفاصيل الوظيفة",
+  "@jobDetails": {},
+  "premissionDetails": "تفاصيل الإذن",
+  "@premissionDetails": {},
+  "entryDetails": "تفاصيل الدخول",
+  "@entryDetails": {}
 }
+

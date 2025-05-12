@@ -57,7 +57,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String rolenameWithPlaceholder(String rolename) {
-    return 'Role: , $rolename!';
+    return 'Role: $rolename!';
   }
 
   @override
@@ -184,4 +184,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get entrystatusname => 'Entry Status';
+
+  @override
+  String get notAvailable => 'N/A';
+
+  @override
+  String get personalDetails => 'Personal Details';
+
+  @override
+  String get jobDetails => 'Job Details';
+
+  @override
+  String get premissionDetails => 'Premission Details';
+
+  @override
+  String get entryDetails => 'Entry Details';
 }

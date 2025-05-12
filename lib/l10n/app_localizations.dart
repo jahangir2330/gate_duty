@@ -188,7 +188,7 @@ abstract class AppLocalizations {
   /// A message with a single parameter
   ///
   /// In en, this message translates to:
-  /// **'Role: , {rolename}!'**
+  /// **'Role: {rolename}!'**
   String rolenameWithPlaceholder(String rolename);
 
   /// No description provided for @gateName.
@@ -376,6 +376,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Entry Status'**
   String get entrystatusname;
+
+  /// No description provided for @notAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'N/A'**
+  String get notAvailable;
+
+  /// No description provided for @personalDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Details'**
+  String get personalDetails;
+
+  /// No description provided for @jobDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Job Details'**
+  String get jobDetails;
+
+  /// No description provided for @premissionDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Premission Details'**
+  String get premissionDetails;
+
+  /// No description provided for @entryDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Entry Details'**
+  String get entryDetails;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
