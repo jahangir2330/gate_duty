@@ -4,7 +4,7 @@ import 'package:gipms/common/widgets/button/basic_app_button.dart';
 import 'package:gipms/core/routes/route_name.dart';
 import 'package:gipms/l10n/app_localizations.dart';
 import 'package:gipms/presentation/pages/common/app_drawer.dart';
-import 'package:gipms/presentation/pages/gen/employee/bloc/list_in_out_employee_cubit.dart';
+import 'package:gipms/presentation/pages/gen/list_in_out_employee/bloc/list_in_out_employee_cubit.dart';
 import 'package:gipms/service_locator.dart'; // Adjust import
 
 class ListInOutEmployeePage extends StatelessWidget {

@@ -10,7 +10,7 @@ import 'package:gipms/domain/usecases/logout.dart';
 import 'package:gipms/l10n/app_localizations.dart';
 import 'package:gipms/presentation/pages/auth/signup.dart';
 import 'package:gipms/presentation/pages/common/app_drawer.dart';
-import 'package:gipms/presentation/pages/gen/employee/scan_qrcode_page.dart';
+import 'package:gipms/presentation/pages/gen/view_employee/scan_qrcode_page.dart';
 import 'package:gipms/presentation/pages/home/bloc/user_display_cubit.dart';
 import 'package:gipms/presentation/pages/home/bloc/user_display_state.dart';
 import 'package:gipms/service_locator.dart';

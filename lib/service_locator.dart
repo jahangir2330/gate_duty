@@ -20,7 +20,7 @@ import 'package:gipms/domain/usecases/out_employee_usecase.dart';
 import 'package:gipms/domain/usecases/signin.dart';
 import 'package:gipms/domain/usecases/signup.dart';
 import 'package:get_it/get_it.dart';
-import 'package:gipms/presentation/pages/gen/employee/bloc/list_in_out_employee_cubit.dart';
+import 'package:gipms/presentation/pages/gen/list_in_out_employee/bloc/list_in_out_employee_cubit.dart';
 
 final sl = GetIt.instance;
 

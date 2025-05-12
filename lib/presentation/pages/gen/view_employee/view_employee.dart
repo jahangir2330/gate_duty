@@ -1,7 +1,7 @@
 import 'package:gipms/common/bloc/button/button_state.dart';
 import 'package:gipms/common/bloc/button/button_state_cubit.dart';
-import 'package:gipms/common/bloc/employee_bloc/employee_state_cubit.dart';
-import 'package:gipms/common/bloc/employee_bloc/view_employee_state.dart';
+import 'package:gipms/presentation/pages/gen/view_employee/bloc/employee_state_cubit.dart';
+import 'package:gipms/presentation/pages/gen/view_employee/bloc/view_employee_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gipms/core/routes/route_name.dart';

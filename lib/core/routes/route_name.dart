@@ -3,9 +3,9 @@ import 'package:gipms/presentation/pages/auth/signin.dart';
 import 'package:gipms/presentation/pages/auth/signup.dart';
 import 'package:gipms/presentation/pages/common/profile_page.dart';
 import 'package:gipms/presentation/pages/common/splash_screen.dart';
-import 'package:gipms/presentation/pages/gen/employee/list_in_out_employee.dart';
-import 'package:gipms/presentation/pages/gen/employee/scan_qrcode_page.dart';
-import 'package:gipms/presentation/pages/gen/employee/view_employee.dart';
+import 'package:gipms/presentation/pages/gen/list_in_out_employee/pages/list_in_out_employee.dart';
+import 'package:gipms/presentation/pages/gen/view_employee/scan_qrcode_page.dart';
+import 'package:gipms/presentation/pages/gen/view_employee/view_employee.dart';
 import 'package:gipms/presentation/pages/home/pages/home.dart';
 // Import other view files as necessary
 
