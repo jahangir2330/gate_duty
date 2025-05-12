@@ -8,7 +8,7 @@ import 'package:gipms/presentation/pages/gen/employee/bloc/employee_list_cubit.d
 import 'package:gipms/service_locator.dart'; // Adjust import
 
 class ListEmployeePage extends StatelessWidget {
-  const ListEmployeePage({Key? key}) : super(key: key);
+  const ListEmployeePage({super.key});
 
   @override
   Widget build(BuildContext context) {

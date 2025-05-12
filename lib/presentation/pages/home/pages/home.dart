@@ -71,7 +71,7 @@ class HomePage extends StatelessWidget {
                     ),
                     _username(context, state.userEntity),
                     const SizedBox(height: 10),
-                    _rolename(state.userEntity),
+                    _rolename(context, state.userEntity),
                     const SizedBox(height: 10),
                     _gatename(context, state.userEntity),
                     _qrscan(context),
@@ -93,8 +93,7 @@ class HomePage extends StatelessWidget {
 
   Widget _username(BuildContext context, UserEntity user) {
     return Text(
-      AppLocalizations.of(context)!
-          .greeting(user.username), // Call greeting as a function
+      AppLocalizations.of(context)!.greeting(user.username),
       style: const TextStyle(
           color: Color(0xff3B4054), fontWeight: FontWeight.w500),
     );
@@ -102,22 +101,15 @@ class HomePage extends StatelessWidget {
 
   Widget _gatename(BuildContext context, UserEntity user) {
     return Text(
-      AppLocalizations.of(context)!.rolenameWithPlaceholder(
-          user.gatenamear), // Call greeting as a function
+      AppLocalizations.of(context)!.gateNameWithPlaceholder(user.gatenamear),
       style: const TextStyle(
           color: Color(0xff3B4054), fontWeight: FontWeight.w500),
     );
   }
-  // Widget _gatename(UserEntity user) {
-  //   return Text(
-  //     user.gatenamear,
-  //     style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
-  //   );
-  // }
 
-  Widget _rolename(UserEntity user) {
+  Widget _rolename(BuildContext context, UserEntity user) {
     return Text(
-      user.rolename,
+      AppLocalizations.of(context)!.gateNameWithPlaceholder(user.rolename),
       style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
     );
   }
@@ -126,7 +118,7 @@ class HomePage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(32),
       child: BasicAppButton(
-        title: 'Scan QR Code',
+        title: AppLocalizations.of(context)!.qrscan,
         onPressed: () {
           Navigator.of(context).pushReplacementNamed(RouteName.qrscan);
         },
