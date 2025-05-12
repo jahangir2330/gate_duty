@@ -5,7 +5,7 @@ abstract class Failure {
 }
 
 class ServerFailure extends Failure {
-  const ServerFailure({String? message}) : super(message: message);
+  const ServerFailure({super.message});
 }
 
 // You can add more specific failure types here (e.g., CacheFailure, NetworkFailure)
