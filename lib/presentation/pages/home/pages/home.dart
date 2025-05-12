@@ -99,18 +99,18 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  Widget _rolename(BuildContext context, UserEntity user) {
+    return Text(
+      AppLocalizations.of(context)!.rolenameWithPlaceholder(user.rolename),
+      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+    );
+  }
+
   Widget _gatename(BuildContext context, UserEntity user) {
     return Text(
       AppLocalizations.of(context)!.gateNameWithPlaceholder(user.gatenamear),
       style: const TextStyle(
           color: Color(0xff3B4054), fontWeight: FontWeight.w500),
-    );
-  }
-
-  Widget _rolename(BuildContext context, UserEntity user) {
-    return Text(
-      AppLocalizations.of(context)!.gateNameWithPlaceholder(user.rolename),
-      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
     );
   }
 

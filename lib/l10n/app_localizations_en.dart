@@ -163,11 +163,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get lastEntryStatus => 'Vehicle Number Plates';
+  String get lastEntryStatus => 'Last Entry Status';
 
   @override
-  String lastEntryStatusWithPlaceholder(String vehicleNumberPlates) {
-    return 'Vehicle Number Plates: $vehicleNumberPlates';
+  String lastEntryStatusWithPlaceholder(String lastEntryStatus) {
+    return 'Last Entry Status: $lastEntryStatus';
   }
 
   @override
@@ -181,4 +181,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get lastentrydetail => 'Last Entry';
+
+  @override
+  String get entrystatusname => 'Entry Status';
 }

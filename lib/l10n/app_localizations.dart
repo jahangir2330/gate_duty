@@ -338,14 +338,14 @@ abstract class AppLocalizations {
   /// No description provided for @lastEntryStatus.
   ///
   /// In en, this message translates to:
-  /// **'Vehicle Number Plates'**
+  /// **'Last Entry Status'**
   String get lastEntryStatus;
 
   /// A message with a single parameter
   ///
   /// In en, this message translates to:
-  /// **'Vehicle Number Plates: {vehicleNumberPlates}'**
-  String lastEntryStatusWithPlaceholder(String vehicleNumberPlates);
+  /// **'Last Entry Status: {lastEntryStatus}'**
+  String lastEntryStatusWithPlaceholder(String lastEntryStatus);
 
   /// No description provided for @enter.
   ///
@@ -370,6 +370,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Last Entry'**
   String get lastentrydetail;
+
+  /// No description provided for @entrystatusname.
+  ///
+  /// In en, this message translates to:
+  /// **'Entry Status'**
+  String get entrystatusname;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

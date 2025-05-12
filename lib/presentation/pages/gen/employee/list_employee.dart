@@ -47,12 +47,9 @@ class ListEmployeePage extends StatelessWidget {
                                 height: 1), // Add a divider between rows
                         itemBuilder: (BuildContext context, int index) {
                           final employee = employees[index];
-                          final isEven =
-                              index % 2 == 0; // Check if the index is even
-                          final rowColor = isEven
-                              ? Colors
-                                  .grey[100] // Light background for even rows
-                              : Colors.white; // White background for odd rows
+                          final isEven = index % 2 == 0;
+                          final rowColor =
+                              isEven ? Colors.grey[100] : Colors.white;
 
                           return InkWell(
                             onTap: () {
@@ -65,8 +62,7 @@ class ListEmployeePage extends StatelessWidget {
                               );
                             },
                             child: Container(
-                              color:
-                                  rowColor, // Apply the striped background color
+                              color: rowColor,
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 children: [
@@ -82,6 +78,7 @@ class ListEmployeePage extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
+                                        const SizedBox(height: 10),
                                         _buildStyledText(
                                           AppLocalizations.of(context)!
                                               .fullName,
@@ -108,7 +105,7 @@ class ListEmployeePage extends StatelessWidget {
                                         ),
                                         _buildStyledText(
                                           AppLocalizations.of(context)!
-                                              .lastEntryStatus,
+                                              .entrystatusname,
                                           employee.entrystatusname,
                                         ),
                                       ],

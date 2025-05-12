@@ -163,11 +163,11 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get lastEntryStatus => 'أرقام لوحات المركبات';
+  String get lastEntryStatus => 'حالة الإدخال الأخير';
 
   @override
-  String lastEntryStatusWithPlaceholder(String vehicleNumberPlates) {
-    return 'أرقام لوحات المركبات: $vehicleNumberPlates';
+  String lastEntryStatusWithPlaceholder(String lastEntryStatus) {
+    return 'حالة الإدخال الأخير: $lastEntryStatus';
   }
 
   @override
@@ -181,4 +181,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get lastentrydetail => 'الإدخال الأخير';
+
+  @override
+  String get entrystatusname => 'حالة الإدخال';
 }

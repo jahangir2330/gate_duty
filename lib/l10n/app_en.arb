@@ -222,13 +222,13 @@
     }
   },
 
-  "lastEntryStatus": "Vehicle Number Plates",
+  "lastEntryStatus": "Last Entry Status",
   "@lastEntryStatus": {},
-  "lastEntryStatusWithPlaceholder": "Vehicle Number Plates: {vehicleNumberPlates}",
+  "lastEntryStatusWithPlaceholder": "Last Entry Status: {lastEntryStatus}",
   "@lastEntryStatusWithPlaceholder": {
     "description": "A message with a single parameter",
     "placeholders": {
-      "vehicleNumberPlates": {
+      "lastEntryStatus": {
         "type": "String",
         "example": "KUW - 5678"
       }
@@ -242,5 +242,7 @@
   "rescan": "Re Scan",
   "@rescan": {},
   "lastentrydetail": "Last Entry",
-  "@lastentrydetail": {}
+  "@lastentrydetail": {},
+  "entrystatusname": "Entry Status",
+  "@entrystatusname": {}
 }

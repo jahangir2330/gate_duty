@@ -196,13 +196,13 @@
       }
     }
   },
-  "lastEntryStatus": "أرقام لوحات المركبات",
+  "lastEntryStatus": "حالة الإدخال الأخير",
   "@lastEntryStatus": {},
-  "lastEntryStatusWithPlaceholder": "أرقام لوحات المركبات: {vehicleNumberPlates}",
+  "lastEntryStatusWithPlaceholder": "حالة الإدخال الأخير: {lastEntryStatus}",
   "@lastEntryStatusWithPlaceholder": {
-    "description": "رسالة تحتوي على مُدخل واحد",
+    "description": "حالة الإدخال الأخير",
     "placeholders": {
-      "vehicleNumberPlates": {
+      "lastEntryStatus": {
         "type": "String",
         "example": "ك و ي - ٥٦٧٨"
       }
@@ -217,5 +217,7 @@
   "rescan": "إعادة المسح",
   "@rescan": {},
   "lastentrydetail": "الإدخال الأخير",
-  "@lastentrydetail": {}
+  "@lastentrydetail": {},
+  "entrystatusname": "حالة الإدخال",
+  "@entrystatusname": {}
 }
