@@ -3,7 +3,7 @@ import 'package:gipms/presentation/pages/auth/signin.dart';
 import 'package:gipms/presentation/pages/auth/signup.dart';
 import 'package:gipms/presentation/pages/common/profile_page.dart';
 import 'package:gipms/presentation/pages/common/splash_screen.dart';
-import 'package:gipms/presentation/pages/gen/employee/list_employee.dart';
+import 'package:gipms/presentation/pages/gen/employee/list_in_out_employee.dart';
 import 'package:gipms/presentation/pages/gen/employee/scan_qrcode_page.dart';
 import 'package:gipms/presentation/pages/gen/employee/view_employee.dart';
 import 'package:gipms/presentation/pages/home/pages/home.dart';
@@ -36,7 +36,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case RouteName.qrscan:
       return MaterialPageRoute(builder: (_) => const ScanQrCodePage());
     case RouteName.employeelist:
-      return MaterialPageRoute(builder: (_) => const ListEmployeePage());
+      return MaterialPageRoute(builder: (_) => const ListInOutEmployeePage());
     case RouteName.employeeview:
       final args = settings.arguments as Map<String, dynamic>?;
       return MaterialPageRoute(

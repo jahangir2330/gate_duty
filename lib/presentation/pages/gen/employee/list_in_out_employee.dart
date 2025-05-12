@@ -4,16 +4,16 @@ import 'package:gipms/common/widgets/button/basic_app_button.dart';
 import 'package:gipms/core/routes/route_name.dart';
 import 'package:gipms/l10n/app_localizations.dart';
 import 'package:gipms/presentation/pages/common/app_drawer.dart';
-import 'package:gipms/presentation/pages/gen/employee/bloc/employee_list_cubit.dart';
+import 'package:gipms/presentation/pages/gen/employee/bloc/list_in_out_employee_cubit.dart';
 import 'package:gipms/service_locator.dart'; // Adjust import
 
-class ListEmployeePage extends StatelessWidget {
-  const ListEmployeePage({super.key});
+class ListInOutEmployeePage extends StatelessWidget {
+  const ListInOutEmployeePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<EmployeeListCubit>()
+      create: (context) => sl<ListInOutEmployeeCubit>()
         ..fetchEmployees(), // Fetch data when the page is created
       child: Scaffold(
         appBar: AppBar(
@@ -23,11 +23,11 @@ class ListEmployeePage extends StatelessWidget {
         body: Center(
           child: Container(
             constraints: const BoxConstraints(maxWidth: 500),
-            child: BlocBuilder<EmployeeListCubit, EmployeeListState>(
+            child: BlocBuilder<ListInOutEmployeeCubit, ListInOutEmployeeState>(
               builder: (context, state) {
-                if (state is EmployeeListLoading) {
+                if (state is ListInOutEmployeeLoading) {
                   return const Center(child: CircularProgressIndicator());
-                } else if (state is EmployeeListLoaded) {
+                } else if (state is ListInOutEmployeeLoaded) {
                   final employees = state.employees;
                   return Column(
                     children: [
@@ -146,7 +146,7 @@ class ListEmployeePage extends StatelessWidget {
                       ),
                     ],
                   );
-                } else if (state is EmployeeListError) {
+                } else if (state is ListInOutEmployeeError) {
                   return Center(child: Text('Error: ${state.message}'));
                 } else {
                   return const Center(child: Text('No data'));
