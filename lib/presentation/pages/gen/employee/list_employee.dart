@@ -19,10 +19,6 @@ class ListEmployeePage extends StatelessWidget {
         appBar: AppBar(
           title: Text(AppLocalizations.of(context)!.employeelist),
         ),
-
-        // const SizedBox(height: 20),
-        // _scanAgainButton(context),
-        // const SizedBox(height: 20),
         drawer: const AppDrawer(),
         body: Center(
           child: Container(
@@ -33,90 +29,121 @@ class ListEmployeePage extends StatelessWidget {
                   return const Center(child: CircularProgressIndicator());
                 } else if (state is EmployeeListLoaded) {
                   final employees = state.employees;
-                  //hree
                   return Column(
                     children: [
                       const SizedBox(height: 20),
                       _scanAgainButton(context),
                       const SizedBox(height: 20),
                       Expanded(
-                          child: ListView.separated(
-                        itemCount: employees.length,
-                        separatorBuilder: (BuildContext context, int index) =>
-                            const Divider(
-                                height: 1), // Add a divider between rows
-                        itemBuilder: (BuildContext context, int index) {
-                          final employee = employees[index];
-                          final isEven = index % 2 == 0;
-                          final rowColor =
-                              isEven ? Colors.grey[100] : Colors.white;
+                        child: ListView.separated(
+                          itemCount: employees.length,
+                          separatorBuilder: (BuildContext context, int index) =>
+                              const Divider(height: 1),
+                          itemBuilder: (BuildContext context, int index) {
+                            final employee = employees[index];
 
-                          return InkWell(
-                            onTap: () {
-                              Navigator.of(context).pushReplacementNamed(
-                                RouteName.employeeview,
-                                arguments: {
-                                  // Pass arguments as a map
-                                  'referralCode': employee.requestemployeeid,
-                                },
-                              );
-                            },
-                            child: Container(
-                              color: rowColor,
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  if (employee.entrystatusid == 2)
-                                    const Icon(Icons.arrow_circle_down,
-                                        size: 50, color: Colors.green)
-                                  else
-                                    const Icon(Icons.arrow_circle_up,
-                                        size: 50, color: Colors.red),
-                                  const SizedBox(width: 10),
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 4.0, horizontal: 8.0),
+                              child: Card(
+                                elevation: 3,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                // Apply LinearGradient to the Card's background
+                                color: Colors
+                                    .transparent, // Make default color transparent
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.of(context).pushReplacementNamed(
+                                      RouteName.employeeview,
+                                      arguments: {
+                                        'referralCode':
+                                            employee.requestemployeeid,
+                                      },
+                                    );
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.all(12.0),
+                                    decoration: BoxDecoration(
+                                      // This BoxDecoration will paint the gradient
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Colors.blue[100]!,
+                                          Colors.blue[50]!,
+                                        ],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    child: Row(
                                       children: [
-                                        const SizedBox(height: 10),
-                                        _buildStyledText(
-                                          AppLocalizations.of(context)!
-                                              .fullName,
-                                          employee.fullname,
+                                        Icon(
+                                          employee.entrystatusid == 2
+                                              ? Icons.arrow_downward_rounded
+                                              : Icons.arrow_upward_rounded,
+                                          size: 40,
+                                          color: employee.entrystatusid == 2
+                                              ? Colors.green[700]
+                                              : Colors.red[700],
                                         ),
-                                        _buildStyledText(
-                                          AppLocalizations.of(context)!.civilId,
-                                          employee.civilidnumber,
+                                        const SizedBox(width: 15),
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              _buildStyledText(
+                                                AppLocalizations.of(context)!
+                                                    .fullName,
+                                                employee.fullname,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                              const SizedBox(height: 4),
+                                              _buildStyledText(
+                                                AppLocalizations.of(context)!
+                                                    .civilId,
+                                                employee.civilidnumber,
+                                                color: Colors.black87,
+                                              ),
+                                              const SizedBox(height: 4),
+                                              _buildStyledText(
+                                                AppLocalizations.of(context)!
+                                                    .companyName,
+                                                employee.companyname,
+                                                color: Colors.grey[600],
+                                                fontSize: 14,
+                                              ),
+                                              const SizedBox(height: 4),
+                                              _buildDateTimeText(
+                                                AppLocalizations.of(context)!
+                                                    .startDate,
+                                                employee.intime,
+                                                color: Colors.grey[700],
+                                                fontSize: 14,
+                                              ),
+                                              const SizedBox(height: 4),
+                                              _buildStyledText(
+                                                AppLocalizations.of(context)!
+                                                    .entrystatusname,
+                                                employee.entrystatusname,
+                                                color: Colors.blueAccent,
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                        _buildStyledText(
-                                          AppLocalizations.of(context)!
-                                              .companyName,
-                                          employee.companyname,
-                                        ),
-                                        _buildStyledText(
-                                          AppLocalizations.of(context)!
-                                              .gateName,
-                                          employee.gatename,
-                                        ),
-                                        _buildDateTimeText(
-                                          AppLocalizations.of(context)!
-                                              .startDate,
-                                          employee.intime,
-                                        ),
-                                        _buildStyledText(
-                                          AppLocalizations.of(context)!
-                                              .entrystatusname,
-                                          employee.entrystatusname,
-                                        ),
+                                        const Icon(Icons.chevron_right,
+                                            color: Colors.grey),
                                       ],
                                     ),
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
-                          );
-                        },
-                      ))
+                            );
+                          },
+                        ),
+                      ),
                     ],
                   );
                 } else if (state is EmployeeListError) {
@@ -132,7 +159,8 @@ class ListEmployeePage extends StatelessWidget {
     );
   }
 
-  Widget _buildDateTimeText(String label, dynamic value) {
+  Widget _buildDateTimeText(String label, dynamic value,
+      {FontWeight? fontWeight, Color? color, double? fontSize}) {
     String displayText;
     if (value is DateTime?) {
       if (value != null) {
@@ -150,10 +178,11 @@ class ListEmployeePage extends StatelessWidget {
       displayText = value?.toString() ?? "N/A";
     }
     return Padding(
-      padding: const EdgeInsets.only(top: 0, bottom: 0),
+      padding: const EdgeInsets.symmetric(vertical: 2.0),
       child: RichText(
         text: TextSpan(
-          style: const TextStyle(fontSize: 16, color: Colors.black),
+          style:
+              TextStyle(fontSize: fontSize ?? 14, color: color ?? Colors.black),
           children: [
             TextSpan(
               text: "$label: ",
@@ -162,7 +191,8 @@ class ListEmployeePage extends StatelessWidget {
                 color: Colors.blue,
               ),
             ),
-            TextSpan(text: displayText),
+            TextSpan(
+                text: displayText, style: TextStyle(fontWeight: fontWeight)),
           ],
         ),
       ),
@@ -180,12 +210,14 @@ Widget _scanAgainButton(BuildContext context) {
   });
 }
 
-Widget _buildStyledText(String label, String? value) {
+Widget _buildStyledText(String label, String? value,
+    {FontWeight? fontWeight, Color? color, double? fontSize}) {
   return Padding(
-    padding: const EdgeInsets.only(top: 0, bottom: 0),
+    padding: const EdgeInsets.symmetric(vertical: 2.0),
     child: RichText(
       text: TextSpan(
-        style: const TextStyle(fontSize: 16, color: Colors.black),
+        style:
+            TextStyle(fontSize: fontSize ?? 14, color: color ?? Colors.black),
         children: [
           TextSpan(
             text: "$label: ",
@@ -194,7 +226,8 @@ Widget _buildStyledText(String label, String? value) {
               color: Colors.blue,
             ),
           ),
-          TextSpan(text: value ?? "N/A"),
+          TextSpan(
+              text: value ?? "N/A", style: TextStyle(fontWeight: fontWeight)),
         ],
       ),
     ),
