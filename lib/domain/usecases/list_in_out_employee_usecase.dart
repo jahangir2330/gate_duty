@@ -26,7 +26,7 @@ class ListInOutEmployeeUseCase
       gateid: currentUser?.gateid,
       pageSize: 100,
       currentPage: 1,
-      //currentlocal: currentLocale.languageCode, // Pass the language code
+      apiculture: currentLocale.languageCode,
       sortexpression: 'InTime DESC',
     );
 

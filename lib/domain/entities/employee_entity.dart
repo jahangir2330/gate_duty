@@ -47,6 +47,7 @@ class EmployeeEntity {
   final String? validitystatusname;
   final String? validitystatusnamear;
   final String? validitycssclass;
+  final String? apiculture;
 
   EmployeeEntity({
     required this.requestemployeeid,
@@ -96,6 +97,7 @@ class EmployeeEntity {
     this.validitystatusname,
     this.validitystatusnamear,
     this.validitycssclass,
+    this.apiculture,
   });
 
   factory EmployeeEntity.fromJson(Map<String, dynamic> json) {
@@ -154,6 +156,7 @@ class EmployeeEntity {
         validitystatusname: json['validitystatusname'] as String,
         validitystatusnamear: json['validitystatusnamear'] as String,
         validitycssclass: json['validitycssclass'] as String,
+        apiculture: "NA",
       );
     } catch (e) {
       //print('Error parsing JSON: $e');
@@ -209,6 +212,7 @@ class EmployeeEntity {
       'validitystatusname': validitystatusname,
       'validitystatusnamear': validitystatusnamear,
       'validitycssclass': validitycssclass,
+      'apiculture': apiculture,
     };
   }
 }

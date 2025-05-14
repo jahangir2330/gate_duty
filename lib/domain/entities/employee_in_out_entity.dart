@@ -31,6 +31,7 @@ class EmployeeInOutEntity {
   int? pageSize;
   int? currentPage;
   String? sortexpression;
+  String? apiculture;
 
   EmployeeInOutEntity({
     this.employeeinoutinfoid,
@@ -64,6 +65,7 @@ class EmployeeInOutEntity {
     this.pageSize,
     this.currentPage,
     this.sortexpression,
+    this.apiculture,
   });
 
   factory EmployeeInOutEntity.fromJson(Map<String, dynamic> json) {
@@ -104,6 +106,7 @@ class EmployeeInOutEntity {
         enddate:
             json['enddate'] == null ? null : DateTime.parse(json['enddate']),
         sortexpression: json['SortExpression'],
+        apiculture: "NA",
       );
     } catch (e) {
       //print('Error during EmployeeInOutEntity.fromJson: $e');
@@ -145,6 +148,7 @@ class EmployeeInOutEntity {
       'pageSize': pageSize,
       'currentPage': currentPage,
       'sortexpression': sortexpression,
+      'apiculture': apiculture,
     };
   }
 
