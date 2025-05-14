@@ -18,7 +18,7 @@ class GetEmployeeByQrCodeUseCase
         (employee) => Right(employee),
       );
     } catch (e) {
-      return Left(ServerFailure(message: e.toString()));
+      return Left(ServerFailure(e.toString()));
     }
   }
 }

@@ -31,8 +31,7 @@ class ListInOutEmployeeUseCase
         (data) => Right(data),
       );
     } catch (e) {
-      return Left(ServerFailure(
-          message: e.toString())); // Wrap any exceptions in a Failure
+      return Left(ServerFailure(e.toString()));
     }
   }
 }

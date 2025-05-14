@@ -29,7 +29,6 @@ class EmployeeApiServiceImpl extends EmployeeApiService {
           options: headers,
         );
       } else if (employeeReq.requestemployeeid != null) {
-        print(employeeReq.requestemployeeid);
         response = await dioClient.get(
           ApiUrls.getEmployeeDetailByRequestEmployeeId,
           queryParameters: {'params': employeeReq.requestemployeeid},
@@ -38,7 +37,6 @@ class EmployeeApiServiceImpl extends EmployeeApiService {
       } else {
         return Left("No Parameter Found");
       }
-      print(response);
       return Right(response);
     } on DioException catch (e) {
       return Left(e.response?.data['message'] ?? 'Unknown error occurred');

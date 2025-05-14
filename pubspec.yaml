@@ -27,6 +27,7 @@ dependencies:
   dart_jsonwebtoken:
   mobile_scanner: 
   pretty_qr_code: 
+  equatable: ^2.0.7
 
 dev_dependencies:
   flutter_test:

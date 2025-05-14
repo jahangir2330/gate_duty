@@ -1,4 +1,3 @@
-import 'package:gipms/domain/entities/employee_entity.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gipms/domain/usecases/get_employee_by_qrcode_usecase.dart';
 import 'package:gipms/data/viewmodels/getemployee_req_params.dart';
@@ -18,12 +17,12 @@ class ViewEmployeeCubit extends Cubit<ViewEmployeeState> {
       (failure) => emit(ViewEmployeeError(
           message: failure.toString())), // Handle failure properly
       (employee) => emit(ViewEmployeeLoaded(
-          employee: employee as EmployeeEntity)), // Cast the result
+          employee:
+              employee)), // Stoped by Jahangir:  employee: employee as EmployeeEntity)),
     );
   }
 
   Future<void> fetchEmployeeByRequestEmployeeId(int requestemployeeid) async {
-    print(requestemployeeid);
     emit(ViewEmployeeLoading());
     final useCase = sl<GetEmployeeByQrCodeUseCase>();
     final params = GetEmployeeReqParams(requestemployeeid: requestemployeeid);
@@ -33,7 +32,8 @@ class ViewEmployeeCubit extends Cubit<ViewEmployeeState> {
       (failure) => emit(ViewEmployeeError(
           message: failure.toString())), // Handle failure properly
       (employee) => emit(ViewEmployeeLoaded(
-          employee: employee as EmployeeEntity)), // Cast the result
+          employee:
+              employee)), // Stoped by Jahangir:  employee: employee as EmployeeEntity)),
     );
   }
 

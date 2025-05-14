@@ -2,7 +2,6 @@ import 'package:gipms/core/error/failures.dart'; // Import your Failure classes
 import 'package:gipms/core/usecase/usecase.dart';
 import 'package:gipms/data/source/user_service.dart';
 import 'package:gipms/data/viewmodels/in_out_employee_req_params.dart';
-import 'package:gipms/domain/entities/employee_in_out_entity.dart'; // Assuming repository returns this or void
 import 'package:gipms/domain/repository/in_out_employee_repository.dart';
 import 'package:gipms/service_locator.dart';
 import 'package:dartz/dartz.dart';
@@ -29,7 +28,7 @@ class InEmployeeUseCase
             unit), // Assuming a successful 'in' operation doesn't return data
       );
     } catch (e) {
-      return Left(ServerFailure(message: e.toString()));
+      return Left(ServerFailure(e.toString()));
     }
   }
 }

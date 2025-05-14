@@ -19,8 +19,7 @@ class GetEmployeeByRequestEmployeeIdUseCase
         (employee) => Right(employee),
       );
     } catch (e) {
-      return Left(ServerFailure(
-          message: e.toString())); // Wrap any exceptions in a Failure
+      return Left(ServerFailure(e.toString()));
     }
   }
 }

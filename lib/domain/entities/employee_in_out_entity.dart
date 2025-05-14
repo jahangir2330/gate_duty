@@ -106,8 +106,8 @@ class EmployeeInOutEntity {
         sortexpression: json['SortExpression'],
       );
     } catch (e) {
-      print('Error during EmployeeInOutEntity.fromJson: $e');
-      print('Problematic JSON: $json');
+      //print('Error during EmployeeInOutEntity.fromJson: $e');
+      //print('Problematic JSON: $json');
       return EmployeeInOutEntity(); // fallback
     }
   }
