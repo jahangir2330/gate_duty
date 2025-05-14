@@ -335,38 +335,38 @@ class ViewEmployeePage extends StatelessWidget {
     );
   }
 
-  Widget _buildDateTimeText(BuildContext context, String label, dynamic value) {
-    String displayText;
-    if (value is DateTime?) {
-      displayText = value != null
-          ? "${value.day.toString().padLeft(2, '0')}-${value.month.toString().padLeft(2, '0')}-${value.year}"
-          : AppLocalizations.of(context)!.notAvailable;
-    } else {
-      displayText =
-          value?.toString() ?? AppLocalizations.of(context)!.notAvailable;
-    }
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            "$label:",
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              color: Colors.blue,
-            ),
-          ),
-          Expanded(
-            child: Text(
-              displayText,
-              style: const TextStyle(fontSize: 16),
-              textAlign: TextAlign.right,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildDateTimeText(BuildContext context, String label, dynamic value) {
+  //   String displayText;
+  //   if (value is DateTime?) {
+  //     displayText = value != null
+  //         ? "${value.day.toString().padLeft(2, '0')}-${value.month.toString().padLeft(2, '0')}-${value.year}"
+  //         : AppLocalizations.of(context)!.notAvailable;
+  //   } else {
+  //     displayText =
+  //         value?.toString() ?? AppLocalizations.of(context)!.notAvailable;
+  //   }
+  //   return Padding(
+  //     padding: const EdgeInsets.symmetric(vertical: 8.0),
+  //     child: Row(
+  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //       children: [
+  //         Text(
+  //           "$label:",
+  //           style: const TextStyle(
+  //             fontWeight: FontWeight.bold,
+  //             fontSize: 16,
+  //             color: Colors.blue,
+  //           ),
+  //         ),
+  //         Expanded(
+  //           child: Text(
+  //             displayText,
+  //             style: const TextStyle(fontSize: 16),
+  //             textAlign: TextAlign.right,
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }

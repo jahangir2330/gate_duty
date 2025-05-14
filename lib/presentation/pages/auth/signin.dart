@@ -51,13 +51,19 @@ class _SigninPageState extends State<SigninPage> {
 
   Future<void> _changeLocale(bool isEnglish) async {
     final newLocale = isEnglish ? const Locale('en') : const Locale('ar');
-    setState(() {
-      _currentLocale = newLocale;
-    });
+    if (mounted) {
+      // Check if the widget is still in the tree.
+      setState(() {
+        _currentLocale = newLocale;
+      });
+    }
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('locale', newLocale.toString());
-    final app = context.findAncestorStateOfType<MyAppWrapperState>();
-    app?.setLocale(newLocale);
+    if (mounted) {
+      // check is mounted before using context.
+      final app = context.findAncestorStateOfType<MyAppWrapperState>();
+      app?.setLocale(newLocale);
+    }
   }
 
   @override
