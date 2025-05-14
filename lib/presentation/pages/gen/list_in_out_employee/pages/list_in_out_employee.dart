@@ -81,8 +81,8 @@ class ListInOutEmployeePage extends StatelessWidget {
                                       children: [
                                         Icon(
                                           employee.entrystatusid == 2
-                                              ? Icons.arrow_downward_rounded
-                                              : Icons.arrow_upward_rounded,
+                                              ? Icons.arrow_circle_down_rounded
+                                              : Icons.arrow_circle_up_rounded,
                                           size: 40,
                                           color: employee.entrystatusid == 2
                                               ? Colors.green[700]

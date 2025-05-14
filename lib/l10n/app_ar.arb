@@ -229,6 +229,8 @@
   "premissionDetails": "تفاصيل الإذن",
   "@premissionDetails": {},
   "entryDetails": "تفاصيل الدخول",
-  "@entryDetails": {}
+  "@entryDetails": {},
+  "validitystatusname": "حالة الصلاحية",
+  "@validitystatusname": {}
 }
 

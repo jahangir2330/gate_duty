@@ -199,4 +199,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get entryDetails => 'تفاصيل الدخول';
+
+  @override
+  String get validitystatusname => 'حالة الصلاحية';
 }

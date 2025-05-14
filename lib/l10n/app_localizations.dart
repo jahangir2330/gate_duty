@@ -406,6 +406,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Entry Details'**
   String get entryDetails;
+
+  /// No description provided for @validitystatusname.
+  ///
+  /// In en, this message translates to:
+  /// **'Validity Status'**
+  String get validitystatusname;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

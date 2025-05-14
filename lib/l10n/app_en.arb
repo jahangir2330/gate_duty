@@ -254,5 +254,7 @@
   "premissionDetails": "Premission Details",
   "@premissionDetails": {},
   "entryDetails": "Entry Details",
-  "@entryDetails": {}
+  "@entryDetails": {},
+  "validitystatusname": "Validity Status",
+  "@validitystatusname": {}
 }

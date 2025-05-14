@@ -25,13 +25,19 @@ class EmployeeApiServiceImpl extends EmployeeApiService {
       if (employeeReq.qrcode != null) {
         response = await dioClient.get(
           ApiUrls.getEmployeeDetailByUrl,
-          queryParameters: {'params': employeeReq.qrcode},
+          queryParameters: {
+            'params': employeeReq.qrcode,
+            'apiculture': employeeReq.apiculture
+          },
           options: headers,
         );
       } else if (employeeReq.requestemployeeid != null) {
         response = await dioClient.get(
           ApiUrls.getEmployeeDetailByRequestEmployeeId,
-          queryParameters: {'params': employeeReq.requestemployeeid},
+          queryParameters: {
+            'params': employeeReq.requestemployeeid,
+            'apiculture': employeeReq.apiculture
+          },
           options: headers,
         );
       } else {
