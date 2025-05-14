@@ -1,4 +1,5 @@
 import 'package:gipms/core/network/dio_client.dart';
+import 'package:gipms/core/utils/user_and_locale_service.dart';
 import 'package:gipms/data/repository/auth.dart';
 import 'package:gipms/data/repository/employee_repository.dart';
 import 'package:gipms/data/repository/in_out_employee_repository.dart';
@@ -26,7 +27,7 @@ final sl = GetIt.instance;
 
 void setupServiceLocator() {
   sl.registerSingleton<DioClient>(DioClient());
-
+  sl.registerLazySingleton<UserAndLocaleService>(() => UserAndLocaleService());
   //Cubit
   sl.registerFactory(() => ListInOutEmployeeCubit(sl()));
   // Services
@@ -53,5 +54,7 @@ void setupServiceLocator() {
 
   sl.registerSingleton<InEmployeeUseCase>(InEmployeeUseCase());
   sl.registerSingleton<OutEmployeeUseCase>(OutEmployeeUseCase());
-  sl.registerSingleton<ListInOutEmployeeUseCase>(ListInOutEmployeeUseCase());
+  //sl.registerSingleton<ListInOutEmployeeUseCase>(ListInOutEmployeeUseCase());
+  sl.registerSingleton<ListInOutEmployeeUseCase>(ListInOutEmployeeUseCase(
+      sl<UserAndLocaleService>())); // Inject the service
 }
