@@ -202,4 +202,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get validitystatusname => 'حالة الصلاحية';
+
+  @override
+  String get confirmExit => 'تأكيد الخروج';
+
+  @override
+  String get exitConfirmation => 'هل تريد مغادرة هذه الصفحة؟';
+
+  @override
+  String get yes => 'نعم';
+
+  @override
+  String get no => 'لا';
 }

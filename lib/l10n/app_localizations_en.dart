@@ -202,4 +202,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get validitystatusname => 'Validity Status';
+
+  @override
+  String get confirmExit => 'Confirm Exit';
+
+  @override
+  String get exitConfirmation => 'Do you want to leave this page?';
+
+  @override
+  String get yes => 'Yes';
+
+  @override
+  String get no => 'No';
 }

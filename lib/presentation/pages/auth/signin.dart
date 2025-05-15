@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:gipms/common/bloc/button/button_state_cubit.dart';
 import 'package:gipms/common/widgets/button/basic_app_button.dart';
+import 'package:gipms/common/widgets/will_pop_confirmation.dart'; // Import the reusable widget
 import 'package:gipms/core/routes/route_name.dart';
 import 'package:gipms/data/viewmodels/signin_req_params.dart';
 import 'package:gipms/domain/usecases/signin.dart';
@@ -69,98 +70,106 @@ class _SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) {
     final bool isSmallScreen = MediaQuery.of(context).size.width < 600;
-    return Scaffold(
-      body: BlocListener<ButtonStateCubit, ButtonState>(
-        listener: (context, state) {
-          if (state is ButtonSuccessState) {
-            Navigator.of(context).pushReplacementNamed(RouteName.home);
-          }
-          if (state is ButtonFailureState) {
-            var snackBar = SnackBar(content: Text(state.errorMessage));
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          }
-        },
-        child: isSmallScreen
-            ? SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const SizedBox(height: 150),
-                    _Logo(),
-                    const SizedBox(height: 30),
-                    _FormContent(
-                      usernameController: _usernameCon,
-                      passwordController: _passwordCon,
-                      formKey: _formKey,
-                      isPasswordVisible: _isPasswordVisible,
-                      togglePasswordVisibility: () {
-                        setState(() {
-                          _isPasswordVisible = !_isPasswordVisible;
-                        });
-                      },
-                      onSignInPressed: () {
-                        if (_formKey.currentState?.validate() ?? false) {
-                          context.read<ButtonStateCubit>().excute(
-                              // <--- Read the Cubit
-                              usecase: sl<SigninUseCase>(),
-                              params: SigninReqParams(
-                                  username: _usernameCon.text,
-                                  password: _passwordCon.text));
-                        }
-                      },
-                    ),
-                    const SizedBox(height: 30),
-                    _LanguageSwitch(
-                      currentLocale: _currentLocale,
-                      onLocaleChanged: _changeLocale,
-                    ),
-                  ],
-                ),
-              )
-            : SingleChildScrollView(
-                child: Container(
-                  padding: const EdgeInsets.all(32.0),
-                  constraints: const BoxConstraints(maxWidth: 800),
-                  child: Row(
+    return WillPopConfirmation(
+      // Wrap the Scaffold with WillPopConfirmation
+      // confirmationTitle:
+      //     AppLocalizations.of(context)!.confirmExit, // Customize title
+      // confirmationMessage:
+      //     AppLocalizations.of(context)!.exitConfirmation, // Customize message
+      child: Scaffold(
+        body: BlocListener<ButtonStateCubit, ButtonState>(
+          listener: (context, state) {
+            if (state is ButtonSuccessState) {
+              Navigator.of(context).pushReplacementNamed(RouteName.home);
+            }
+            if (state is ButtonFailureState) {
+              var snackBar = SnackBar(content: Text(state.errorMessage));
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            }
+          },
+          child: isSmallScreen
+              ? SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Expanded(child: _Logo()),
-                      Expanded(
-                        child: Center(
-                          child: _FormContent(
-                            usernameController: _usernameCon,
-                            passwordController: _passwordCon,
-                            formKey: _formKey,
-                            isPasswordVisible: _isPasswordVisible,
-                            togglePasswordVisibility: () {
-                              setState(() {
-                                _isPasswordVisible = !_isPasswordVisible;
-                              });
-                            },
-                            onSignInPressed: () {
-                              if (_formKey.currentState?.validate() ?? false) {
-                                context.read<ButtonStateCubit>().excute(
-                                    // <--- Read the Cubit
-                                    usecase: sl<SigninUseCase>(),
-                                    params: SigninReqParams(
-                                        username: _usernameCon.text,
-                                        password: _passwordCon.text));
-                              }
-                            },
-                          ),
-                        ),
+                      const SizedBox(height: 150),
+                      _Logo(),
+                      const SizedBox(height: 30),
+                      _FormContent(
+                        usernameController: _usernameCon,
+                        passwordController: _passwordCon,
+                        formKey: _formKey,
+                        isPasswordVisible: _isPasswordVisible,
+                        togglePasswordVisibility: () {
+                          setState(() {
+                            _isPasswordVisible = !_isPasswordVisible;
+                          });
+                        },
+                        onSignInPressed: () {
+                          if (_formKey.currentState?.validate() ?? false) {
+                            context.read<ButtonStateCubit>().excute(
+                                // <--- Read the Cubit
+                                usecase: sl<SigninUseCase>(),
+                                params: SigninReqParams(
+                                    username: _usernameCon.text,
+                                    password: _passwordCon.text));
+                          }
+                        },
                       ),
-                      Expanded(
-                        child: Center(
-                          child: _LanguageSwitch(
-                            currentLocale: _currentLocale,
-                            onLocaleChanged: _changeLocale,
-                          ),
-                        ),
+                      const SizedBox(height: 30),
+                      _LanguageSwitch(
+                        currentLocale: _currentLocale,
+                        onLocaleChanged: _changeLocale,
                       ),
                     ],
                   ),
+                )
+              : SingleChildScrollView(
+                  child: Container(
+                    padding: const EdgeInsets.all(32.0),
+                    constraints: const BoxConstraints(maxWidth: 800),
+                    child: Row(
+                      children: [
+                        Expanded(child: _Logo()),
+                        Expanded(
+                          child: Center(
+                            child: _FormContent(
+                              usernameController: _usernameCon,
+                              passwordController: _passwordCon,
+                              formKey: _formKey,
+                              isPasswordVisible: _isPasswordVisible,
+                              togglePasswordVisibility: () {
+                                setState(() {
+                                  _isPasswordVisible = !_isPasswordVisible;
+                                });
+                              },
+                              onSignInPressed: () {
+                                if (_formKey.currentState?.validate() ??
+                                    false) {
+                                  context.read<ButtonStateCubit>().excute(
+                                      // <--- Read the Cubit
+                                      usecase: sl<SigninUseCase>(),
+                                      params: SigninReqParams(
+                                          username: _usernameCon.text,
+                                          password: _passwordCon.text));
+                                }
+                              },
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Center(
+                            child: _LanguageSwitch(
+                              currentLocale: _currentLocale,
+                              onLocaleChanged: _changeLocale,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
+        ),
       ),
     );
   }

@@ -412,6 +412,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Validity Status'**
   String get validitystatusname;
+
+  /// No description provided for @confirmExit.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Exit'**
+  String get confirmExit;
+
+  /// No description provided for @exitConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to leave this page?'**
+  String get exitConfirmation;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get no;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

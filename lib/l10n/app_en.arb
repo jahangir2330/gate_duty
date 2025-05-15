@@ -256,5 +256,13 @@
   "entryDetails": "Entry Details",
   "@entryDetails": {},
   "validitystatusname": "Validity Status",
-  "@validitystatusname": {}
+  "@validitystatusname": {},
+  "confirmExit": "Confirm Exit",
+  "@confirmExit": {},
+  "exitConfirmation": "Do you want to leave this page?",
+  "@exitConfirmation": {},
+  "yes": "Yes",
+  "@yes": {},
+  "no": "No",
+  "@no": {}
 }

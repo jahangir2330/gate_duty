@@ -231,6 +231,14 @@
   "entryDetails": "تفاصيل الدخول",
   "@entryDetails": {},
   "validitystatusname": "حالة الصلاحية",
-  "@validitystatusname": {}
+  "@validitystatusname": {},
+  "confirmExit": "تأكيد الخروج",
+  "@confirmExit": {},
+  "exitConfirmation": "هل تريد مغادرة هذه الصفحة؟",
+  "@exitConfirmation": {},
+  "yes": "نعم",
+  "@yes": {},
+  "no": "لا",
+  "@no": {}
 }
 
